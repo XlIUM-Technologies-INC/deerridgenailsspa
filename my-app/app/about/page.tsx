@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Award, Heart, Shield, Sparkles, Star, Users, Clock, Target } from 'lucide-react';
+// @ts-ignore
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';

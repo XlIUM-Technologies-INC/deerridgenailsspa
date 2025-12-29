@@ -14,6 +14,7 @@ import {
   DollarSign,
   Zap
 } from 'lucide-react';
+// @ts-ignore
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';

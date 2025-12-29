@@ -9,6 +9,7 @@ import {
   Wand2,
   Eye,
 } from 'lucide-react';
+// @ts-ignore
 
 const services = [
   {

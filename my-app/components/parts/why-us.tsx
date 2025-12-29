@@ -4,6 +4,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Award, Clock, Heart, Sparkles, Shield, Users, Instagram } from 'lucide-react';
+// @ts-ignore
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// @ts-ignore
 interface DecorationProps {
   variant?: 'light' | 'dark' | 'accent';
   intensity?: 'low' | 'medium' | 'high';

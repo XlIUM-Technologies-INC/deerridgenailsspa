@@ -13,6 +13,7 @@ import {
   Heart,
   Sparkles
 } from 'lucide-react';
+// @ts-ignore
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 

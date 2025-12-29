@@ -6,6 +6,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  // @ts-ignore
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 

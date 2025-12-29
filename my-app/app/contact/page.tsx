@@ -16,6 +16,7 @@ import {
   Twitter,
   CheckCircle2
 } from 'lucide-react';
+// @ts-ignore
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';

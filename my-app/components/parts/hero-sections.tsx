@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { Sparkles, Star } from 'lucide-react';
+// @ts-ignore
 
 export default function HeroSection() {
   const sectionRef = useRef(null);

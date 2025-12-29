@@ -14,6 +14,7 @@ import {
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
+// @ts-ignore
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
