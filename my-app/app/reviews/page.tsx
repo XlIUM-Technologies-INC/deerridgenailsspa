@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 import { 
   Star,
   Quote,
@@ -200,7 +201,7 @@ export default function ReviewsPage() {
   const featuredReviews = reviews.slice(0, 3);
 
   return (
-    <div className="bg-[#f5f1ed]">
+    <div className="bg-[#ffffff]">
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6">
         <motion.div 
@@ -246,7 +247,7 @@ export default function ReviewsPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#8b2f4a] font-semibold mb-4 uppercase tracking-wider"
+            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -327,7 +328,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Featured Reviews Section */}
-      <section className="bg-[#f5f1ed] py-20 px-6">
+      <section className="bg-[#ffffff] py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -336,7 +337,7 @@ export default function ReviewsPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#8b2f4a] font-semibold mb-2 uppercase tracking-wider text-sm">
+            <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
               Featured Reviews
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -355,7 +356,7 @@ export default function ReviewsPage() {
               >
                 <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 h-full group">
                   <CardContent className="p-8">
-                    <Quote className="w-12 h-12 text-[#8b2f4a]/20 mb-4" />
+                    <Quote className="w-12 h-12 text-[#008009]/20 mb-4" />
                     
                     {/* Star Rating */}
                     <div className="flex gap-1 mb-4">
@@ -416,8 +417,8 @@ export default function ReviewsPage() {
                   onClick={() => setSelectedFilter(filter.id)}
                   variant={selectedFilter === filter.id ? "default" : "outline"}
                   className={selectedFilter === filter.id 
-                    ? "bg-[#8b2f4a] text-white hover:bg-[#6d2439]" 
-                    : "border-gray-300 hover:border-[#8b2f4a]"
+                    ? "bg-[#008009] text-white hover:bg-[#006400]" 
+                    : "border-gray-300 hover:border-[#008009]"
                   }
                 >
                   {filter.label}
@@ -466,7 +467,7 @@ export default function ReviewsPage() {
                         </div>
 
                         {/* Service Badge */}
-                        <Badge variant="outline" className="mb-3 text-[#8b2f4a] border-[#8b2f4a]">
+                        <Badge variant="outline" className="mb-3 text-[#008009] border-[#008009]">
                           {review.service}
                         </Badge>
 
@@ -494,11 +495,11 @@ export default function ReviewsPage() {
 
                         {/* Footer Actions */}
                         <div className="flex items-center gap-4 text-sm text-gray-500">
-                          <button className="flex items-center gap-1 hover:text-[#8b2f4a] transition-colors">
+                          <button className="flex items-center gap-1 hover:text-[#008009] transition-colors">
                             <ThumbsUp className="w-4 h-4" />
                             <span>Helpful ({review.helpful})</span>
                           </button>
-                          <button className="flex items-center gap-1 hover:text-[#8b2f4a] transition-colors">
+                          <button className="flex items-center gap-1 hover:text-[#008009] transition-colors">
                             <MessageCircle className="w-4 h-4" />
                             <span>Reply</span>
                           </button>
@@ -521,7 +522,7 @@ export default function ReviewsPage() {
           >
             <Button
               variant="outline"
-              className="border-2 border-[#8b2f4a] text-[#8b2f4a] hover:bg-[#8b2f4a] hover:text-white px-8 py-6 text-lg"
+              className="border-2 border-[#008009] text-[#008009] hover:bg-[#008009] hover:text-white px-8 py-6 text-lg"
             >
               Load More Reviews
             </Button>
@@ -530,7 +531,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="bg-[#8b2f4a] py-20 px-6">
+      <section ref={ctaRef} className="bg-[#008009] py-20 px-6">
         <div className="max-w-4xl mx-auto text-center text-white">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6"
@@ -554,15 +555,17 @@ export default function ReviewsPage() {
             animate={ctaInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button
-              className="bg-white text-[#8b2f4a] hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
-              size="lg"
-            >
-              Book Appointment
-            </Button>
+            <Link href="/contact">
+              <Button
+                className="bg-white text-[#008009] hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
+                size="lg"
+              >
+                Book Appointment
+              </Button>
+            </Link>
             <Button
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#8b2f4a] px-8 py-6 text-lg font-semibold"
+              className="border-2 border-white text-white hover:bg-white hover:text-[#008009] px-8 py-6 text-lg font-semibold"
               size="lg"
             >
               Leave a Review

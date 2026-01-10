@@ -19,43 +19,43 @@ const WhyChooseUs = () => {
       icon: Award,
       title: "Expert Technicians",
       description: "Certified professionals with 10+ years of experience in nail artistry and care.",
-      color: "bg-pink-100",
-      iconColor: "text-pink-600"
+      color: "bg-green-100",
+      iconColor: "text-green-600"
     },
     {
       icon: Sparkles,
       title: "Premium Products",
       description: "We use only high-quality, salon-grade products that are safe and long-lasting.",
-      color: "bg-purple-100",
-      iconColor: "text-purple-600"
+      color: "bg-yellow-100",
+      iconColor: "text-yellow-600"
     },
     {
       icon: Shield,
       title: "Hygiene First",
       description: "Hospital-grade sterilization and single-use tools for your safety and peace of mind.",
-      color: "bg-blue-100",
-      iconColor: "text-blue-600"
+      color: "bg-green-50",
+      iconColor: "text-green-700"
     },
     {
       icon: Heart,
       title: "Personalized Service",
       description: "Custom nail designs tailored to your style and preferences every visit.",
-      color: "bg-rose-100",
-      iconColor: "text-rose-600"
+      color: "bg-yellow-50",
+      iconColor: "text-yellow-700"
     },
     {
       icon: Clock,
       title: "Convenient Hours",
       description: "Open 7 days a week with flexible scheduling to fit your busy lifestyle.",
-      color: "bg-amber-100",
-      iconColor: "text-amber-600"
+      color: "bg-green-100",
+      iconColor: "text-green-600"
     },
     {
       icon: Users,
       title: "500+ Happy Clients",
       description: "Join our community of satisfied customers who trust us with their nail care.",
-      color: "bg-emerald-100",
-      iconColor: "text-emerald-600"
+      color: "bg-yellow-100",
+      iconColor: "text-yellow-600"
     }
   ];
 
@@ -63,7 +63,7 @@ const WhyChooseUs = () => {
     <section ref={sectionRef} className="bg-white py-20 px-6 relative overflow-hidden">
       {/* Background Decorations */}
       <motion.div
-        className="absolute top-20 left-10 w-32 h-32 bg-pink-200/30 rounded-full blur-3xl"
+        className="absolute top-20 left-10 w-32 h-32 bg-green-200/30 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -75,7 +75,7 @@ const WhyChooseUs = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 w-40 h-40 bg-purple-200/30 rounded-full blur-3xl"
+        className="absolute bottom-20 right-10 w-40 h-40 bg-yellow-200/30 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -97,7 +97,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.p
-            className="text-[#8b2f4a] font-semibold mb-2 uppercase tracking-wider text-sm"
+            className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}

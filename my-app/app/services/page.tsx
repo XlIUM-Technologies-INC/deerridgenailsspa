@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import Link from 'next/link';
 import { 
   Sparkles, 
   Star, 
@@ -217,7 +218,7 @@ export default function ServicesPage() {
     : services.filter(service => service.category === selectedCategory);
 
   return (
-    <div className="bg-[#f5f1ed]">
+    <div className="bg-[#ffffff]">
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6">
         <motion.div 
@@ -263,7 +264,7 @@ export default function ServicesPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#8b2f4a] font-semibold mb-4 uppercase tracking-wider"
+            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -310,8 +311,8 @@ export default function ServicesPage() {
                   onClick={() => setSelectedCategory(cat.id)}
                   variant={selectedCategory === cat.id ? "default" : "outline"}
                   className={selectedCategory === cat.id 
-                    ? "bg-[#8b2f4a] text-white hover:bg-[#6d2439]" 
-                    : "border-gray-300 hover:border-[#8b2f4a]"
+                    ? "bg-[#008009] text-white hover:bg-[#006400]" 
+                    : "border-gray-300 hover:border-[#008009]"
                   }
                 >
                   {cat.label}
@@ -333,7 +334,7 @@ export default function ServicesPage() {
                 <Card className="h-full border-none shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
                   <div className="relative h-64 overflow-hidden">
                     {service.popular && (
-                      <Badge className="absolute top-4 right-4 z-10 bg-[#8b2f4a] hover:bg-[#8b2f4a]">
+                      <Badge className="absolute top-4 right-4 z-10 bg-[#008009] hover:bg-[#008009]">
                         Popular
                       </Badge>
                     )}
@@ -358,7 +359,7 @@ export default function ServicesPage() {
                         <Clock className="w-4 h-4" />
                         <span>{service.duration}</span>
                       </div>
-                      <div className="flex items-center gap-1 text-[#8b2f4a] font-bold text-lg">
+                      <div className="flex items-center gap-1 text-[#008009] font-bold text-lg">
                         <DollarSign className="w-5 h-5" />
                         <span>{service.price.replace('$', '')}</span>
                       </div>
@@ -373,12 +374,14 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <Button 
-                      className="w-full bg-[#8b2f4a] text-white hover:bg-[#6d2439] group/btn"
-                    >
-                      Book Now
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
+                    <Link href="/contact">
+                      <Button 
+                        className="w-full bg-[#008009] text-white hover:bg-[#006400] group/btn"
+                      >
+                        Book Now
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -388,7 +391,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section ref={processRef} className="bg-[#f5f1ed] py-20 px-6">
+      <section ref={processRef} className="bg-[#ffffff] py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -396,7 +399,7 @@ export default function ServicesPage() {
             animate={processInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#8b2f4a] font-semibold mb-2 uppercase tracking-wider text-sm">
+            <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
               Our Process
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -418,11 +421,11 @@ export default function ServicesPage() {
               >
                 <Card className="border-none shadow-lg h-full">
                   <CardContent className="p-6 text-center">
-                    <div className="text-6xl font-bold text-[#8b2f4a]/20 mb-4">
+                    <div className="text-6xl font-bold text-[#008009]/20 mb-4">
                       {item.step}
                     </div>
                     <motion.div
-                      className="bg-[#8b2f4a] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                      className="bg-[#008009] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
                     >
@@ -439,7 +442,7 @@ export default function ServicesPage() {
 
                 {index < process.length - 1 && (
                   <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="w-8 h-8 text-[#8b2f4a]/30" />
+                    <ArrowRight className="w-8 h-8 text-[#008009]/30" />
                   </div>
                 )}
               </motion.div>
@@ -457,7 +460,7 @@ export default function ServicesPage() {
             animate={addonsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#8b2f4a] font-semibold mb-2 uppercase tracking-wider text-sm">
+            <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
               Enhance Your Experience
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -479,12 +482,12 @@ export default function ServicesPage() {
                 <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
                   <CardContent className="p-6 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="bg-[#8b2f4a]/10 w-10 h-10 rounded-full flex items-center justify-center">
-                        <Zap className="w-5 h-5 text-[#8b2f4a]" />
+                      <div className="bg-[#008009]/10 w-10 h-10 rounded-full flex items-center justify-center">
+                        <Zap className="w-5 h-5 text-[#008009]" />
                       </div>
                       <span className="font-semibold text-gray-900">{addon.name}</span>
                     </div>
-                    <span className="text-[#8b2f4a] font-bold text-lg">{addon.price}</span>
+                    <span className="text-[#008009] font-bold text-lg">{addon.price}</span>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -494,7 +497,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-[#8b2f4a] py-20 px-6">
+      <section className="bg-[#008009] py-20 px-6">
         <div className="max-w-4xl mx-auto text-center text-white">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6"
@@ -521,19 +524,23 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button
-              className="bg-white text-[#8b2f4a] hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
-              size="lg"
-            >
-              Book Appointment
-            </Button>
-            <Button
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#8b2f4a] px-8 py-6 text-lg font-semibold"
-              size="lg"
-            >
-              View Gallery
-            </Button>
+            <Link href="/contact">
+              <Button
+                className="bg-white text-[#008009] hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
+                size="lg"
+              >
+                Book Appointment
+              </Button>
+            </Link>
+            <Link href="/gallery">
+              <Button
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#008009] px-8 py-6 text-lg font-semibold"
+                size="lg"
+              >
+                View Gallery
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

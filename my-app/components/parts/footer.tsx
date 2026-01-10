@@ -79,10 +79,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#2d1b24] to-[#1a0f15] text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
       {/* Decorative background elements */}
       <motion.div
-        className="absolute top-0 left-10 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl"
+        className="absolute top-0 left-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -94,7 +94,7 @@ const Footer = () => {
         }}
       />
       <motion.div
-        className="absolute bottom-0 right-10 w-52 h-52 bg-rose-500/10 rounded-full blur-3xl"
+        className="absolute bottom-0 right-10 w-52 h-52 bg-yellow-500/10 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.2, 0.4, 0.2],
@@ -124,7 +124,7 @@ const Footer = () => {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <Sparkles className="w-6 h-6 text-pink-400" />
+                  <Sparkles className="w-6 h-6 text-yellow-400" />
                 </motion.div>
                 <h3 className="text-2xl font-bold">Deer Ridge</h3>
               </div>
@@ -139,7 +139,7 @@ const Footer = () => {
                       key={social.label}
                       href={social.href}
                       aria-label={social.label}
-                      className="bg-pink-500/20 hover:bg-pink-500/40 p-3 rounded-full transition-colors duration-300"
+                      className="bg-green-500/20 hover:bg-green-500/40 p-3 rounded-full transition-colors duration-300"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -153,7 +153,7 @@ const Footer = () => {
             {/* Links Sections */}
             {footerLinks.map((section) => (
               <motion.div key={section.category} variants={itemVariants}>
-                <h4 className="text-lg font-semibold mb-4 text-pink-300">
+                <h4 className="text-lg font-semibold mb-4 text-green-300">
                   {section.category}
                 </h4>
                 <ul className="space-y-2">
@@ -161,7 +161,7 @@ const Footer = () => {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-gray-300 hover:text-pink-400 transition-colors duration-300 text-sm"
+                        className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm"
                       >
                         {link.label}
                       </Link>
@@ -173,25 +173,25 @@ const Footer = () => {
 
             {/* Contact Section */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-semibold mb-4 text-pink-300">
+              <h4 className="text-lg font-semibold mb-4 text-green-300">
                 Contact Us
               </h4>
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 mt-1 text-pink-400 flex-shrink-0" />
+                  <MapPin className="w-4 h-4 mt-1 text-green-400 shrink-0" />
                   <p className="text-gray-300 text-sm">
                     Kitchener, Ontario, Canada
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Phone className="w-4 h-4 mt-1 text-pink-400 flex-shrink-0" />
-                  <a href="tel:5198888888" className="text-gray-300 hover:text-pink-400 transition-colors text-sm">
+                  <Phone className="w-4 h-4 mt-1 text-green-400 shrink-0" />
+                  <a href="tel:5198888888" className="text-gray-300 hover:text-green-400 transition-colors text-sm">
                     (519) 888-8888
                   </a>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Mail className="w-4 h-4 mt-1 text-pink-400 flex-shrink-0" />
-                  <a href="mailto:info@deerridgenailsspa.ca" className="text-gray-300 hover:text-pink-400 transition-colors text-sm">
+                  <Mail className="w-4 h-4 mt-1 text-green-400 shrink-0" />
+                  <a href="mailto:info@deerridgenailsspa.ca" className="text-gray-300 hover:text-green-400 transition-colors text-sm">
                     info@deerridgenailsspa.ca
                   </a>
                 </div>

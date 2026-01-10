@@ -5,24 +5,24 @@ import { motion } from 'framer-motion';
 
 // @ts-ignore
 interface DecorationProps {
-  variant?: 'light' | 'dark' | 'accent';
+  variant?: 'primary' | 'secondary' | 'accent';
   intensity?: 'low' | 'medium' | 'high';
   position?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'center';
 }
 
 export const Decoration = ({
-  variant = 'light',
+  variant = 'primary',
   intensity = 'medium',
   position = 'top-left'
 }: DecorationProps) => {
   const getColorClasses = () => {
     switch (variant) {
-      case 'dark':
-        return 'bg-pink-500/10';
+      case 'secondary':
+        return 'bg-secondary/10';
       case 'accent':
-        return 'bg-rose-400/10';
+        return 'bg-accent/10';
       default:
-        return 'bg-pink-300/20';
+        return 'bg-primary/20';
     }
   };
 
@@ -88,29 +88,29 @@ export const WallpaperPattern = ({
 
   const patternStyles: Record<string, React.CSSProperties> = {
     dots: {
-      backgroundImage: `radial-gradient(circle, rgba(200, 100, 150, ${intensity === 'high' ? 0.2 : intensity === 'medium' ? 0.1 : 0.05}) 1px, transparent 1px)`,
+      backgroundImage: `radial-gradient(circle, rgb(34 197 94 / ${intensity === 'high' ? 0.2 : intensity === 'medium' ? 0.1 : 0.05}) 1px, transparent 1px)`,
       backgroundSize: '20px 20px',
     },
     stripes: {
       backgroundImage: `repeating-linear-gradient(
         45deg,
-        rgba(200, 100, 150, ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}),
-        rgba(200, 100, 150, ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 10px,
+        rgb(34 197 94 / ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}),
+        rgb(34 197 94 / ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 10px,
         transparent 10px,
         transparent 20px
       )`,
     },
     waves: {
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30c10-10 20-10 30 0s20 10 30 0' stroke='%23c86496' stroke-width='1' fill='none' opacity='${intensity === 'high' ? 0.2 : intensity === 'medium' ? 0.1 : 0.05}'/%3E%3C/svg%3E")`,
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30c10-10 20-10 30 0s20 10 30 0' stroke='%2322c55e' stroke-width='1' fill='none' opacity='${intensity === 'high' ? 0.2 : intensity === 'medium' ? 0.1 : 0.05}'/%3E%3C/svg%3E")`,
       backgroundSize: '60px 60px',
     },
     mesh: {
       background: `linear-gradient(135deg, 
-        rgba(139, 47, 74, ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 0%,
-        rgba(200, 100, 150, ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 25%,
-        rgba(255, 192, 203, ${intensity === 'high' ? 0.1 : intensity === 'medium' ? 0.05 : 0.02}) 50%,
-        rgba(200, 100, 150, ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 75%,
-        rgba(139, 47, 74, ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 100%
+        rgb(34 197 94 / ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 0%,
+        rgb(250 204 21 / ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 25%,
+        rgb(34 197 94 / ${intensity === 'high' ? 0.1 : intensity === 'medium' ? 0.05 : 0.02}) 50%,
+        rgb(250 204 21 / ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 75%,
+        rgb(34 197 94 / ${intensity === 'high' ? 0.15 : intensity === 'medium' ? 0.08 : 0.04}) 100%
       )`,
     }
   };
@@ -129,7 +129,7 @@ export const FloatingParticles = () => {
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-2 h-2 bg-pink-400 rounded-full"
+          className="absolute w-2 h-2 bg-primary rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,

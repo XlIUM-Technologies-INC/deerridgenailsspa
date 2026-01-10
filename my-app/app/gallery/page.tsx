@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from 'react';
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { 
   X,
   Heart,
@@ -247,7 +248,7 @@ export default function GalleryPage() {
     : galleryImages.filter(img => img.category === selectedCategory);
 
   return (
-    <div className="bg-[#f5f1ed]">
+    <div className="bg-[#ffffff]">
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6">
         <motion.div 
@@ -293,7 +294,7 @@ export default function GalleryPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#8b2f4a] font-semibold mb-4 uppercase tracking-wider"
+            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -337,8 +338,8 @@ export default function GalleryPage() {
                   onClick={() => setSelectedCategory(cat.id)}
                   variant={selectedCategory === cat.id ? "default" : "outline"}
                   className={selectedCategory === cat.id 
-                    ? "bg-[#8b2f4a] text-white hover:bg-[#6d2439]" 
-                    : "border-gray-300 hover:border-[#8b2f4a]"
+                    ? "bg-[#008009] text-white hover:bg-[#006400]" 
+                    : "border-gray-300 hover:border-[#008009]"
                   }
                 >
                   {cat.label}
@@ -358,7 +359,7 @@ export default function GalleryPage() {
                 variant={viewMode === 'grid' ? "default" : "outline"}
                 size="icon"
                 onClick={() => setViewMode('grid')}
-                className={viewMode === 'grid' ? "bg-[#8b2f4a]" : ""}
+                className={viewMode === 'grid' ? "bg-[#008009]" : ""}
               >
                 <Grid3x3 className="w-5 h-5" />
               </Button>
@@ -366,7 +367,7 @@ export default function GalleryPage() {
                 variant={viewMode === 'masonry' ? "default" : "outline"}
                 size="icon"
                 onClick={() => setViewMode('masonry')}
-                className={viewMode === 'masonry' ? "bg-[#8b2f4a]" : ""}
+                className={viewMode === 'masonry' ? "bg-[#008009]" : ""}
               >
                 <Rows className="w-5 h-5" />
               </Button>
@@ -396,7 +397,7 @@ export default function GalleryPage() {
                 >
                   <div className="relative overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     {item.featured && (
-                      <Badge className="absolute top-4 left-4 z-10 bg-[#8b2f4a] hover:bg-[#8b2f4a]">
+                      <Badge className="absolute top-4 left-4 z-10 bg-[#008009] hover:bg-[#008009]">
                         Featured
                       </Badge>
                     )}
@@ -486,7 +487,7 @@ export default function GalleryPage() {
                     </h3>
                     <div className="flex items-center gap-4 text-gray-600">
                       <div className="flex items-center gap-2">
-                        <Heart className="w-5 h-5 text-[#8b2f4a]" />
+                        <Heart className="w-5 h-5 text-[#008009]" />
                         <span>{selectedImage.likes} likes</span>
                       </div>
                       <Badge>{selectedImage.category}</Badge>
@@ -508,7 +509,7 @@ export default function GalleryPage() {
       </AnimatePresence>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="bg-[#8b2f4a] py-20 px-6">
+      <section ref={ctaRef} className="bg-[#008009] py-20 px-6">
         <div className="max-w-4xl mx-auto text-center text-white">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6"
@@ -531,12 +532,14 @@ export default function GalleryPage() {
             animate={ctaInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button
-              className="bg-white text-[#8b2f4a] hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
-              size="lg"
-            >
-              Book Your Appointment
-            </Button>
+            <Link href="/contact">
+              <Button
+                className="bg-white text-[#008009] hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
+                size="lg"
+              >
+                Book Your Appointment
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

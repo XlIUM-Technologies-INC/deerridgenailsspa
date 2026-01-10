@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Award, Heart, Shield, Sparkles, Star, Users, Clock, Target } from 'lucide-react';
+import Link from 'next/link';
 // @ts-ignore
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -96,22 +97,13 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-[#f5f1ed]">
+    <div className="bg-[#ffffff]">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6">
+      <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-green-50 via-emerald-50 to-green-100">
         <motion.div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-0"
           style={{ y, opacity }}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200"
-            alt="Nail salon background"
-            fill
-            className="object-cover"
-            quality={85}
-            priority
-          />
-        </motion.div>
+        ></motion.div>
 
         {/* Floating decorations */}
         <motion.div
@@ -142,7 +134,7 @@ export default function AboutPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#8b2f4a] font-semibold mb-4 uppercase tracking-wider"
+            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -170,12 +162,14 @@ export default function AboutPage() {
             animate={heroInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <Button
-              className="bg-[#8b2f4a] text-white hover:bg-[#6d2439] px-8 py-6 text-lg font-semibold"
-              size="lg"
-            >
-              Book Your Appointment
-            </Button>
+            <Link href="/contact">
+              <Button
+                className="bg-[#008009] text-white hover:bg-[#006400] px-8 py-6 text-lg font-semibold"
+                size="lg"
+              >
+                Book Your Appointment
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -189,7 +183,7 @@ export default function AboutPage() {
               animate={storyInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-[#8b2f4a] font-semibold mb-2 uppercase tracking-wider text-sm">
+              <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
                 Our Story
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -224,7 +218,7 @@ export default function AboutPage() {
                 />
               </div>
               <motion.div
-                className="absolute -bottom-6 -right-6 w-48 h-48 bg-[#8b2f4a] flex items-center justify-center text-white shadow-2xl"
+                className="absolute -bottom-6 -right-6 w-48 h-48 bg-[#008009] flex items-center justify-center text-white shadow-2xl"
                 whileHover={{ scale: 1.05, rotate: 5 }}
               >
                 <div className="text-center">
@@ -238,7 +232,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values Section */}
-      <section ref={valuesRef} className="bg-[#f5f1ed] py-20 px-6">
+      <section ref={valuesRef} className="bg-[#ffffff] py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
@@ -246,7 +240,7 @@ export default function AboutPage() {
             animate={valuesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#8b2f4a] font-semibold mb-2 uppercase tracking-wider text-sm">
+            <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
               Our Values
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -297,7 +291,7 @@ export default function AboutPage() {
             animate={teamInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#8b2f4a] font-semibold mb-2 uppercase tracking-wider text-sm">
+            <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
               Our Team
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -330,7 +324,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   {member.name}
                 </h3>
-                <p className="text-[#8b2f4a] font-semibold mb-2">
+                <p className="text-[#008009] font-semibold mb-2">
                   {member.role}
                 </p>
                 <p className="text-gray-600 text-sm">
@@ -343,7 +337,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section ref={statsRef} className="bg-[#8b2f4a] py-20 px-6">
+      <section ref={statsRef} className="bg-[#008009] py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -403,12 +397,14 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Button
-              className="bg-[#8b2f4a] text-white hover:bg-[#6d2439] px-8 py-6 text-lg font-semibold"
-              size="lg"
-            >
-              Book Now
-            </Button>
+            <Link href="/contact">
+              <Button
+                className="bg-[#008009] text-white hover:bg-[#006400] px-8 py-6 text-lg font-semibold"
+                size="lg"
+              >
+                Book Now
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>

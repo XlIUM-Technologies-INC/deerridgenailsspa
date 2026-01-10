@@ -127,22 +127,13 @@ export default function Page() {
   ];
 
   return (
-    <div className="bg-[#f5f1ed]">
+    <div className="bg-[#ffffff]">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6">
+      <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-green-50 via-blue-50 to-green-100">
         <motion.div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-0"
           style={{ y, opacity }}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200"
-            alt="Contact background"
-            fill
-            className="object-cover"
-            quality={85}
-            priority
-          />
-        </motion.div>
+        ></motion.div>
 
         {/* Floating decorations */}
         <motion.div
@@ -173,7 +164,7 @@ export default function Page() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#8b2f4a] font-semibold mb-4 uppercase tracking-wider"
+            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -225,7 +216,7 @@ export default function Page() {
                     {info.link ? (
                       <a 
                         href={info.link}
-                        className="text-gray-600 hover:text-[#8b2f4a] transition-colors"
+                        className="text-gray-600 hover:text-[#008009] transition-colors"
                         target={info.link.startsWith('http') ? '_blank' : undefined}
                         rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                       >
@@ -243,7 +234,7 @@ export default function Page() {
       </section>
 
       {/* Main Contact Section */}
-      <section className="bg-[#f5f1ed] py-20 px-6">
+      <section className="bg-[#ffffff] py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -291,7 +282,7 @@ export default function Page() {
                             value={formData.name}
                             onChange={handleInputChange}
                             placeholder="John Doe"
-                            className="pl-10 h-12 border-gray-300 focus:border-[#8b2f4a] focus:ring-[#8b2f4a]"
+                            className="pl-10 h-12 border-gray-300 focus:border-[#008009] focus:ring-[#008009]"
                           />
                         </div>
                       </div>
@@ -310,7 +301,7 @@ export default function Page() {
                               value={formData.email}
                               onChange={handleInputChange}
                               placeholder="john@example.com"
-                              className="pl-10 h-12 border-gray-300 focus:border-[#8b2f4a] focus:ring-[#8b2f4a]"
+                              className="pl-10 h-12 border-gray-300 focus:border-[#008009] focus:ring-[#008009]"
                             />
                           </div>
                         </div>
@@ -326,7 +317,7 @@ export default function Page() {
                               value={formData.phone}
                               onChange={handleInputChange}
                               placeholder="(555) 123-4567"
-                              className="pl-10 h-12 border-gray-300 focus:border-[#8b2f4a] focus:ring-[#8b2f4a]"
+                              className="pl-10 h-12 border-gray-300 focus:border-[#008009] focus:ring-[#008009]"
                             />
                           </div>
                         </div>
@@ -342,7 +333,7 @@ export default function Page() {
                             name="service"
                             value={formData.service}
                             onChange={handleInputChange}
-                            className="w-full h-12 px-4 border border-gray-300 rounded-md focus:border-[#8b2f4a] focus:ring-[#8b2f4a] focus:ring-2 focus:ring-offset-0"
+                            className="w-full h-12 px-4 border border-gray-300 rounded-md focus:border-[#008009] focus:ring-[#008009] focus:ring-2 focus:ring-offset-0"
                           >
                             <option value="">Select a service</option>
                             {services.map((service, idx) => (
@@ -363,7 +354,7 @@ export default function Page() {
                               name="date"
                               value={formData.date}
                               onChange={handleInputChange}
-                              className="pl-10 h-12 border-gray-300 focus:border-[#8b2f4a] focus:ring-[#8b2f4a]"
+                              className="pl-10 h-12 border-gray-300 focus:border-[#008009] focus:ring-[#008009]"
                             />
                           </div>
                         </div>
@@ -382,7 +373,7 @@ export default function Page() {
                             onChange={handleInputChange}
                             placeholder="Any special requests or questions?"
                             rows="4"
-                            className="w-full pl-10 pt-3 px-4 border border-gray-300 rounded-md focus:border-[#8b2f4a] focus:ring-[#8b2f4a] focus:ring-2 focus:ring-offset-0 resize-none"
+                            className="w-full pl-10 pt-3 px-4 border border-gray-300 rounded-md focus:border-[#008009] focus:ring-[#008009] focus:ring-2 focus:ring-offset-0 resize-none"
                           />
                         </div>
                       </div>
@@ -390,7 +381,7 @@ export default function Page() {
                       {/* Submit Button */}
                       <Button
                         onClick={handleSubmit}
-                        className="w-full bg-[#8b2f4a] text-white hover:bg-[#6d2439] h-12 text-lg font-semibold group"
+                        className="w-full bg-[#008009] text-white hover:bg-[#006400] h-12 text-lg font-semibold group"
                       >
                         Send Message
                         <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -412,7 +403,7 @@ export default function Page() {
               <Card className="border-none shadow-xl">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <Clock className="w-8 h-8 text-[#8b2f4a]" />
+                    <Clock className="w-8 h-8 text-[#008009]" />
                     <h2 className="text-3xl font-bold text-gray-900">
                       Business Hours
                     </h2>
@@ -432,7 +423,7 @@ export default function Page() {
                             {schedule.day}
                           </span>
                           {schedule.promo && (
-                            <Badge className="bg-[#8b2f4a] hover:bg-[#8b2f4a] text-xs">
+                            <Badge className="bg-[#008009] hover:bg-[#008009] text-xs">
                               10% OFF
                             </Badge>
                           )}
@@ -444,9 +435,9 @@ export default function Page() {
                     ))}
                   </div>
 
-                  <div className="mt-6 p-4 bg-[#8b2f4a]/10 rounded-lg">
+                  <div className="mt-6 p-4 bg-[#008009]/10 rounded-lg">
                     <p className="text-sm text-gray-700 flex items-start gap-2">
-                      <span className="text-[#8b2f4a] font-bold">💡</span>
+                      <span className="text-[#008009] font-bold">💡</span>
                       <span>
                         <strong>Special Offer:</strong> Get 10% off all services every Monday & Tuesday!
                       </span>
@@ -473,7 +464,7 @@ export default function Page() {
                   </div>
                   <div className="p-6 bg-white">
                     <div className="flex items-start gap-3">
-                      <MapPin className="w-6 h-6 text-[#8b2f4a] flex-shrink-0 mt-1" />
+                      <MapPin className="w-6 h-6 text-[#008009] flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-bold text-gray-900 mb-1">
                           Visit Our Salon
@@ -483,7 +474,7 @@ export default function Page() {
                         </p>
                         <Button
                           variant="outline"
-                          className="border-[#8b2f4a] text-[#8b2f4a] hover:bg-[#8b2f4a] hover:text-white"
+                          className="border-[#008009] text-[#008009] hover:bg-[#008009] hover:text-white"
                           onClick={() => window.open('https://maps.google.com', '_blank')}
                         >
                           Get Directions
@@ -504,21 +495,21 @@ export default function Page() {
                     <Button
                       variant="outline"
                       size="icon"
-                      className="w-12 h-12 border-gray-300 hover:border-[#8b2f4a] hover:bg-[#8b2f4a] hover:text-white"
+                      className="w-12 h-12 border-gray-300 hover:border-[#008009] hover:bg-[#008009] hover:text-white"
                     >
                       <Instagram className="w-6 h-6" />
                     </Button>
                     <Button
                       variant="outline"
                       size="icon"
-                      className="w-12 h-12 border-gray-300 hover:border-[#8b2f4a] hover:bg-[#8b2f4a] hover:text-white"
+                      className="w-12 h-12 border-gray-300 hover:border-[#008009] hover:bg-[#008009] hover:text-white"
                     >
                       <Facebook className="w-6 h-6" />
                     </Button>
                     <Button
                       variant="outline"
                       size="icon"
-                      className="w-12 h-12 border-gray-300 hover:border-[#8b2f4a] hover:bg-[#8b2f4a] hover:text-white"
+                      className="w-12 h-12 border-gray-300 hover:border-[#008009] hover:bg-[#008009] hover:text-white"
                     >
                       <Twitter className="w-6 h-6" />
                     </Button>
