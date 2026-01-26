@@ -29,7 +29,9 @@ export default function HeroSection() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-6xl md:text-7xl lg:text-8xl font-italiana leading-[0.95]"
           >
-            <span className="text-white drop-shadow-lg">DEER RIDGE</span>
+            <span className="text-white drop-shadow-lg">
+              DEER RIDGE NAILS SPA
+            </span>
             <br />
             <span className="text-white/90 italic relative inline-block">
               NAILS & SPA
@@ -118,7 +120,7 @@ export default function HeroSection() {
             <div className="relative w-full h-full rounded-t-[9.5rem] md:rounded-t-[19.5rem] overflow-hidden">
               <Image
                 src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=2000&auto=format&fit=crop"
-                alt="Deer Ridge Salon Interior"
+                alt="Deer Ridge Nails Spa Interior"
                 fill
                 className="object-cover"
                 priority

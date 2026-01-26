@@ -104,7 +104,6 @@ export default function AboutPage() {
     },
   ];
 
-
   return (
     <div className="bg-[#ffffff]">
       {/* Hero Section */}
@@ -183,7 +182,11 @@ export default function AboutPage() {
               className="bg-brand-green text-white hover:bg-brand-green px-8 py-6 text-lg font-semibold"
               size="lg"
             >
-              <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Book Your Appointment
               </Link>
             </Button>
@@ -249,7 +252,7 @@ export default function AboutPage() {
                 whileHover={{ scale: 1.05, rotate: 5 }}
               >
                 <div className="text-center">
-                  <div className="text-5xl font-bold">Deer Ridge</div>
+                  <div className="text-5xl font-bold">Deer Ridge Nails Spa</div>
                   <div className="text-lg">Kitchener, ON</div>
                 </div>
               </motion.div>
@@ -257,7 +260,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
 
       {/* Meet Our Team Section - Simplified */}
       <section ref={teamRef} className="bg-white py-20 px-6">
@@ -290,10 +292,15 @@ export default function AboutPage() {
                 Expert Technicians
               </h2>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Our salon is proud to be under <strong>new management</strong> and has been <strong>newly renovated</strong> to provide you with the best experience possible.
+                Our salon is proud to be under <strong>new management</strong>{" "}
+                and has been <strong>newly renovated</strong> to provide you
+                with the best experience possible.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                We have a dedicated team of highly skilled and experienced nail technicians who are passionate about their craft. Whether you need a simple manicure or intricate nail art, our staff is here to bring your vision to life with precision and care.
+                We have a dedicated team of highly skilled and experienced nail
+                technicians who are passionate about their craft. Whether you
+                need a simple manicure or intricate nail art, our staff is here
+                to bring your vision to life with precision and care.
               </p>
               <div className="flex gap-4">
                 <div className="bg-brand-green/5 p-4 rounded-lg border border-brand-green/10">
@@ -301,7 +308,9 @@ export default function AboutPage() {
                   <p className="text-sm text-gray-600">Years Combined Exp.</p>
                 </div>
                 <div className="bg-brand-green/5 p-4 rounded-lg border border-brand-green/10">
-                  <p className="font-bold text-brand-green text-xl mb-1">100%</p>
+                  <p className="font-bold text-brand-green text-xl mb-1">
+                    100%
+                  </p>
                   <p className="text-sm text-gray-600">Satisfaction Focus</p>
                 </div>
               </div>
@@ -309,10 +318,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-
-
-
 
       <section className="bg-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -323,7 +328,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Ready to Experience the Deer Ridge Difference?
+            Ready to Experience the Deer Ridge Nails Spa Difference?
           </motion.h2>
           <motion.p
             className="text-xl text-gray-600 mb-8"
@@ -346,7 +351,11 @@ export default function AboutPage() {
               className="bg-brand-green text-white hover:bg-brand-green px-8 py-6 text-lg font-semibold"
               size="lg"
             >
-              <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Book Now
               </Link>
             </Button>

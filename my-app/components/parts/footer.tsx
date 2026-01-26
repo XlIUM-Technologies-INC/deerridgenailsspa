@@ -31,7 +31,7 @@ const Footer = () => {
           {/* Column 1: Brand */}
           <div className="space-y-6">
             <h2 className="text-3xl font-italiana tracking-widest">
-              DEER RIDGE
+              DEER RIDGE NAILS SPA
             </h2>
             <p className="text-brand-sage font-old-standard leading-relaxed">
               Experience the art of relaxation and beauty. Our premium salon
