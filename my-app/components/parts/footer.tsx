@@ -1,15 +1,22 @@
 "use client";
 
 import React from "react";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Instagram,
-  Facebook,
-  Twitter,
-  Clock,
-} from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Facebook, Clock } from "lucide-react";
+
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { NewsletterInput } from "@/components/ui/newsletter-input";
@@ -53,7 +60,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="hover:text-brand-sage transition-colors"
               >
-                <Twitter className="w-5 h-5" />
+                <TikTokIcon className="w-5 h-5" />
               </Link>
             </div>
           </div>
