@@ -1,14 +1,23 @@
-'use client';
+"use client";
 
-import React, { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { Award, Heart, Shield, Sparkles, Star, Users, Clock, Target } from 'lucide-react';
-import Link from 'next/link';
+import React, { useRef } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import {
+  Award,
+  Heart,
+  Shield,
+  Sparkles,
+  Star,
+  Users,
+  Clock,
+  Target,
+} from "lucide-react";
+import Link from "next/link";
 // @ts-ignore
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 
 export default function AboutPage() {
   const heroRef = useRef(null);
@@ -25,7 +34,7 @@ export default function AboutPage() {
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -37,70 +46,79 @@ export default function AboutPage() {
       title: "Passion",
       description: "We love what we do and it shows in every nail we perfect.",
       color: "bg-rose-100",
-      iconColor: "text-rose-600"
+      iconColor: "text-rose-600",
     },
     {
       icon: Shield,
       title: "Safety",
-      description: "Your health and safety are our top priorities with hospital-grade sterilization.",
+      description:
+        "Your health and safety are our top priorities with hospital-grade sterilization.",
       color: "bg-blue-100",
-      iconColor: "text-blue-600"
+      iconColor: "text-blue-600",
     },
     {
       icon: Sparkles,
       title: "Excellence",
       description: "We strive for perfection in every service we provide.",
       color: "bg-purple-100",
-      iconColor: "text-purple-600"
+      iconColor: "text-purple-600",
     },
     {
       icon: Users,
       title: "Community",
-      description: "Building lasting relationships with our clients and community.",
+      description:
+        "Building lasting relationships with our clients and community.",
       color: "bg-emerald-100",
-      iconColor: "text-emerald-600"
-    }
+      iconColor: "text-emerald-600",
+    },
   ];
 
   const team = [
     {
       name: "Sarah Johnson",
       role: "Lead Nail Technician",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
-      experience: "12 years"
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
+      experience: "12 years",
     },
     {
       name: "Emily Chen",
       role: "Nail Artist Specialist",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
-      experience: "8 years"
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
+      experience: "8 years",
     },
     {
       name: "Maria Rodriguez",
       role: "Senior Technician",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
-      experience: "10 years"
+      image:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
+      experience: "10 years",
     },
     {
       name: "Jessica Lee",
       role: "Nail Care Expert",
-      image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400",
-      experience: "7 years"
-    }
+      image:
+        "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400",
+      experience: "7 years",
+    },
   ];
 
   const stats = [
     { number: "500+", label: "Happy Clients", icon: Users },
     { number: "10+", label: "Years Experience", icon: Award },
     { number: "4.9", label: "Rating", icon: Star },
-    { number: "24/7", label: "Support", icon: Clock }
+    { number: "24/7", label: "Support", icon: Clock },
   ];
 
   return (
     <div className="bg-[#ffffff]">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-green-50 via-emerald-50 to-green-100">
-        <motion.div 
+      <section
+        ref={heroRef}
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-[#e0e0e0] via-[#e8e8e8] to-[#e0e0e0]"
+      >
+        <motion.div
           className="absolute inset-0 opacity-0"
           style={{ y, opacity }}
         ></motion.div>
@@ -115,7 +133,7 @@ export default function AboutPage() {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -128,13 +146,13 @@ export default function AboutPage() {
             duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1
+            delay: 1,
           }}
         />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
+            className="text-brand-green font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -164,7 +182,7 @@ export default function AboutPage() {
           >
             <Link href="/contact">
               <Button
-                className="bg-[#008009] text-white hover:bg-[#006400] px-8 py-6 text-lg font-semibold"
+                className="bg-brand-green text-white hover:bg-brand-green px-8 py-6 text-lg font-semibold"
                 size="lg"
               >
                 Book Your Appointment
@@ -183,7 +201,7 @@ export default function AboutPage() {
               animate={storyInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
+              <p className="text-brand-green font-semibold mb-2 uppercase tracking-wider text-sm">
                 Our Story
               </p>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -191,13 +209,23 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
                 <p>
-                  Deer Ridge Nails Spa is Kitchener's premier destination for professional nail care and spa services. We are dedicated to providing exceptional beauty treatments in a welcoming and relaxing environment.
+                  Deer Ridge Nails Spa is Kitchener's premier destination for
+                  professional nail care and spa services. We are dedicated to
+                  providing exceptional beauty treatments in a welcoming and
+                  relaxing environment.
                 </p>
                 <p>
-                  Our team of experienced and certified nail technicians takes pride in delivering outstanding service with attention to detail. We use only high-quality products and maintain the highest standards of hygiene and sanitation to ensure the safety and satisfaction of our clients.
+                  Our team of experienced and certified nail technicians takes
+                  pride in delivering outstanding service with attention to
+                  detail. We use only high-quality products and maintain the
+                  highest standards of hygiene and sanitation to ensure the
+                  safety and satisfaction of our clients.
                 </p>
                 <p>
-                  Whether you're looking for a classic manicure, creative nail art, gel extensions, or any of our specialty spa services, we're here to make you feel pampered and beautiful. Your satisfaction is our top priority.
+                  Whether you're looking for a classic manicure, creative nail
+                  art, gel extensions, or any of our specialty spa services,
+                  we're here to make you feel pampered and beautiful. Your
+                  satisfaction is our top priority.
                 </p>
               </div>
             </motion.div>
@@ -218,7 +246,7 @@ export default function AboutPage() {
                 />
               </div>
               <motion.div
-                className="absolute -bottom-6 -right-6 w-48 h-48 bg-[#008009] flex items-center justify-center text-white shadow-2xl"
+                className="absolute -bottom-6 -right-6 w-48 h-48 bg-brand-green flex items-center justify-center text-white shadow-2xl"
                 whileHover={{ scale: 1.05, rotate: 5 }}
               >
                 <div className="text-center">
@@ -240,14 +268,15 @@ export default function AboutPage() {
             animate={valuesInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
+            <p className="text-brand-green font-semibold mb-2 uppercase tracking-wider text-sm">
               Our Values
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               What We Stand For
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              These core values guide every decision we make and every service we provide
+              These core values guide every decision we make and every service
+              we provide
             </p>
           </motion.div>
 
@@ -271,9 +300,7 @@ export default function AboutPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {value.title}
                     </h3>
-                    <p className="text-gray-600">
-                      {value.description}
-                    </p>
+                    <p className="text-gray-600">{value.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -291,14 +318,15 @@ export default function AboutPage() {
             animate={teamInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
+            <p className="text-brand-green font-semibold mb-2 uppercase tracking-wider text-sm">
               Our Team
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Meet Our Expert Technicians
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Skilled professionals dedicated to making you look and feel amazing
+              Skilled professionals dedicated to making you look and feel
+              amazing
             </p>
           </motion.div>
 
@@ -324,7 +352,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   {member.name}
                 </h3>
-                <p className="text-[#008009] font-semibold mb-2">
+                <p className="text-brand-green font-semibold mb-2">
                   {member.role}
                 </p>
                 <p className="text-gray-600 text-sm">
@@ -337,7 +365,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section ref={statsRef} className="bg-[#008009] py-20 px-6">
+      <section ref={statsRef} className="bg-brand-green py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -389,7 +417,8 @@ export default function AboutPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Book your appointment today and join our community of satisfied clients in Kitchener
+            Book your appointment today and join our community of satisfied
+            clients in Kitchener
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -399,7 +428,7 @@ export default function AboutPage() {
           >
             <Link href="/contact">
               <Button
-                className="bg-[#008009] text-white hover:bg-[#006400] px-8 py-6 text-lg font-semibold"
+                className="bg-brand-green text-white hover:bg-brand-green px-8 py-6 text-lg font-semibold"
                 size="lg"
               >
                 Book Now

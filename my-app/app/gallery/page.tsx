@@ -1,9 +1,15 @@
-'use client';
+"use client";
 
-import React, { useRef, useState } from 'react';
-import { motion, useInView, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { 
+import React, { useRef, useState } from "react";
+import {
+  motion,
+  useInView,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import Link from "next/link";
+import {
   X,
   Heart,
   Share2,
@@ -11,13 +17,13 @@ import {
   ZoomIn,
   Filter,
   Grid3x3,
-  Rows
-} from 'lucide-react';
+  Rows,
+} from "lucide-react";
 // @ts-ignore
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export default function GalleryPage() {
   const heroRef = useRef(null);
@@ -28,230 +34,255 @@ export default function GalleryPage() {
   const galleryInView = useInView(galleryRef, { once: true, amount: 0.1 });
   const ctaInView = useInView(ctaRef, { once: true, amount: 0.3 });
 
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState(null);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'masonry'
+  const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'masonry'
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
   const categories = [
-    { id: 'all', label: 'All Work', count: 24 },
-    { id: 'manicure', label: 'Manicure', count: 8 },
-    { id: 'pedicure', label: 'Pedicure', count: 6 },
-    { id: 'nail-art', label: 'Nail Art', count: 7 },
-    { id: 'extensions', label: 'Extensions', count: 3 }
+    { id: "all", label: "All Work", count: 24 },
+    { id: "manicure", label: "Manicure", count: 8 },
+    { id: "pedicure", label: "Pedicure", count: 6 },
+    { id: "nail-art", label: "Nail Art", count: 7 },
+    { id: "extensions", label: "Extensions", count: 3 },
   ];
 
   const galleryImages = [
     {
       id: 1,
-      category: 'manicure',
-      image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800',
-      title: 'Classic French Manicure',
+      category: "manicure",
+      image:
+        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800",
+      title: "Classic French Manicure",
       likes: 234,
-      featured: true
+      featured: true,
     },
     {
       id: 2,
-      category: 'nail-art',
-      image: 'https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800',
-      title: 'Elegant Nail Art Design',
+      category: "nail-art",
+      image:
+        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800",
+      title: "Elegant Nail Art Design",
       likes: 456,
-      featured: true
+      featured: true,
     },
     {
       id: 3,
-      category: 'pedicure',
-      image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800',
-      title: 'Luxury Spa Pedicure',
+      category: "pedicure",
+      image:
+        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800",
+      title: "Luxury Spa Pedicure",
       likes: 189,
-      featured: false
+      featured: false,
     },
     {
       id: 4,
-      category: 'extensions',
-      image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800',
-      title: 'Gel Nail Extensions',
+      category: "extensions",
+      image:
+        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800",
+      title: "Gel Nail Extensions",
       likes: 567,
-      featured: true
+      featured: true,
     },
     {
       id: 5,
-      category: 'nail-art',
-      image: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800',
-      title: 'Geometric Nail Art',
+      category: "nail-art",
+      image:
+        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800",
+      title: "Geometric Nail Art",
       likes: 345,
-      featured: false
+      featured: false,
     },
     {
       id: 6,
-      category: 'manicure',
-      image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800',
-      title: 'Chrome Finish Manicure',
+      category: "manicure",
+      image:
+        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800",
+      title: "Chrome Finish Manicure",
       likes: 423,
-      featured: true
+      featured: true,
     },
     {
       id: 7,
-      category: 'nail-art',
-      image: 'https://images.unsplash.com/photo-1599206676335-193c82b13c9e?w=800',
-      title: 'Floral Nail Design',
+      category: "nail-art",
+      image:
+        "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?w=800",
+      title: "Floral Nail Design",
       likes: 298,
-      featured: false
+      featured: false,
     },
     {
       id: 8,
-      category: 'pedicure',
-      image: 'https://images.unsplash.com/photo-1583001308411-3e1972e0c18a?w=800',
-      title: 'Summer Pedicure Style',
+      category: "pedicure",
+      image:
+        "https://images.unsplash.com/photo-1583001308411-3e1972e0c18a?w=800",
+      title: "Summer Pedicure Style",
       likes: 512,
-      featured: true
+      featured: true,
     },
     {
       id: 9,
-      category: 'manicure',
-      image: 'https://images.unsplash.com/photo-1606462322168-82d71064e94b?w=800',
-      title: 'Matte Nude Manicure',
+      category: "manicure",
+      image:
+        "https://images.unsplash.com/photo-1606462322168-82d71064e94b?w=800",
+      title: "Matte Nude Manicure",
       likes: 267,
-      featured: false
+      featured: false,
     },
     {
       id: 10,
-      category: 'nail-art',
-      image: 'https://images.unsplash.com/photo-1515688594390-b649af70d282?w=800',
-      title: 'Ombre Nail Design',
+      category: "nail-art",
+      image:
+        "https://images.unsplash.com/photo-1515688594390-b649af70d282?w=800",
+      title: "Ombre Nail Design",
       likes: 445,
-      featured: true
+      featured: true,
     },
     {
       id: 11,
-      category: 'extensions',
-      image: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800',
-      title: 'Acrylic Extensions',
+      category: "extensions",
+      image:
+        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800",
+      title: "Acrylic Extensions",
       likes: 389,
-      featured: false
+      featured: false,
     },
     {
       id: 12,
-      category: 'manicure',
-      image: 'https://images.unsplash.com/photo-1612831200102-cd38753908bf?w=800',
-      title: 'Glossy Red Nails',
+      category: "manicure",
+      image:
+        "https://images.unsplash.com/photo-1612831200102-cd38753908bf?w=800",
+      title: "Glossy Red Nails",
       likes: 678,
-      featured: true
+      featured: true,
     },
     {
       id: 13,
-      category: 'nail-art',
-      image: 'https://images.unsplash.com/photo-1542992015-4a0b729b1385?w=800',
-      title: 'Glitter Accent Nails',
+      category: "nail-art",
+      image: "https://images.unsplash.com/photo-1542992015-4a0b729b1385?w=800",
+      title: "Glitter Accent Nails",
       likes: 334,
-      featured: false
+      featured: false,
     },
     {
       id: 14,
-      category: 'pedicure',
-      image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800',
-      title: 'Classic Pedicure',
+      category: "pedicure",
+      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800",
+      title: "Classic Pedicure",
       likes: 223,
-      featured: false
+      featured: false,
     },
     {
       id: 15,
-      category: 'manicure',
-      image: 'https://images.unsplash.com/photo-1604902396830-aca29e19b067?w=800',
-      title: 'Pastel Manicure',
+      category: "manicure",
+      image:
+        "https://images.unsplash.com/photo-1604902396830-aca29e19b067?w=800",
+      title: "Pastel Manicure",
       likes: 456,
-      featured: true
+      featured: true,
     },
     {
       id: 16,
-      category: 'nail-art',
-      image: 'https://images.unsplash.com/photo-1598969901534-4f5d4c982f9e?w=800',
-      title: 'Abstract Nail Art',
+      category: "nail-art",
+      image:
+        "https://images.unsplash.com/photo-1598969901534-4f5d4c982f9e?w=800",
+      title: "Abstract Nail Art",
       likes: 389,
-      featured: false
+      featured: false,
     },
     {
       id: 17,
-      category: 'extensions',
-      image: 'https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800',
-      title: 'Long Gel Extensions',
+      category: "extensions",
+      image:
+        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800",
+      title: "Long Gel Extensions",
       likes: 512,
-      featured: true
+      featured: true,
     },
     {
       id: 18,
-      category: 'pedicure',
-      image: 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800',
-      title: 'Spa Pedicure Treatment',
+      category: "pedicure",
+      image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800",
+      title: "Spa Pedicure Treatment",
       likes: 267,
-      featured: false
+      featured: false,
     },
     {
       id: 19,
-      category: 'manicure',
-      image: 'https://images.unsplash.com/photo-1522337094846-8a818192de1f?w=800',
-      title: 'Elegant White Nails',
+      category: "manicure",
+      image:
+        "https://images.unsplash.com/photo-1522337094846-8a818192de1f?w=800",
+      title: "Elegant White Nails",
       likes: 445,
-      featured: true
+      featured: true,
     },
     {
       id: 20,
-      category: 'nail-art',
-      image: 'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800',
-      title: 'Marble Effect Nails',
+      category: "nail-art",
+      image:
+        "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800",
+      title: "Marble Effect Nails",
       likes: 523,
-      featured: true
+      featured: true,
     },
     {
       id: 21,
-      category: 'pedicure',
-      image: 'https://images.unsplash.com/photo-1591160690555-5debfba289f0?w=800',
-      title: 'Luxury Foot Spa',
+      category: "pedicure",
+      image:
+        "https://images.unsplash.com/photo-1591160690555-5debfba289f0?w=800",
+      title: "Luxury Foot Spa",
       likes: 298,
-      featured: false
+      featured: false,
     },
     {
       id: 22,
-      category: 'manicure',
-      image: 'https://images.unsplash.com/photo-1583001308594-2d2111ff937b?w=800',
-      title: 'Pink Chrome Manicure',
+      category: "manicure",
+      image:
+        "https://images.unsplash.com/photo-1583001308594-2d2111ff937b?w=800",
+      title: "Pink Chrome Manicure",
       likes: 434,
-      featured: true
+      featured: true,
     },
     {
       id: 23,
-      category: 'nail-art',
-      image: 'https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?w=800',
-      title: 'Crystal Nail Design',
+      category: "nail-art",
+      image:
+        "https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?w=800",
+      title: "Crystal Nail Design",
       likes: 612,
-      featured: true
+      featured: true,
     },
     {
       id: 24,
-      category: 'manicure',
-      image: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800',
-      title: 'Natural Look Manicure',
+      category: "manicure",
+      image:
+        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800",
+      title: "Natural Look Manicure",
       likes: 356,
-      featured: false
-    }
+      featured: false,
+    },
   ];
 
-  const filteredImages = selectedCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === selectedCategory);
+  const filteredImages =
+    selectedCategory === "all"
+      ? galleryImages
+      : galleryImages.filter((img) => img.category === selectedCategory);
 
   return (
     <div className="bg-[#ffffff]">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6">
-        <motion.div 
+      <section
+        ref={heroRef}
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6"
+      >
+        <motion.div
           className="absolute inset-0 opacity-20"
           style={{ y, opacity }}
         >
@@ -275,7 +306,7 @@ export default function GalleryPage() {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -288,13 +319,13 @@ export default function GalleryPage() {
             duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1
+            delay: 1,
           }}
         />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
+            className="text-brand-green font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -321,7 +352,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Gallery Section */}
-      <section ref={galleryRef} className="bg-white py-20 px-6">
+      <section ref={galleryRef} className="bg-brand-yellow py-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Filter Bar */}
           <motion.div
@@ -337,16 +368,14 @@ export default function GalleryPage() {
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
                   variant={selectedCategory === cat.id ? "default" : "outline"}
-                  className={selectedCategory === cat.id 
-                    ? "bg-[#008009] text-white hover:bg-[#006400]" 
-                    : "border-gray-300 hover:border-[#008009]"
+                  className={
+                    selectedCategory === cat.id
+                      ? "bg-brand-green text-white hover:bg-brand-green"
+                      : "border-[#d0d0d0] hover:border-brand-green"
                   }
                 >
                   {cat.label}
-                  <Badge 
-                    variant="secondary" 
-                    className="ml-2 bg-white/20"
-                  >
+                  <Badge variant="secondary" className="ml-2 bg-white/20">
                     {cat.count}
                   </Badge>
                 </Button>
@@ -356,18 +385,18 @@ export default function GalleryPage() {
             {/* View Mode Toggle */}
             <div className="flex gap-2">
               <Button
-                variant={viewMode === 'grid' ? "default" : "outline"}
+                variant={viewMode === "grid" ? "default" : "outline"}
                 size="icon"
-                onClick={() => setViewMode('grid')}
-                className={viewMode === 'grid' ? "bg-[#008009]" : ""}
+                onClick={() => setViewMode("grid")}
+                className={viewMode === "grid" ? "bg-brand-green" : ""}
               >
                 <Grid3x3 className="w-5 h-5" />
               </Button>
               <Button
-                variant={viewMode === 'masonry' ? "default" : "outline"}
+                variant={viewMode === "masonry" ? "default" : "outline"}
                 size="icon"
-                onClick={() => setViewMode('masonry')}
-                className={viewMode === 'masonry' ? "bg-[#008009]" : ""}
+                onClick={() => setViewMode("masonry")}
+                className={viewMode === "masonry" ? "bg-brand-green" : ""}
               >
                 <Rows className="w-5 h-5" />
               </Button>
@@ -375,9 +404,9 @@ export default function GalleryPage() {
           </motion.div>
 
           {/* Gallery Grid */}
-          <motion.div 
+          <motion.div
             className={
-              viewMode === 'grid' 
+              viewMode === "grid"
                 ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
                 : "columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
             }
@@ -392,17 +421,25 @@ export default function GalleryPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4, delay: index * 0.03 }}
-                  className={viewMode === 'grid' ? "relative group cursor-pointer" : "relative group cursor-pointer break-inside-avoid mb-6"}
+                  className={
+                    viewMode === "grid"
+                      ? "relative group cursor-pointer"
+                      : "relative group cursor-pointer break-inside-avoid mb-6"
+                  }
                   onClick={() => setSelectedImage(item)}
                 >
                   <div className="relative overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
                     {item.featured && (
-                      <Badge className="absolute top-4 left-4 z-10 bg-[#008009] hover:bg-[#008009]">
+                      <Badge className="absolute top-4 left-4 z-10 bg-brand-green hover:bg-brand-green">
                         Featured
                       </Badge>
                     )}
-                    
-                    <div className={viewMode === 'grid' ? "aspect-square" : "aspect-[3/4]"}>
+
+                    <div
+                      className={
+                        viewMode === "grid" ? "aspect-square" : "aspect-[3/4]"
+                      }
+                    >
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -487,7 +524,7 @@ export default function GalleryPage() {
                     </h3>
                     <div className="flex items-center gap-4 text-gray-600">
                       <div className="flex items-center gap-2">
-                        <Heart className="w-5 h-5 text-[#008009]" />
+                        <Heart className="w-5 h-5 text-brand-green" />
                         <span>{selectedImage.likes} likes</span>
                       </div>
                       <Badge>{selectedImage.category}</Badge>
@@ -509,7 +546,7 @@ export default function GalleryPage() {
       </AnimatePresence>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="bg-[#008009] py-20 px-6">
+      <section ref={ctaRef} className="bg-brand-green py-20 px-6">
         <div className="max-w-4xl mx-auto text-center text-white">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6"
@@ -525,7 +562,8 @@ export default function GalleryPage() {
             animate={ctaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Book your appointment now and let our expert technicians create your perfect look
+            Book your appointment now and let our expert technicians create your
+            perfect look
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -534,7 +572,7 @@ export default function GalleryPage() {
           >
             <Link href="/contact">
               <Button
-                className="bg-white text-[#008009] hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
+                className="bg-white text-brand-green hover:bg-[#e0e0e0] px-8 py-6 text-lg font-semibold"
                 size="lg"
               >
                 Book Your Appointment

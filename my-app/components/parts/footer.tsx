@@ -1,61 +1,61 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Instagram, 
-  Facebook, 
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Instagram,
+  Facebook,
   Twitter,
   Heart,
-  Sparkles
-} from 'lucide-react';
+  Sparkles,
+} from "lucide-react";
 // @ts-ignore
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = React.useMemo(() => new Date().getFullYear(), []);
 
   const footerLinks = [
     {
-      category: 'Quick Links',
+      category: "Quick Links",
       links: [
-        { label: 'Home', href: '/' },
-        { label: 'About', href: '/about' },
-        { label: 'Services', href: '/services' },
-        { label: 'Gallery', href: '/gallery' },
-        { label: 'Contact', href: '/contact' }
-      ]
+        { label: "Home", href: "/" },
+        { label: "About", href: "/about" },
+        { label: "Services", href: "/services" },
+        { label: "Gallery", href: "/gallery" },
+        { label: "Contact", href: "/contact" },
+      ],
     },
     {
-      category: 'Services',
+      category: "Services",
       links: [
-        { label: 'Manicures', href: '/services' },
-        { label: 'Pedicures', href: '/services' },
-        { label: 'Gel Extensions', href: '/services' },
-        { label: 'Nail Art', href: '/services' },
-        { label: 'Spa Treatments', href: '/services' }
-      ]
+        { label: "Manicures", href: "/services" },
+        { label: "Pedicures", href: "/services" },
+        { label: "Gel Extensions", href: "/services" },
+        { label: "Nail Art", href: "/services" },
+        { label: "Spa Treatments", href: "/services" },
+      ],
     },
     {
-      category: 'Business Hours',
+      category: "Business Hours",
       links: [
-        { label: 'Monday - Friday: 9:00 AM - 9:00 PM', href: '#' },
-        { label: 'Saturday: 9:00 AM - 9:00 PM', href: '#' },
-        { label: 'Sunday: 10:00 AM - 7:00 PM', href: '#' },
-        { label: 'Closed on Holidays', href: '#' }
-      ]
-    }
+        { label: "Monday - Friday: 9:00 AM - 9:00 PM", href: "#" },
+        { label: "Saturday: 9:00 AM - 9:00 PM", href: "#" },
+        { label: "Sunday: 10:00 AM - 7:00 PM", href: "#" },
+        { label: "Closed on Holidays", href: "#" },
+      ],
+    },
   ];
 
   const socialLinks = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' }
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "Twitter" },
   ];
 
   const containerVariants = {
@@ -79,10 +79,10 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-b from-[#3a3a3a] to-black text-white relative overflow-hidden">
       {/* Decorative background elements */}
       <motion.div
-        className="absolute top-0 left-10 w-40 h-40 bg-green-500/10 rounded-full blur-3xl"
+        className="absolute top-0 left-10 w-40 h-40 bg-brand-green/15 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -90,11 +90,11 @@ const Footer = () => {
         transition={{
           duration: 4,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: "easeInOut",
         }}
       />
       <motion.div
-        className="absolute bottom-0 right-10 w-52 h-52 bg-yellow-500/10 rounded-full blur-3xl"
+        className="absolute bottom-0 right-10 w-52 h-52 bg-brand-yellow/10 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.2, 0.4, 0.2],
@@ -103,7 +103,7 @@ const Footer = () => {
           duration: 5,
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 1
+          delay: 1,
         }}
       />
 
@@ -124,11 +124,11 @@ const Footer = () => {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <Sparkles className="w-6 h-6 text-yellow-400" />
+                  <Sparkles className="w-6 h-6 text-brand-yellow" />
                 </motion.div>
                 <h3 className="text-2xl font-bold">Deer Ridge</h3>
               </div>
-              <p className="text-gray-300 text-sm mb-6">
+              <p className="text-[#a0a0a0] text-sm mb-6">
                 Premium nail care and spa services in Kitchener, Ontario.
               </p>
               <div className="flex gap-3">
@@ -139,7 +139,7 @@ const Footer = () => {
                       key={social.label}
                       href={social.href}
                       aria-label={social.label}
-                      className="bg-green-500/20 hover:bg-green-500/40 p-3 rounded-full transition-colors duration-300"
+                      className="bg-brand-green/20 hover:bg-brand-green/40 p-3 rounded-full transition-colors duration-300"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -153,7 +153,7 @@ const Footer = () => {
             {/* Links Sections */}
             {footerLinks.map((section) => (
               <motion.div key={section.category} variants={itemVariants}>
-                <h4 className="text-lg font-semibold mb-4 text-green-300">
+                <h4 className="text-lg font-semibold mb-4 text-brand-green">
                   {section.category}
                 </h4>
                 <ul className="space-y-2">
@@ -161,7 +161,7 @@ const Footer = () => {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="text-gray-300 hover:text-green-400 transition-colors duration-300 text-sm"
+                        className="text-[#a0a0a0] hover:text-brand-green transition-colors duration-300 text-sm"
                       >
                         {link.label}
                       </Link>
@@ -173,25 +173,31 @@ const Footer = () => {
 
             {/* Contact Section */}
             <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-semibold mb-4 text-green-300">
+              <h4 className="text-lg font-semibold mb-4 text-brand-green">
                 Contact Us
               </h4>
               <div className="space-y-3">
                 <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 mt-1 text-green-400 shrink-0" />
-                  <p className="text-gray-300 text-sm">
+                  <MapPin className="w-4 h-4 mt-1 text-brand-green shrink-0" />
+                  <p className="text-[#a0a0a0] text-sm">
                     Kitchener, Ontario, Canada
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Phone className="w-4 h-4 mt-1 text-green-400 shrink-0" />
-                  <a href="tel:5198888888" className="text-gray-300 hover:text-green-400 transition-colors text-sm">
+                  <Phone className="w-4 h-4 mt-1 text-brand-green shrink-0" />
+                  <a
+                    href="tel:5198888888"
+                    className="text-[#a0a0a0] hover:text-brand-green transition-colors text-sm"
+                  >
                     (519) 888-8888
                   </a>
                 </div>
                 <div className="flex items-start gap-2">
-                  <Mail className="w-4 h-4 mt-1 text-green-400 shrink-0" />
-                  <a href="mailto:info@deerridgenailsspa.ca" className="text-gray-300 hover:text-green-400 transition-colors text-sm">
+                  <Mail className="w-4 h-4 mt-1 text-brand-green shrink-0" />
+                  <a
+                    href="mailto:info@deerridgenailsspa.ca"
+                    className="text-[#a0a0a0] hover:text-brand-green transition-colors text-sm"
+                  >
                     info@deerridgenailsspa.ca
                   </a>
                 </div>
@@ -211,16 +217,20 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-3 text-pink-300">
                 Stay Updated
               </h4>
-              <p className="text-gray-300 text-sm mb-4">
+              <p className="text-[#a0a0a0] text-sm mb-4">
                 Subscribe to get special offers and updates.
               </p>
               <div className="flex gap-2">
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 bg-pink-500/10 border border-pink-500/30 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-pink-400 transition-colors"
+                  className="flex-1 bg-pink-500/10 border border-pink-500/30 rounded-lg px-4 py-2 text-white placeholder-[#7a7a7a] focus:outline-none focus:border-pink-400 transition-colors"
+                  suppressHydrationWarning
                 />
-                <Button className="bg-pink-500 hover:bg-pink-600 text-white px-6 rounded-lg">
+                <Button
+                  className="bg-pink-500 hover:bg-pink-600 text-white px-6 rounded-lg"
+                  suppressHydrationWarning
+                >
                   Subscribe
                 </Button>
               </div>
@@ -237,10 +247,10 @@ const Footer = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
+            <p className="text-[#7a7a7a] text-sm">
               &copy; {currentYear} Deer Ridge Nails Spa. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-gray-400">
+            <div className="flex gap-6 text-sm text-[#7a7a7a]">
               <Link href="#" className="hover:text-pink-400 transition-colors">
                 Privacy Policy
               </Link>
@@ -251,7 +261,7 @@ const Footer = () => {
                 Cookie Policy
               </Link>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-400">
+            <div className="flex items-center gap-2 text-sm text-[#7a7a7a]">
               <span>Made with</span>
               <Heart className="w-4 h-4 text-pink-400 fill-pink-400" />
               <span>in Kitchener</span>

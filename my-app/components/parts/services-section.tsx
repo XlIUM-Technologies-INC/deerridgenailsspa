@@ -1,56 +1,56 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 
 const services = [
   {
-    title: 'Manicures',
+    title: "Manicures",
     description:
-      'Professional manicure services that shape, clean, and perfect your nails for a polished look.',
-    image: '/nails.jpg',
-    color: 'from-pink-500 to-rose-500',
+      "Professional manicure services that shape, clean, and perfect your nails for a polished look.",
+    image: "/nails.jpg",
+    color: "from-pink-500 to-rose-500",
   },
   {
-    title: 'Artificial Nails',
+    title: "Artificial Nails",
     description:
-      'Nail extensions improve length, shape, and strength, providing a sophisticated appearance.',
-    image: '/artificiall-nails.jpg',
-    color: 'from-purple-500 to-indigo-500',
+      "Nail extensions improve length, shape, and strength, providing a sophisticated appearance.",
+    image: "/artificiall-nails.jpg",
+    color: "from-purple-500 to-indigo-500",
   },
   {
-    title: 'Lash Lift',
+    title: "Lash Lift",
     description:
-      'Enhance thicker, fuller curls and elevate lashes for a natural, lifted look.',
-    image: '/lash-lifting.jpg',
-    color: 'from-blue-500 to-cyan-500',
+      "Enhance thicker, fuller curls and elevate lashes for a natural, lifted look.",
+    image: "/lash-lifting.jpg",
+    color: "from-blue-500 to-cyan-500",
   },
   {
-    title: 'Scalp Therapy Spa',
+    title: "Scalp Therapy Spa",
     description:
-      'Scalp massage relieves tension, alleviates headaches, and stimulates hair growth.',
-    image: '/Scalp Therapy Spa .jpg',
-    color: 'from-red-500 to-pink-500',
+      "Scalp massage relieves tension, alleviates headaches, and stimulates hair growth.",
+    image: "/Scalp Therapy Spa .jpg",
+    color: "from-red-500 to-pink-500",
   },
   {
-    title: 'Kids Nails',
+    title: "Kids Nails",
     description:
-      'We provide a range of nail care services specifically designed for children.',
-    image: '/kids.jpg',
-    color: 'from-yellow-500 to-orange-500',
+      "We provide a range of nail care services specifically designed for children.",
+    image: "/kids.jpg",
+    color: "from-brand-yellow to-[#d4a574]",
   },
   {
-    title: 'Waxing',
+    title: "Waxing",
     description:
-      'Remove hair from the follicle for smoother skin and slower regrowth.',
-    image: '/Waxing.jpg',
-    color: 'from-teal-500 to-emerald-500',
+      "Remove hair from the follicle for smoother skin and slower regrowth.",
+    image: "/Waxing.jpg",
+    color: "from-teal-500 to-emerald-500",
   },
   {
-    title: 'Facials',
+    title: "Facials",
     description:
-      'Brighter, smoother lifts and a radiant glow tailored to your skin.',
-    image: '/Facials.jpg',
-    color: 'from-violet-500 to-purple-500',
+      "Brighter, smoother lifts and a radiant glow tailored to your skin.",
+    image: "/Facials.jpg",
+    color: "from-violet-500 to-purple-500",
   },
 ];
 
@@ -58,28 +58,29 @@ export default function ServicesSection() {
   return (
     <>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Belleza&family=Meow+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Belleza&family=Meow+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
       `}</style>
 
-      <section 
-        className="bg-gradient-to-br from-white via-green-50/30 to-white py-24 px-6 relative overflow-hidden"
-        style={{ fontFamily: 'Open Sans, sans-serif' }}
+      <section
+        className="bg-gradient-to-br from-white via-brand-green/10 to-white py-24 px-6 relative overflow-hidden"
+        style={{ fontFamily: "Open Sans, sans-serif" }}
       >
         {/* Decorative background */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-green-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-300/15 rounded-full blur-3xl" />
-        
+        <div className="absolute top-0 left-0 w-72 h-72 bg-brand-green/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-yellow/15 rounded-full blur-3xl" />
+
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 
-              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#008009] to-[#006400] bg-clip-text text-transparent"
-              style={{ fontFamily: 'Belleza, sans-serif' }}
+            <h2
+              className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-brand-green to-brand-green bg-clip-text text-transparent"
+              style={{ fontFamily: "Belleza, sans-serif" }}
             >
               Our Nail Services
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Premium beauty treatments designed to enhance your confidence and relaxation.
+            <p className="text-lg text-[#5a5a5a] max-w-2xl mx-auto">
+              Premium beauty treatments designed to enhance your confidence and
+              relaxation.
             </p>
           </div>
 
@@ -128,13 +129,13 @@ function ServiceCardLarge({ service }) {
           quality={85}
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-600/90 to-emerald-700/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-green/90 to-brand-green/90" />
       </div>
-      
+
       <div className="relative z-10 h-full p-8 md:p-12 flex flex-col justify-end">
-        <h3 
+        <h3
           className="text-3xl md:text-4xl font-bold text-white mb-4"
-          style={{ fontFamily: 'Belleza, sans-serif' }}
+          style={{ fontFamily: "Belleza, sans-serif" }}
         >
           {service.title}
         </h3>
@@ -142,8 +143,6 @@ function ServiceCardLarge({ service }) {
         <p className="text-lg text-white/90 leading-relaxed mb-6">
           {service.description}
         </p>
-
-
       </div>
     </div>
   );
@@ -152,7 +151,7 @@ function ServiceCardLarge({ service }) {
 // Small Horizontal Cards with Images
 function ServiceCardSmall({ service }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-gray-100 group hover:scale-[1.02] overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-[#d0d0d0] group hover:scale-[1.02] overflow-hidden">
       <div className="flex items-center gap-0 h-32">
         {/* Image Section */}
         <div className="w-32 h-full relative flex-shrink-0 overflow-hidden">
@@ -163,18 +162,20 @@ function ServiceCardSmall({ service }) {
             className="object-cover transition-transform duration-500 group-hover:scale-110"
             quality={85}
           />
-          <div className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-30 group-hover:opacity-20 transition-opacity`} />
+          <div
+            className={`absolute inset-0 bg-gradient-to-r ${service.color} opacity-30 group-hover:opacity-20 transition-opacity`}
+          />
         </div>
-        
+
         {/* Text Section */}
         <div className="flex-1 p-4">
-          <h4 
-            className="font-bold text-gray-900 mb-1 group-hover:text-green-700 transition-colors text-sm md:text-base"
-            style={{ fontFamily: 'Roboto, sans-serif' }}
+          <h4
+            className="font-bold text-gray-900 mb-1 group-hover:text-brand-green transition-colors text-sm md:text-base"
+            style={{ fontFamily: "Roboto, sans-serif" }}
           >
             {service.title}
           </h4>
-          <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
+          <p className="text-xs md:text-sm text-[#5a5a5a] line-clamp-2">
             {service.description}
           </p>
         </div>
@@ -186,7 +187,7 @@ function ServiceCardSmall({ service }) {
 // Medium Vertical Cards with Images
 function ServiceCardMedium({ service }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-gray-100 h-full group hover:-translate-y-2 overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-[#d0d0d0] h-full group hover:-translate-y-2 overflow-hidden">
       {/* Image Section */}
       <div className="h-48 relative overflow-hidden">
         <Image
@@ -196,18 +197,20 @@ function ServiceCardMedium({ service }) {
           className="object-cover transition-transform duration-500 group-hover:scale-110"
           quality={85}
         />
-        <div className={`absolute inset-0 bg-gradient-to-t ${service.color} opacity-20 group-hover:opacity-10 transition-opacity`} />
+        <div
+          className={`absolute inset-0 bg-gradient-to-t ${service.color} opacity-20 group-hover:opacity-10 transition-opacity`}
+        />
       </div>
-      
+
       {/* Text Section */}
       <div className="p-6">
-        <h4 
-          className="text-lg font-bold text-gray-900 mb-2 group-hover:text-green-700 transition-colors"
-          style={{ fontFamily: 'Roboto, sans-serif' }}
+        <h4
+          className="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand-green transition-colors"
+          style={{ fontFamily: "Roboto, sans-serif" }}
         >
           {service.title}
         </h4>
-        <p className="text-sm text-gray-600 leading-relaxed">
+        <p className="text-sm text-[#5a5a5a] leading-relaxed">
           {service.description}
         </p>
       </div>

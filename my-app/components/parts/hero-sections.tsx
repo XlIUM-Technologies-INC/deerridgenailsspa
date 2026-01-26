@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import React, { useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Sparkles, Star } from 'lucide-react';
+import React, { useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { Sparkles, Star } from "lucide-react";
 
 export default function HeroSection() {
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -28,13 +28,13 @@ export default function HeroSection() {
       transition: {
         duration: 3,
         repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
+        ease: "easeInOut" as const,
+      },
+    },
   };
 
   const sparkleVariants = {
-    animate: (i) => ({
+    animate: (i: number) => ({
       scale: [1, 1.5, 1],
       opacity: [0.3, 1, 0.3],
       rotate: [0, 180, 360],
@@ -42,24 +42,24 @@ export default function HeroSection() {
         duration: 2,
         repeat: Infinity,
         delay: i * 0.3,
-        ease: "easeInOut"
-      }
-    })
+        ease: "easeInOut" as const,
+      },
+    }),
   };
 
   return (
     <>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Belleza&family=Meow+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Belleza&family=Meow+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
       `}</style>
 
-      <section 
+      <section
         ref={sectionRef}
-        className="bg-white px-6 py-16 min-h-[85vh] flex flex-col justify-center relative overflow-hidden"
-        style={{ fontFamily: 'Open Sans, sans-serif' }}
+        className="bg-brand-yellow px-6 py-16 min-h-[85vh] flex flex-col justify-center relative overflow-hidden"
+        style={{ fontFamily: "Open Sans, sans-serif" }}
       >
         {/* Animated Background Elements */}
-        <motion.div 
+        <motion.div
           className="absolute inset-0 pointer-events-none"
           style={{ y, opacity }}
         >
@@ -76,7 +76,7 @@ export default function HeroSection() {
                 top: `${20 + (i % 3) * 20}%`,
               }}
             >
-              <Sparkles className="text-yellow-300/40 w-6 h-6" />
+              <Sparkles className="text-brand-yellow/40 w-6 h-6" />
             </motion.div>
           ))}
 
@@ -90,10 +90,13 @@ export default function HeroSection() {
               style={{
                 right: `${10 + i * 18}%`,
                 top: `${15 + (i % 2) * 30}%`,
-                transitionDelay: `${i * 0.2}s`
+                transitionDelay: `${i * 0.2}s`,
               }}
             >
-              <Star className="text-yellow-400/30 w-5 h-5" fill="currentColor" />
+              <Star
+                className="text-brand-yellow/30 w-5 h-5"
+                fill="currentColor"
+              />
             </motion.div>
           ))}
 
@@ -106,9 +109,9 @@ export default function HeroSection() {
             transition={{
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
-            className="absolute top-1/4 left-1/4 w-64 h-64 bg-green-300/20 rounded-full blur-3xl"
+            className="absolute top-1/4 left-1/4 w-64 h-64 bg-brand-green/20 rounded-full blur-3xl"
           />
           <motion.div
             animate={{
@@ -119,13 +122,13 @@ export default function HeroSection() {
               duration: 5,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: 1
+              delay: 1,
             }}
-            className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-yellow-400/15 rounded-full blur-3xl"
+            className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-brand-yellow/15 rounded-full blur-3xl"
           />
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="max-w-7xl mx-auto w-full relative z-10"
           style={{ scale }}
         >
@@ -133,25 +136,25 @@ export default function HeroSection() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-8">
             {/* Left Side - Text Content */}
             <div className="flex-1" ref={titleRef}>
-              <motion.h1 
-                className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 leading-tight"
-                style={{ fontFamily: 'Belleza, sans-serif' }}
+              <motion.h1
+                className="text-5xl md:text-6xl lg:text-7xl font-black text-[#2a2a2a] mb-6 leading-tight"
+                style={{ fontFamily: "Belleza, sans-serif" }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                {['DEER RIDGE', 'NAILS SPA'].map((line, lineIndex) => (
+                {["DEER RIDGE", "NAILS SPA"].map((line, lineIndex) => (
                   <span key={lineIndex} className="block">
-                    {line.split(' ').map((word, wordIndex) => (
+                    {line.split(" ").map((word, wordIndex) => (
                       <motion.span
                         key={wordIndex}
-                        className="inline-block mr-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent hover:from-green-500 hover:to-emerald-500 transition-all duration-300"
+                        className="inline-block mr-4 bg-gradient-to-r from-brand-green to-brand-green bg-clip-text text-transparent hover:from-brand-green hover:to-brand-green transition-all duration-300"
                         initial={{ opacity: 0, y: 50 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{
                           duration: 0.5,
                           delay: lineIndex * 0.3 + wordIndex * 0.1,
-                          ease: "easeOut"
+                          ease: "easeOut",
                         }}
                       >
                         {word}
@@ -160,10 +163,10 @@ export default function HeroSection() {
                   </span>
                 ))}
               </motion.h1>
-              
-              <motion.p 
-                className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed"
-                style={{ fontFamily: 'Open Sans, sans-serif', fontWeight: 400 }}
+
+              <motion.p
+                className="text-lg md:text-xl text-[#5a5a5a] mb-8 leading-relaxed"
+                style={{ fontFamily: "Open Sans, sans-serif", fontWeight: 400 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -172,7 +175,7 @@ export default function HeroSection() {
               </motion.p>
 
               {/* Customer Avatars */}
-              <motion.div 
+              <motion.div
                 className="flex items-center space-x-3 mb-8"
                 initial={{ opacity: 0, x: -50 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -182,7 +185,7 @@ export default function HeroSection() {
                   {[
                     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100",
                     "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100",
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100"
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100",
                   ].map((src, i) => (
                     <motion.div
                       key={i}
@@ -192,7 +195,7 @@ export default function HeroSection() {
                         duration: 0.5,
                         delay: 1 + i * 0.1,
                         type: "spring",
-                        stiffness: 200
+                        stiffness: 200,
                       }}
                     >
                       <Avatar className="border-2 border-white w-12 h-12">
@@ -202,15 +205,18 @@ export default function HeroSection() {
                     </motion.div>
                   ))}
                 </div>
-                <div className="text-sm text-gray-600" style={{ fontFamily: 'Roboto, sans-serif', fontWeight: 600 }}>
+                <div
+                  className="text-sm text-[#7a7a7a]"
+                  style={{ fontFamily: "Roboto, sans-serif", fontWeight: 600 }}
+                >
                   <div className="font-semibold">500+ SATISFIED</div>
                   <div>CUSTOMERS</div>
                 </div>
               </motion.div>
             </div>
-            
+
             {/* Right Side - Big Square with Image Text Mask + Overlapping Papers */}
-            <motion.div 
+            <motion.div
               className="relative w-full h-[500px] lg:h-[600px]"
               initial={{ opacity: 0, x: 100 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -230,29 +236,30 @@ export default function HeroSection() {
                 </div>
 
                 {/* Green Overlay */}
-                <motion.div 
-                  className="absolute inset-0 bg-[#008009] opacity-60"
+                <motion.div
+                  className="absolute inset-0 bg-brand-green opacity-60"
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 0.6 } : {}}
                   transition={{ duration: 0.8, delay: 0.7 }}
                 />
 
                 {/* Text with Image Mask */}
-                <div 
+                <div
                   className="absolute inset-0 flex items-center justify-center"
                   style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    color: 'transparent',
+                    backgroundImage:
+                      "url(https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    color: "transparent",
                   }}
                 >
-                  <motion.h2 
+                  <motion.h2
                     className="text-7xl md:text-8xl lg:text-9xl font-black leading-none text-center px-4"
-                    style={{ fontFamily: 'Belleza, sans-serif' }}
+                    style={{ fontFamily: "Belleza, sans-serif" }}
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={isInView ? { scale: 1, opacity: 1 } : {}}
                     transition={{ duration: 1, delay: 0.9 }}
@@ -304,48 +311,56 @@ export default function HeroSection() {
               </motion.div>
             </motion.div>
           </div>
-          
+
           {/* CTA Button */}
-          <motion.div 
+          <motion.div
             className="flex justify-end mb-12"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 1 }}
           >
             <motion.div
-              whileHover={{ scale: 1.08, boxShadow: "0 20px 40px rgba(0, 128, 9, 0.3)" }}
+              whileHover={{
+                scale: 1.08,
+                boxShadow: "0 20px 40px rgba(0, 128, 9, 0.3)",
+              }}
               whileTap={{ scale: 0.95 }}
             >
               <Link href="/contact">
                 <Button
-                  className="rounded-full px-8 py-6 h-auto group bg-[#008009] text-white hover:bg-[#006400] shadow-lg hover:shadow-2xl transition-all duration-300 text-lg font-bold"
-                  style={{ fontFamily: 'Roboto, sans-serif' }}
+                  className="rounded-full px-8 py-6 h-auto group bg-brand-green text-white hover:bg-brand-green shadow-lg hover:shadow-2xl transition-all duration-300 text-lg font-bold"
+                  style={{ fontFamily: "Roboto, sans-serif" }}
                   aria-label="Make an appointment for nail services"
                 >
-                  <motion.span 
+                  <motion.span
                     className="inline-block"
                     animate={{ y: [0, -2, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
                     MAKE APPOINTMENT
                   </motion.span>
-                  <motion.svg 
-                    className="w-5 h-5 ml-3 inline-block" 
-                    fill="none" 
-                    stroke="currentColor" 
+                  <motion.svg
+                    className="w-5 h-5 ml-3 inline-block"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </motion.svg>
                 </Button>
               </Link>
             </motion.div>
           </motion.div>
-          
+
           {/* Image Gallery */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -358,10 +373,22 @@ export default function HeroSection() {
             }}
           >
             {[
-              { src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400", alt: "Professional manicure service" },
-              { src: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=400", alt: "Nail art design" },
-              { src: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400", alt: "Nail polish application" },
-              { src: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400", alt: "Beautiful nail care results" }
+              {
+                src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400",
+                alt: "Professional manicure service",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=400",
+                alt: "Nail art design",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400",
+                alt: "Nail polish application",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400",
+                alt: "Beautiful nail care results",
+              },
             ].map((image, i) => (
               <motion.div
                 key={i}
@@ -374,12 +401,12 @@ export default function HeroSection() {
                     transition: { duration: 0.5, type: "spring" },
                   },
                 }}
-                whileHover={{ 
-                  scale: 1.08, 
+                whileHover={{
+                  scale: 1.08,
                   rotate: 2,
-                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)"
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)",
                 }}
-                className="aspect-square bg-gray-200 rounded-lg overflow-hidden cursor-pointer group shadow-md"
+                className="aspect-square bg-[#e0e0e0] rounded-lg overflow-hidden cursor-pointer group shadow-md"
               >
                 <Image
                   src={image.src}

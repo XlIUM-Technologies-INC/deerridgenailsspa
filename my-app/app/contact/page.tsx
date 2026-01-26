@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useRef, useState } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import { 
+import React, { useRef, useState } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import {
   MapPin,
   Phone,
   Mail,
@@ -14,14 +14,14 @@ import {
   Instagram,
   Facebook,
   Twitter,
-  CheckCircle2
-} from 'lucide-react';
+  CheckCircle2,
+} from "lucide-react";
 // @ts-ignore
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export default function Page() {
   const heroRef = useRef(null);
@@ -33,19 +33,19 @@ export default function Page() {
   const formInView = useInView(formRef, { once: true, amount: 0.2 });
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    date: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    date: "",
+    message: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
@@ -53,9 +53,9 @@ export default function Page() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -65,12 +65,12 @@ export default function Page() {
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        date: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        date: "",
+        message: "",
       });
     }, 3000);
   };
@@ -78,59 +78,62 @@ export default function Page() {
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Visit Us',
-      content: 'Kitchener, Ontario, Canada',
-      link: 'https://maps.google.com',
-      color: 'text-red-500'
+      title: "Visit Us",
+      content: "Kitchener, Ontario, Canada",
+      link: "https://maps.google.com",
+      color: "text-red-500",
     },
     {
       icon: Phone,
-      title: 'Call Us',
-      content: '(519) 888-8888',
-      link: 'tel:5198888888',
-      color: 'text-blue-500'
+      title: "Call Us",
+      content: "(519) 888-8888",
+      link: "tel:5198888888",
+      color: "text-blue-500",
     },
     {
       icon: Mail,
-      title: 'Email Us',
-      content: 'info@deerridgenailsspa.ca',
-      link: 'mailto:info@deerridgenailsspa.ca',
-      color: 'text-purple-500'
+      title: "Email Us",
+      content: "info@deerridgenailsspa.ca",
+      link: "mailto:info@deerridgenailsspa.ca",
+      color: "text-purple-500",
     },
     {
       icon: Clock,
-      title: 'Business Hours',
-      content: 'Mon-Sun: 9:00 AM - 8:00 PM',
+      title: "Business Hours",
+      content: "Mon-Sun: 9:00 AM - 8:00 PM",
       link: null,
-      color: 'text-green-500'
-    }
+      color: "text-brand-green",
+    },
   ];
 
   const businessHours = [
-    { day: 'Monday', hours: '9:00 AM - 8:00 PM', open: true, promo: true },
-    { day: 'Tuesday', hours: '9:00 AM - 8:00 PM', open: true, promo: true },
-    { day: 'Wednesday', hours: '9:00 AM - 8:00 PM', open: true },
-    { day: 'Thursday', hours: '9:00 AM - 8:00 PM', open: true },
-    { day: 'Friday', hours: '9:00 AM - 9:00 PM', open: true },
-    { day: 'Saturday', hours: '9:00 AM - 9:00 PM', open: true },
-    { day: 'Sunday', hours: '10:00 AM - 7:00 PM', open: true }
+    { day: "Monday", hours: "9:00 AM - 8:00 PM", open: true, promo: true },
+    { day: "Tuesday", hours: "9:00 AM - 8:00 PM", open: true, promo: true },
+    { day: "Wednesday", hours: "9:00 AM - 8:00 PM", open: true },
+    { day: "Thursday", hours: "9:00 AM - 8:00 PM", open: true },
+    { day: "Friday", hours: "9:00 AM - 9:00 PM", open: true },
+    { day: "Saturday", hours: "9:00 AM - 9:00 PM", open: true },
+    { day: "Sunday", hours: "10:00 AM - 7:00 PM", open: true },
   ];
 
   const services = [
-    'Manicure',
-    'Pedicure',
-    'Nail Art',
-    'Gel Extensions',
-    'Acrylic Extensions',
-    'Spa Treatment',
-    'Other'
+    "Manicure",
+    "Pedicure",
+    "Nail Art",
+    "Gel Extensions",
+    "Acrylic Extensions",
+    "Spa Treatment",
+    "Other",
   ];
 
   return (
     <div className="bg-[#ffffff]">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-green-50 via-blue-50 to-green-100">
-        <motion.div 
+      <section
+        ref={heroRef}
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green/5 via-blue-50 to-brand-yellow/10"
+      >
+        <motion.div
           className="absolute inset-0 opacity-0"
           style={{ y, opacity }}
         ></motion.div>
@@ -145,7 +148,7 @@ export default function Page() {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -158,13 +161,13 @@ export default function Page() {
             duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1
+            delay: 1,
           }}
         />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
+            className="text-brand-green font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -172,7 +175,7 @@ export default function Page() {
             Get in Touch
           </motion.p>
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#2a2a2a] mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -180,18 +183,19 @@ export default function Page() {
             Contact Us
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto"
+            className="text-xl text-[#5a5a5a] mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            We'd love to hear from you! Book an appointment or reach out with any questions
+            We'd love to hear from you! Book an appointment or reach out with
+            any questions
           </motion.p>
         </div>
       </section>
 
       {/* Contact Info Cards */}
-      <section ref={contactRef} className="bg-white py-20 px-6">
+      <section ref={contactRef} className="bg-brand-yellow py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {contactInfo.map((info, index) => (
@@ -204,26 +208,32 @@ export default function Page() {
                 <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 h-full group">
                   <CardContent className="p-6 text-center">
                     <motion.div
-                      className="bg-gray-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform"
+                      className="bg-[#e0e0e0] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
                       <info.icon className={`w-8 h-8 ${info.color}`} />
                     </motion.div>
-                    <h3 className="font-bold text-gray-900 mb-2">
+                    <h3 className="font-bold text-[#2a2a2a] mb-2">
                       {info.title}
                     </h3>
                     {info.link ? (
-                      <a 
+                      <a
                         href={info.link}
-                        className="text-gray-600 hover:text-[#008009] transition-colors"
-                        target={info.link.startsWith('http') ? '_blank' : undefined}
-                        rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="text-[#5a5a5a] hover:text-brand-green transition-colors"
+                        target={
+                          info.link.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          info.link.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
                       >
                         {info.content}
                       </a>
                     ) : (
-                      <p className="text-gray-600">{info.content}</p>
+                      <p className="text-[#5a5a5a]">{info.content}</p>
                     )}
                   </CardContent>
                 </Card>
@@ -249,7 +259,7 @@ export default function Page() {
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">
                     Book an Appointment
                   </h2>
-                  <p className="text-gray-600 mb-8">
+                  <p className="text-[#5a5a5a] mb-8">
                     Fill out the form below and we'll get back to you shortly
                   </p>
 
@@ -259,7 +269,7 @@ export default function Page() {
                       animate={{ opacity: 1, scale: 1 }}
                       className="text-center py-12"
                     >
-                      <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                      <CheckCircle2 className="w-16 h-16 text-brand-green mx-auto mb-4" />
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
                         Thank You!
                       </h3>
@@ -271,18 +281,18 @@ export default function Page() {
                     <div className="space-y-6">
                       {/* Name */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-[#4a4a4a] mb-2">
                           Full Name *
                         </label>
                         <div className="relative">
-                          <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                          <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#7a7a7a]" />
                           <Input
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
                             placeholder="John Doe"
-                            className="pl-10 h-12 border-gray-300 focus:border-[#008009] focus:ring-[#008009]"
+                            className="pl-10 h-12 border-[#d0d0d0] focus:border-brand-green focus:ring-brand-green"
                           />
                         </div>
                       </div>
@@ -294,14 +304,14 @@ export default function Page() {
                             Email *
                           </label>
                           <div className="relative">
-                            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#7a7a7a]" />
                             <Input
                               type="email"
                               name="email"
                               value={formData.email}
                               onChange={handleInputChange}
                               placeholder="john@example.com"
-                              className="pl-10 h-12 border-gray-300 focus:border-[#008009] focus:ring-[#008009]"
+                              className="pl-10 h-12 border-[#d0d0d0] focus:border-brand-green focus:ring-brand-green"
                             />
                           </div>
                         </div>
@@ -317,7 +327,7 @@ export default function Page() {
                               value={formData.phone}
                               onChange={handleInputChange}
                               placeholder="(555) 123-4567"
-                              className="pl-10 h-12 border-gray-300 focus:border-[#008009] focus:ring-[#008009]"
+                              className="pl-10 h-12 border-[#d0d0d0] focus:border-brand-green focus:ring-brand-green"
                             />
                           </div>
                         </div>
@@ -333,7 +343,7 @@ export default function Page() {
                             name="service"
                             value={formData.service}
                             onChange={handleInputChange}
-                            className="w-full h-12 px-4 border border-gray-300 rounded-md focus:border-[#008009] focus:ring-[#008009] focus:ring-2 focus:ring-offset-0"
+                            className="w-full h-12 px-4 border border-[#d0d0d0] rounded-md focus:border-brand-green focus:ring-brand-green focus:ring-2 focus:ring-offset-0"
                           >
                             <option value="">Select a service</option>
                             {services.map((service, idx) => (
@@ -348,13 +358,13 @@ export default function Page() {
                             Preferred Date *
                           </label>
                           <div className="relative">
-                            <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                            <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-[#7a7a7a]" />
                             <Input
                               type="date"
                               name="date"
                               value={formData.date}
                               onChange={handleInputChange}
-                              className="pl-10 h-12 border-gray-300 focus:border-[#008009] focus:ring-[#008009]"
+                              className="pl-10 h-12 border-[#d0d0d0] focus:border-brand-green focus:ring-brand-green"
                             />
                           </div>
                         </div>
@@ -366,14 +376,14 @@ export default function Page() {
                           Additional Message
                         </label>
                         <div className="relative">
-                          <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
+                          <MessageSquare className="absolute left-3 top-3 w-5 h-5 text-[#7a7a7a]" />
                           <textarea
                             name="message"
                             value={formData.message}
                             onChange={handleInputChange}
                             placeholder="Any special requests or questions?"
-                            rows="4"
-                            className="w-full pl-10 pt-3 px-4 border border-gray-300 rounded-md focus:border-[#008009] focus:ring-[#008009] focus:ring-2 focus:ring-offset-0 resize-none"
+                            rows={4}
+                            className="w-full pl-10 pt-3 px-4 border border-[#d0d0d0] rounded-md focus:border-brand-green focus:ring-brand-green focus:ring-2 focus:ring-offset-0 resize-none"
                           />
                         </div>
                       </div>
@@ -381,7 +391,7 @@ export default function Page() {
                       {/* Submit Button */}
                       <Button
                         onClick={handleSubmit}
-                        className="w-full bg-[#008009] text-white hover:bg-[#006400] h-12 text-lg font-semibold group"
+                        className="w-full bg-brand-green text-white hover:bg-brand-green h-12 text-lg font-semibold group"
                       >
                         Send Message
                         <Send className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -403,7 +413,7 @@ export default function Page() {
               <Card className="border-none shadow-xl">
                 <CardContent className="p-8">
                   <div className="flex items-center gap-3 mb-6">
-                    <Clock className="w-8 h-8 text-[#008009]" />
+                    <Clock className="w-8 h-8 text-brand-green" />
                     <h2 className="text-3xl font-bold text-gray-900">
                       Business Hours
                     </h2>
@@ -415,31 +425,37 @@ export default function Page() {
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
                         animate={formInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
-                        className="flex items-center justify-between py-3 border-b border-gray-100 last:border-0"
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.3 + index * 0.05,
+                        }}
+                        className="flex items-center justify-between py-3 border-b border-[#d0d0d0] last:border-0"
                       >
                         <div className="flex items-center gap-3">
                           <span className="font-semibold text-gray-900 w-28">
                             {schedule.day}
                           </span>
                           {schedule.promo && (
-                            <Badge className="bg-[#008009] hover:bg-[#008009] text-xs">
+                            <Badge className="bg-brand-green hover:bg-brand-green text-xs">
                               10% OFF
                             </Badge>
                           )}
                         </div>
-                        <span className={`font-medium ${schedule.open ? 'text-green-600' : 'text-red-600'}`}>
+                        <span
+                          className={`font-medium ${schedule.open ? "text-green-600" : "text-red-600"}`}
+                        >
                           {schedule.hours}
                         </span>
                       </motion.div>
                     ))}
                   </div>
 
-                  <div className="mt-6 p-4 bg-[#008009]/10 rounded-lg">
+                  <div className="mt-6 p-4 bg-brand-green/10 rounded-lg">
                     <p className="text-sm text-gray-700 flex items-start gap-2">
-                      <span className="text-[#008009] font-bold">💡</span>
+                      <span className="text-brand-green font-bold">💡</span>
                       <span>
-                        <strong>Special Offer:</strong> Get 10% off all services every Monday & Tuesday!
+                        <strong>Special Offer:</strong> Get 10% off all services
+                        every Monday & Tuesday!
                       </span>
                     </p>
                   </div>
@@ -464,7 +480,7 @@ export default function Page() {
                   </div>
                   <div className="p-6 bg-white">
                     <div className="flex items-start gap-3">
-                      <MapPin className="w-6 h-6 text-[#008009] flex-shrink-0 mt-1" />
+                      <MapPin className="w-6 h-6 text-brand-green flex-shrink-0 mt-1" />
                       <div>
                         <h3 className="font-bold text-gray-900 mb-1">
                           Visit Our Salon
@@ -474,8 +490,10 @@ export default function Page() {
                         </p>
                         <Button
                           variant="outline"
-                          className="border-[#008009] text-[#008009] hover:bg-[#008009] hover:text-white"
-                          onClick={() => window.open('https://maps.google.com', '_blank')}
+                          className="border-brand-green text-brand-green hover:bg-brand-green hover:text-white"
+                          onClick={() =>
+                            window.open("https://maps.google.com", "_blank")
+                          }
                         >
                           Get Directions
                         </Button>
@@ -495,21 +513,21 @@ export default function Page() {
                     <Button
                       variant="outline"
                       size="icon"
-                      className="w-12 h-12 border-gray-300 hover:border-[#008009] hover:bg-[#008009] hover:text-white"
+                      className="w-12 h-12 border-gray-300 hover:border-brand-green hover:bg-brand-green hover:text-white"
                     >
                       <Instagram className="w-6 h-6" />
                     </Button>
                     <Button
                       variant="outline"
                       size="icon"
-                      className="w-12 h-12 border-gray-300 hover:border-[#008009] hover:bg-[#008009] hover:text-white"
+                      className="w-12 h-12 border-gray-300 hover:border-brand-green hover:bg-brand-green hover:text-white"
                     >
                       <Facebook className="w-6 h-6" />
                     </Button>
                     <Button
                       variant="outline"
                       size="icon"
-                      className="w-12 h-12 border-gray-300 hover:border-[#008009] hover:bg-[#008009] hover:text-white"
+                      className="w-12 h-12 border-gray-300 hover:border-brand-green hover:bg-brand-green hover:text-white"
                     >
                       <Twitter className="w-6 h-6" />
                     </Button>

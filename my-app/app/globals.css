@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -137,7 +137,7 @@ body {
 
 :root {
   --radius: 0.625rem;
-  --background: 255 255 255;
+  --background: 244 241 234; /* #f4f1ea 浅黄色背景 */
   --foreground: 0 0 0;
   --card: 255 255 255;
   --card-foreground: 0 0 0;
@@ -155,6 +155,14 @@ body {
   --border: 226 232 240;
   --input: 226 232 240;
   --ring: 15 23 42;
+
+  /* 🎨 网站品牌颜色 - 在这里修改颜色会应用到整个网站 */
+  --brand-green: #1a2e1a; /* 深绿色 - 主要品牌色 */
+  --brand-yellow: #f4f1ea; /* 浅黄色 - 辅助色 */
+  --brand-gray-dark: #2a2a2a; /* 深灰色 */
+  --brand-gray-medium: #5a5a5a; /* 中灰色 */
+  --brand-gray-light: #a0a0a0; /* 浅灰色 */
+  --brand-gray-lighter: #e0e0e0; /* 极浅灰色 */
 }
 
 .dark {
@@ -187,17 +195,175 @@ body {
   }
 }
 
+/* 🎨 品牌颜色实用类 - 使用 Tailwind 语法 */
+@layer utilities {
+  /* 文字颜色 */
+  .text-brand-green {
+    color: var(--brand-green);
+  }
+  .text-brand-yellow {
+    color: var(--brand-yellow);
+  }
+  .text-brand-gray-dark {
+    color: var(--brand-gray-dark);
+  }
+  .text-brand-gray-medium {
+    color: var(--brand-gray-medium);
+  }
+  .text-brand-gray-light {
+    color: var(--brand-gray-light);
+  }
+  .text-brand-gray-lighter {
+    color: var(--brand-gray-lighter);
+  }
+
+  /* 背景颜色 */
+  .bg-brand-green {
+    background-color: var(--brand-green);
+  }
+  .bg-brand-yellow {
+    background-color: var(--brand-yellow);
+  }
+  .bg-brand-gray-dark {
+    background-color: var(--brand-gray-dark);
+  }
+  .bg-brand-gray-medium {
+    background-color: var(--brand-gray-medium);
+  }
+  .bg-brand-gray-light {
+    background-color: var(--brand-gray-light);
+  }
+  .bg-brand-gray-lighter {
+    background-color: var(--brand-gray-lighter);
+  }
+
+  /* 背景颜色带透明度 */
+  .bg-brand-green\/5 {
+    background-color: rgb(from var(--brand-green) r g b / 0.05);
+  }
+  .bg-brand-green\/10 {
+    background-color: rgb(from var(--brand-green) r g b / 0.1);
+  }
+  .bg-brand-green\/15 {
+    background-color: rgb(from var(--brand-green) r g b / 0.15);
+  }
+  .bg-brand-green\/20 {
+    background-color: rgb(from var(--brand-green) r g b / 0.2);
+  }
+  .bg-brand-green\/40 {
+    background-color: rgb(from var(--brand-green) r g b / 0.4);
+  }
+  .bg-brand-green\/60 {
+    background-color: rgb(from var(--brand-green) r g b / 0.6);
+  }
+  .bg-brand-green\/90 {
+    background-color: rgb(from var(--brand-green) r g b / 0.9);
+  }
+
+  .bg-brand-yellow\/10 {
+    background-color: rgb(from var(--brand-yellow) r g b / 0.1);
+  }
+  .bg-brand-yellow\/15 {
+    background-color: rgb(from var(--brand-yellow) r g b / 0.15);
+  }
+  .bg-brand-yellow\/30 {
+    background-color: rgb(from var(--brand-yellow) r g b / 0.3);
+  }
+  .bg-brand-yellow\/50 {
+    background-color: rgb(from var(--brand-yellow) r g b / 0.5);
+  }
+
+  /* 文字颜色带透明度 */
+  .text-brand-green\/20 {
+    color: rgb(from var(--brand-green) r g b / 0.2);
+  }
+  .text-brand-green\/30 {
+    color: rgb(from var(--brand-green) r g b / 0.3);
+  }
+  .text-brand-yellow\/30 {
+    color: rgb(from var(--brand-yellow) r g b / 0.3);
+  }
+  .text-brand-yellow\/40 {
+    color: rgb(from var(--brand-yellow) r g b / 0.4);
+  }
+
+  /* 边框颜色 */
+  .border-brand-green {
+    border-color: var(--brand-green);
+  }
+  .border-brand-yellow {
+    border-color: var(--brand-yellow);
+  }
+  .border-brand-gray-dark {
+    border-color: var(--brand-gray-dark);
+  }
+  .border-brand-gray-medium {
+    border-color: var(--brand-gray-medium);
+  }
+  .border-brand-gray-light {
+    border-color: var(--brand-gray-light);
+  }
+  .border-brand-gray-lighter {
+    border-color: var(--brand-gray-lighter);
+  }
+
+  /* Hover 状态 */
+  .hover\:bg-brand-green:hover {
+    background-color: var(--brand-green);
+  }
+  .hover\:text-brand-green:hover {
+    color: var(--brand-green);
+  }
+  .hover\:border-brand-green:hover {
+    border-color: var(--brand-green);
+  }
+
+  /* Gradient 颜色 - 用于 from/to */
+  .from-brand-green {
+    --tw-gradient-from: var(--brand-green);
+    --tw-gradient-to: rgb(from var(--brand-green) r g b / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  .to-brand-green {
+    --tw-gradient-to: var(--brand-green);
+  }
+  .from-brand-yellow {
+    --tw-gradient-from: var(--brand-yellow);
+    --tw-gradient-to: rgb(from var(--brand-yellow) r g b / 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+  .to-brand-yellow {
+    --tw-gradient-to: var(--brand-yellow);
+  }
+
+  /* Focus 状态 */
+  .focus\:border-brand-green:focus {
+    border-color: var(--brand-green);
+  }
+  .focus\:ring-brand-green:focus {
+    --tw-ring-color: var(--brand-green);
+  }
+}
+
 /* Decorative Wallpaper Patterns */
 @layer utilities {
   /* Subtle pattern background for light sections */
   .pattern-dots {
-    background-image: radial-gradient(circle, rgb(34 197 94 / 0.1) 1px, transparent 1px);
+    background-image: radial-gradient(
+      circle,
+      rgb(34 197 94 / 0.1) 1px,
+      transparent 1px
+    );
     background-size: 20px 20px;
   }
 
   /* Subtle pattern background for dark sections */
   .pattern-dots-dark {
-    background-image: radial-gradient(circle, rgb(34 197 94 / 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(
+      circle,
+      rgb(34 197 94 / 0.05) 1px,
+      transparent 1px
+    );
     background-size: 20px 20px;
   }
 
@@ -241,7 +407,8 @@ body {
 
   /* Gradient mesh effect */
   .gradient-mesh {
-    background: linear-gradient(135deg, 
+    background: linear-gradient(
+      135deg,
       rgb(34 197 94 / 0.1) 0%,
       rgb(34 197 94 / 0.1) 25%,
       rgb(34 197 94 / 0.05) 50%,
@@ -257,13 +424,21 @@ body {
   }
 
   .particles-bg::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: 
-      radial-gradient(circle at 20% 50%, rgb(34 197 94 / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgb(34 197 94 / 0.1) 0%, transparent 50%);
+    background-image:
+      radial-gradient(
+        circle at 20% 50%,
+        rgb(34 197 94 / 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgb(34 197 94 / 0.1) 0%,
+        transparent 50%
+      );
     pointer-events: none;
     z-index: 1;
   }
@@ -274,11 +449,15 @@ body {
   }
 
   .decoration-accent::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle, rgb(34 197 94 / 0.2) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgb(34 197 94 / 0.2) 0%,
+      transparent 70%
+    );
     border-radius: 50%;
     filter: blur(40px);
   }
@@ -286,7 +465,8 @@ body {
 
 /* Animated Background for Hero Sections */
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useRef, useState } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import Link from 'next/link';
-import { 
+import React, { useRef, useState } from "react";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
+import {
   Star,
   Quote,
   ThumbsUp,
@@ -13,14 +13,14 @@ import {
   Users,
   Heart,
   ChevronLeft,
-  ChevronRight
-} from 'lucide-react';
+  ChevronRight,
+} from "lucide-react";
 // @ts-ignore
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export default function ReviewsPage() {
   const heroRef = useRef(null);
@@ -33,169 +33,187 @@ export default function ReviewsPage() {
   const reviewsInView = useInView(reviewsRef, { once: true, amount: 0.1 });
   const ctaInView = useInView(ctaRef, { once: true, amount: 0.3 });
 
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [selectedFilter, setSelectedFilter] = useState("all");
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
   const stats = [
-    { 
-      icon: Star, 
-      value: "4.9", 
+    {
+      icon: Star,
+      value: "4.9",
       label: "Average Rating",
-      color: "text-yellow-500"
+      color: "text-brand-yellow",
     },
-    { 
-      icon: Users, 
-      value: "500+", 
+    {
+      icon: Users,
+      value: "500+",
       label: "Happy Clients",
-      color: "text-blue-500"
+      color: "text-blue-500",
     },
-    { 
-      icon: ThumbsUp, 
-      value: "98%", 
+    {
+      icon: ThumbsUp,
+      value: "98%",
       label: "Satisfaction Rate",
-      color: "text-green-500"
+      color: "text-brand-green",
     },
-    { 
-      icon: Award, 
-      value: "10+", 
+    {
+      icon: Award,
+      value: "10+",
       label: "Years Experience",
-      color: "text-purple-500"
-    }
+      color: "text-purple-500",
+    },
   ];
 
   const filters = [
-    { id: 'all', label: 'All Reviews' },
-    { id: '5-star', label: '5 Stars' },
-    { id: 'recent', label: 'Most Recent' },
-    { id: 'verified', label: 'Verified' }
+    { id: "all", label: "All Reviews" },
+    { id: "5-star", label: "5 Stars" },
+    { id: "recent", label: "Most Recent" },
+    { id: "verified", label: "Verified" },
   ];
 
   const reviews = [
     {
       id: 1,
-      name: 'Sarah Johnson',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150',
+      name: "Sarah Johnson",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
       rating: 5,
-      date: 'November 15, 2025',
+      date: "November 15, 2025",
       verified: true,
-      review: 'I absolutely loved my experience at Deer Ridge Nails Spa! My nails have never looked better. The attention to detail and the quality of service is outstanding.',
-      service: 'Gel Manicure',
+      review:
+        "I absolutely loved my experience at Deer Ridge Nails Spa! My nails have never looked better. The attention to detail and the quality of service is outstanding.",
+      service: "Gel Manicure",
       helpful: 24,
       images: [
-        'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400',
-        'https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=400'
-      ]
+        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400",
+        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=400",
+      ],
     },
     {
       id: 2,
-      name: 'Emily Chen',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150',
+      name: "Emily Chen",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
       rating: 5,
-      date: 'November 12, 2025',
+      date: "November 12, 2025",
       verified: true,
-      review: 'The staff is so friendly and the atmosphere is incredibly relaxing. Highly recommend! Every visit feels like a mini spa retreat.',
-      service: 'Spa Pedicure',
+      review:
+        "The staff is so friendly and the atmosphere is incredibly relaxing. Highly recommend! Every visit feels like a mini spa retreat.",
+      service: "Spa Pedicure",
       helpful: 18,
-      images: []
+      images: [],
     },
     {
       id: 3,
-      name: 'Jessica Martinez',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
+      name: "Jessica Martinez",
+      avatar:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
       rating: 5,
-      date: 'November 10, 2025',
+      date: "November 10, 2025",
       verified: true,
-      review: 'Deer Ridge Nails Spa always exceeds my expectations! Best nail care I\'ve ever received. The technicians are true artists and professionals.',
-      service: 'Luxury Manicure',
+      review:
+        "Deer Ridge Nails Spa always exceeds my expectations! Best nail care I've ever received. The technicians are true artists and professionals.",
+      service: "Luxury Manicure",
       helpful: 32,
       images: [
-        'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400'
-      ]
+        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400",
+      ],
     },
     {
       id: 4,
-      name: 'Amanda Wilson',
-      avatar: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150',
+      name: "Amanda Wilson",
+      avatar:
+        "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150",
       rating: 5,
-      date: 'November 8, 2025',
+      date: "November 8, 2025",
       verified: true,
-      review: 'Amazing experience! The gel manicure lasted for 3 weeks without chipping. The staff is professional, talented, and really listens to what you want.',
-      service: 'Gel Manicure',
+      review:
+        "Amazing experience! The gel manicure lasted for 3 weeks without chipping. The staff is professional, talented, and really listens to what you want.",
+      service: "Gel Manicure",
       helpful: 21,
-      images: []
+      images: [],
     },
     {
       id: 5,
-      name: 'Rachel Thompson',
-      avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150',
+      name: "Rachel Thompson",
+      avatar:
+        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150",
       rating: 5,
-      date: 'November 5, 2025',
+      date: "November 5, 2025",
       verified: true,
-      review: 'I\'ve been coming here for over a year and they never disappoint. The quality is consistently excellent and the prices are very reasonable.',
-      service: 'Acrylic Extensions',
+      review:
+        "I've been coming here for over a year and they never disappoint. The quality is consistently excellent and the prices are very reasonable.",
+      service: "Acrylic Extensions",
       helpful: 15,
       images: [
-        'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400',
-        'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=400'
-      ]
+        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400",
+        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=400",
+      ],
     },
     {
       id: 6,
-      name: 'Linda Davis',
-      avatar: 'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=150',
+      name: "Linda Davis",
+      avatar:
+        "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=150",
       rating: 5,
-      date: 'November 2, 2025',
+      date: "November 2, 2025",
       verified: true,
-      review: 'The attention to hygiene and safety is impressive. All tools are properly sterilized and the salon is spotless. I feel completely comfortable here.',
-      service: 'Classic Pedicure',
+      review:
+        "The attention to hygiene and safety is impressive. All tools are properly sterilized and the salon is spotless. I feel completely comfortable here.",
+      service: "Classic Pedicure",
       helpful: 19,
-      images: []
+      images: [],
     },
     {
       id: 7,
-      name: 'Maria Rodriguez',
-      avatar: 'https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=150',
+      name: "Maria Rodriguez",
+      avatar:
+        "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=150",
       rating: 5,
-      date: 'October 30, 2025',
+      date: "October 30, 2025",
       verified: true,
-      review: 'Best nail salon in Kitchener! The nail art designs are stunning and the service is top-notch. I always leave feeling pampered and beautiful.',
-      service: 'Custom Nail Art',
+      review:
+        "Best nail salon in Kitchener! The nail art designs are stunning and the service is top-notch. I always leave feeling pampered and beautiful.",
+      service: "Custom Nail Art",
       helpful: 28,
       images: [
-        'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400'
-      ]
+        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400",
+      ],
     },
     {
       id: 8,
-      name: 'Jennifer Lee',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
+      name: "Jennifer Lee",
+      avatar:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
       rating: 5,
-      date: 'October 28, 2025',
+      date: "October 28, 2025",
       verified: true,
-      review: 'I brought my mom here for her birthday and we both had an amazing experience. The luxury pedicure was absolutely divine!',
-      service: 'Luxury Pedicure',
+      review:
+        "I brought my mom here for her birthday and we both had an amazing experience. The luxury pedicure was absolutely divine!",
+      service: "Luxury Pedicure",
       helpful: 22,
-      images: []
+      images: [],
     },
     {
       id: 9,
-      name: 'Ashley Brown',
-      avatar: 'https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=150',
+      name: "Ashley Brown",
+      avatar:
+        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=150",
       rating: 5,
-      date: 'October 25, 2025',
+      date: "October 25, 2025",
       verified: true,
-      review: 'Professional, clean, and welcoming. The staff genuinely cares about their clients and it shows in every detail. Highly recommended!',
-      service: 'Shellac Manicure',
+      review:
+        "Professional, clean, and welcoming. The staff genuinely cares about their clients and it shows in every detail. Highly recommended!",
+      service: "Shellac Manicure",
       helpful: 17,
-      images: []
-    }
+      images: [],
+    },
   ];
 
   const featuredReviews = reviews.slice(0, 3);
@@ -203,8 +221,11 @@ export default function ReviewsPage() {
   return (
     <div className="bg-[#ffffff]">
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6">
-        <motion.div 
+      <section
+        ref={heroRef}
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6"
+      >
+        <motion.div
           className="absolute inset-0 opacity-20"
           style={{ y, opacity }}
         >
@@ -228,7 +249,7 @@ export default function ReviewsPage() {
           transition={{
             duration: 4,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
         <motion.div
@@ -241,13 +262,13 @@ export default function ReviewsPage() {
             duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 1
+            delay: 1,
           }}
         />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-[#008009] font-semibold mb-4 uppercase tracking-wider"
+            className="text-brand-green font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -255,7 +276,7 @@ export default function ReviewsPage() {
             Client Reviews
           </motion.p>
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#2a2a2a] mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -263,12 +284,13 @@ export default function ReviewsPage() {
             What Our Clients Say
           </motion.h1>
           <motion.p
-            className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto"
+            className="text-xl text-[#5a5a5a] mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Real experiences from our valued clients who trust us with their nail care
+            Real experiences from our valued clients who trust us with their
+            nail care
           </motion.p>
 
           {/* Star Rating Display */}
@@ -279,11 +301,14 @@ export default function ReviewsPage() {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="w-8 h-8 fill-yellow-400 text-yellow-400" />
+              <Star
+                key={i}
+                className="w-8 h-8 fill-brand-yellow text-brand-yellow"
+              />
             ))}
           </motion.div>
           <motion.p
-            className="text-2xl font-bold text-gray-900"
+            className="text-2xl font-bold text-[#2a2a2a]"
             initial={{ opacity: 0 }}
             animate={heroInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -294,7 +319,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* Stats Section */}
-      <section ref={statsRef} className="bg-white py-16 px-6">
+      <section ref={statsRef} className="bg-brand-yellow py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -313,12 +338,10 @@ export default function ReviewsPage() {
                     >
                       <stat.icon className={`w-12 h-12 ${stat.color}`} />
                     </motion.div>
-                    <div className="text-4xl font-bold text-gray-900 mb-2">
+                    <div className="text-4xl font-bold text-[#2a2a2a] mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-gray-600">
-                      {stat.label}
-                    </div>
+                    <div className="text-[#5a5a5a]">{stat.label}</div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -337,10 +360,10 @@ export default function ReviewsPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-[#008009] font-semibold mb-2 uppercase tracking-wider text-sm">
+            <p className="text-brand-green font-semibold mb-2 uppercase tracking-wider text-sm">
               Featured Reviews
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#2a2a2a] mb-4">
               Hear From Our Clients
             </h2>
           </motion.div>
@@ -356,12 +379,15 @@ export default function ReviewsPage() {
               >
                 <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 h-full group">
                   <CardContent className="p-8">
-                    <Quote className="w-12 h-12 text-[#008009]/20 mb-4" />
-                    
+                    <Quote className="w-12 h-12 text-brand-green/20 mb-4" />
+
                     {/* Star Rating */}
                     <div className="flex gap-1 mb-4">
                       {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                        <Star
+                          key={i}
+                          className="w-5 h-5 fill-brand-yellow text-brand-yellow"
+                        />
                       ))}
                     </div>
 
@@ -380,12 +406,17 @@ export default function ReviewsPage() {
                         <div className="font-bold text-gray-900 flex items-center gap-2">
                           {review.name}
                           {review.verified && (
-                            <Badge variant="secondary" className="bg-green-100 text-green-700 text-xs">
+                            <Badge
+                              variant="secondary"
+                              className="bg-[#e0e0e0] text-brand-green text-xs"
+                            >
                               Verified
                             </Badge>
                           )}
                         </div>
-                        <div className="text-sm text-gray-500">{review.service}</div>
+                        <div className="text-sm text-[#7a7a7a]">
+                          {review.service}
+                        </div>
                       </div>
                     </div>
                   </CardContent>
@@ -397,7 +428,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* All Reviews Section */}
-      <section ref={reviewsRef} className="bg-white py-20 px-6">
+      <section ref={reviewsRef} className="bg-brand-yellow py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <motion.div
             className="mb-12"
@@ -416,9 +447,10 @@ export default function ReviewsPage() {
                   key={filter.id}
                   onClick={() => setSelectedFilter(filter.id)}
                   variant={selectedFilter === filter.id ? "default" : "outline"}
-                  className={selectedFilter === filter.id 
-                    ? "bg-[#008009] text-white hover:bg-[#006400]" 
-                    : "border-gray-300 hover:border-[#008009]"
+                  className={
+                    selectedFilter === filter.id
+                      ? "bg-brand-green text-white hover:bg-brand-green"
+                      : "border-[#d0d0d0] hover:border-brand-green"
                   }
                 >
                   {filter.label}
@@ -452,22 +484,33 @@ export default function ReviewsPage() {
                             <div className="font-bold text-gray-900 flex items-center gap-2">
                               {review.name}
                               {review.verified && (
-                                <Badge variant="secondary" className="bg-green-100 text-green-700 text-xs">
+                                <Badge
+                                  variant="secondary"
+                                  className="bg-[#e0e0e0] text-brand-green text-xs"
+                                >
                                   Verified
                                 </Badge>
                               )}
                             </div>
-                            <div className="text-sm text-gray-500">{review.date}</div>
+                            <div className="text-sm text-[#7a7a7a]">
+                              {review.date}
+                            </div>
                           </div>
                           <div className="flex gap-1">
                             {[...Array(review.rating)].map((_, i) => (
-                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                              <Star
+                                key={i}
+                                className="w-4 h-4 fill-brand-yellow text-brand-yellow"
+                              />
                             ))}
                           </div>
                         </div>
 
                         {/* Service Badge */}
-                        <Badge variant="outline" className="mb-3 text-[#008009] border-[#008009]">
+                        <Badge
+                          variant="outline"
+                          className="mb-3 text-brand-green border-brand-green"
+                        >
                           {review.service}
                         </Badge>
 
@@ -480,7 +523,10 @@ export default function ReviewsPage() {
                         {review.images.length > 0 && (
                           <div className="flex gap-2 mb-4">
                             {review.images.map((img, idx) => (
-                              <div key={idx} className="relative w-24 h-24 rounded-lg overflow-hidden">
+                              <div
+                                key={idx}
+                                className="relative w-24 h-24 rounded-lg overflow-hidden"
+                              >
                                 <Image
                                   src={img}
                                   alt={`Review image ${idx + 1}`}
@@ -494,12 +540,12 @@ export default function ReviewsPage() {
                         )}
 
                         {/* Footer Actions */}
-                        <div className="flex items-center gap-4 text-sm text-gray-500">
-                          <button className="flex items-center gap-1 hover:text-[#008009] transition-colors">
+                        <div className="flex items-center gap-4 text-sm text-[#7a7a7a]">
+                          <button className="flex items-center gap-1 hover:text-brand-green transition-colors">
                             <ThumbsUp className="w-4 h-4" />
                             <span>Helpful ({review.helpful})</span>
                           </button>
-                          <button className="flex items-center gap-1 hover:text-[#008009] transition-colors">
+                          <button className="flex items-center gap-1 hover:text-brand-green transition-colors">
                             <MessageCircle className="w-4 h-4" />
                             <span>Reply</span>
                           </button>
@@ -522,7 +568,7 @@ export default function ReviewsPage() {
           >
             <Button
               variant="outline"
-              className="border-2 border-[#008009] text-[#008009] hover:bg-[#008009] hover:text-white px-8 py-6 text-lg"
+              className="border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white px-8 py-6 text-lg"
             >
               Load More Reviews
             </Button>
@@ -531,7 +577,7 @@ export default function ReviewsPage() {
       </section>
 
       {/* CTA Section */}
-      <section ref={ctaRef} className="bg-[#008009] py-20 px-6">
+      <section ref={ctaRef} className="bg-brand-green py-20 px-6">
         <div className="max-w-4xl mx-auto text-center text-white">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-6"
@@ -557,7 +603,7 @@ export default function ReviewsPage() {
           >
             <Link href="/contact">
               <Button
-                className="bg-white text-[#008009] hover:bg-gray-100 px-8 py-6 text-lg font-semibold"
+                className="bg-white text-brand-green hover:bg-[#e0e0e0] px-8 py-6 text-lg font-semibold"
                 size="lg"
               >
                 Book Appointment
@@ -565,7 +611,7 @@ export default function ReviewsPage() {
             </Link>
             <Button
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[#008009] px-8 py-6 text-lg font-semibold"
+              className="border-2 border-white text-white hover:bg-white hover:text-brand-green px-8 py-6 text-lg font-semibold"
               size="lg"
             >
               Leave a Review
