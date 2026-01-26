@@ -1,273 +1,101 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
   MapPin,
   Phone,
   Mail,
-  Clock,
   Instagram,
   Facebook,
   Twitter,
-  Heart,
-  Sparkles,
+  Clock,
 } from "lucide-react";
-// @ts-ignore
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const Footer = () => {
-  const currentYear = React.useMemo(() => new Date().getFullYear(), []);
-
-  const footerLinks = [
-    {
-      category: "Quick Links",
-      links: [
-        { label: "Home", href: "/" },
-        { label: "About", href: "/about" },
-        { label: "Services", href: "/services" },
-        { label: "Gallery", href: "/gallery" },
-        { label: "Contact", href: "/contact" },
-      ],
-    },
-    {
-      category: "Services",
-      links: [
-        { label: "Manicures", href: "/services" },
-        { label: "Pedicures", href: "/services" },
-        { label: "Gel Extensions", href: "/services" },
-        { label: "Nail Art", href: "/services" },
-        { label: "Spa Treatments", href: "/services" },
-      ],
-    },
-    {
-      category: "Business Hours",
-      links: [
-        { label: "Monday - Friday: 9:00 AM - 9:00 PM", href: "#" },
-        { label: "Saturday: 9:00 AM - 9:00 PM", href: "#" },
-        { label: "Sunday: 10:00 AM - 7:00 PM", href: "#" },
-        { label: "Closed on Holidays", href: "#" },
-      ],
-    },
-  ];
-
-  const socialLinks = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-[#3a3a3a] to-black text-white relative overflow-hidden">
-      {/* Decorative background elements */}
-      <motion.div
-        className="absolute top-0 left-10 w-40 h-40 bg-brand-green/15 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-0 right-10 w-52 h-52 bg-brand-yellow/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1,
-        }}
-      />
+    <footer className="bg-brand-green text-white pt-20 pb-10">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
 
-      <div className="relative z-10">
-        {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-6 py-20">
-          <motion.div
-            className="grid md:grid-cols-5 gap-12 mb-12"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {/* Brand Section */}
-            <motion.div variants={itemVariants} className="md:col-span-1">
-              <div className="flex items-center gap-2 mb-4">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <Sparkles className="w-6 h-6 text-brand-yellow" />
-                </motion.div>
-                <h3 className="text-2xl font-bold">Deer Ridge</h3>
-              </div>
-              <p className="text-[#a0a0a0] text-sm mb-6">
-                Premium nail care and spa services in Kitchener, Ontario.
-              </p>
-              <div className="flex gap-3">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <motion.a
-                      key={social.label}
-                      href={social.href}
-                      aria-label={social.label}
-                      className="bg-brand-green/20 hover:bg-brand-green/40 p-3 rounded-full transition-colors duration-300"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Icon className="w-5 h-5" />
-                    </motion.a>
-                  );
-                })}
-              </div>
-            </motion.div>
-
-            {/* Links Sections */}
-            {footerLinks.map((section) => (
-              <motion.div key={section.category} variants={itemVariants}>
-                <h4 className="text-lg font-semibold mb-4 text-brand-green">
-                  {section.category}
-                </h4>
-                <ul className="space-y-2">
-                  {section.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-[#a0a0a0] hover:text-brand-green transition-colors duration-300 text-sm"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-
-            {/* Contact Section */}
-            <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-semibold mb-4 text-brand-green">
-                Contact Us
-              </h4>
-              <div className="space-y-3">
-                <div className="flex items-start gap-2">
-                  <MapPin className="w-4 h-4 mt-1 text-brand-green shrink-0" />
-                  <p className="text-[#a0a0a0] text-sm">
-                    Kitchener, Ontario, Canada
-                  </p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Phone className="w-4 h-4 mt-1 text-brand-green shrink-0" />
-                  <a
-                    href="tel:5198888888"
-                    className="text-[#a0a0a0] hover:text-brand-green transition-colors text-sm"
-                  >
-                    (519) 888-8888
-                  </a>
-                </div>
-                <div className="flex items-start gap-2">
-                  <Mail className="w-4 h-4 mt-1 text-brand-green shrink-0" />
-                  <a
-                    href="mailto:info@deerridgenailsspa.ca"
-                    className="text-[#a0a0a0] hover:text-brand-green transition-colors text-sm"
-                  >
-                    info@deerridgenailsspa.ca
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Newsletter Section */}
-          <motion.div
-            className="border-t border-pink-500/20 pt-12 mb-8"
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <div className="max-w-md">
-              <h4 className="text-lg font-semibold mb-3 text-pink-300">
-                Stay Updated
-              </h4>
-              <p className="text-[#a0a0a0] text-sm mb-4">
-                Subscribe to get special offers and updates.
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 bg-pink-500/10 border border-pink-500/30 rounded-lg px-4 py-2 text-white placeholder-[#7a7a7a] focus:outline-none focus:border-pink-400 transition-colors"
-                  suppressHydrationWarning
-                />
-                <Button
-                  className="bg-pink-500 hover:bg-pink-600 text-white px-6 rounded-lg"
-                  suppressHydrationWarning
-                >
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Bottom Footer */}
-        <motion.div
-          className="border-t border-pink-500/20 py-8 px-6"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[#7a7a7a] text-sm">
-              &copy; {currentYear} Deer Ridge Nails Spa. All rights reserved.
+          {/* Column 1: Brand */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-italiana tracking-widest">DEER RIDGE</h2>
+            <p className="text-brand-sage font-old-standard leading-relaxed">
+              Experience the art of relaxation and beauty. Our premium salon offers dedicated care for your nails and wellness.
             </p>
-            <div className="flex gap-6 text-sm text-[#7a7a7a]">
-              <Link href="#" className="hover:text-pink-400 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-pink-400 transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="hover:text-pink-400 transition-colors">
-                Cookie Policy
-              </Link>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-[#7a7a7a]">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-pink-400 fill-pink-400" />
-              <span>in Kitchener</span>
+            <div className="flex space-x-4">
+              <Link href="https://www.instagram.com/deer_ridge_nails/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-brand-sage transition-colors"><Instagram className="w-5 h-5" /></Link>
+              <Link href="https://www.facebook.com/share/17StngAYek/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="hover:text-brand-sage transition-colors"><Facebook className="w-5 h-5" /></Link>
+              <Link href="https://www.tiktok.com/@deerridgenailsspa" target="_blank" rel="noopener noreferrer" className="hover:text-brand-sage transition-colors"><Twitter className="w-5 h-5" /></Link>
             </div>
           </div>
-        </motion.div>
+
+          {/* Column 2: Explore */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-italiana tracking-widest uppercase">Explore</h3>
+            <ul className="space-y-4 font-old-standard text-brand-sage/90">
+              <li><Link href="/services" className="hover:text-white transition-colors">Our Services</Link></li>
+              <li><Link href="/gallery" className="hover:text-white transition-colors">Lookbook</Link></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">Our Story</Link></li>
+              <li><Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Book Appointment</Link></li>
+            </ul>
+          </div>
+
+          {/* Column 3: Contact Info */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-italiana tracking-widest uppercase">Contact Us</h3>
+            <ul className="space-y-4 font-old-standard text-brand-sage/90">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
+                <span>4195 King St E, Kitchener,<br />ON N2P 2E8</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 flex-shrink-0" />
+                <span>(519) 650-0770</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Clock className="w-5 h-5 flex-shrink-0 mt-1" />
+                <div>
+                  <p>Mon - Fri: 10:00 AM - 7:00 PM</p>
+                  <p>Saturday: 10:00 AM - 6:00 PM</p>
+                  <p>Sunday: 10:00 AM - 5:00 PM</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: Newsletter */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-italiana tracking-widest uppercase">Newsletter</h3>
+            <p className="font-old-standard text-brand-sage/90">
+              Subscribe to receive updates, access to exclusive deals, and more.
+            </p>
+            <div className="flex gap-2">
+              <Input
+                type="email"
+                placeholder="Email Address"
+                className="bg-transparent border-b border-white/30 border-0 border-b-2 rounded-none px-0 focus-visible:ring-0 focus-visible:border-white text-white font-old-standard placeholder:text-brand-sage/50"
+              />
+              <Button variant="ghost" className="hover:bg-transparent hover:text-brand-sage p-0 font-italiana uppercase text-sm tracking-widest text-white">
+                SEND
+              </Button>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-brand-sage font-old-standard tracking-wider uppercase">
+          <p>&copy; {currentYear} DEER RIDGE NAILS SPA.</p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms</Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

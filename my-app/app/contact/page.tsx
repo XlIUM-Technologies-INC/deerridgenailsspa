@@ -16,6 +16,7 @@ import {
   Twitter,
   CheckCircle2,
 } from "lucide-react";
+import Link from "next/link";
 // @ts-ignore
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -188,9 +189,23 @@ export default function Page() {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            We'd love to hear from you! Book an appointment or reach out with
-            any questions
+            We'd love to hear from you! Reach out with any questions or book your appointment online
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <Button
+              asChild
+              className="bg-brand-green text-white hover:bg-brand-green px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all scale-110"
+              size="lg"
+            >
+              <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
+                Book Appointment Online
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
@@ -257,7 +272,7 @@ export default function Page() {
               <Card className="border-none shadow-xl">
                 <CardContent className="p-8">
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                    Book an Appointment
+                    Send us a Message
                   </h2>
                   <p className="text-[#5a5a5a] mb-8">
                     Fill out the form below and we'll get back to you shortly

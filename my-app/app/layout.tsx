@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import Navbar from "@/components/parts/navnbar";
+import Navbar from "@/components/parts/navbar";
 import Footer from "@/components/parts/footer";
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`bg-brand-yellow text-gray-900 antialiased`}
+        className={`antialiased`}
         suppressHydrationWarning
       >
         <Navbar />

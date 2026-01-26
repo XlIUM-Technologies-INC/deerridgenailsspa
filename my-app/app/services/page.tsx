@@ -48,196 +48,173 @@ export default function ServicesPage() {
     { id: "all", label: "All Services" },
     { id: "manicure", label: "Manicure" },
     { id: "pedicure", label: "Pedicure" },
-    { id: "nail-art", label: "Nail Art" },
-    { id: "spa", label: "Spa Treatment" },
+    { id: "extensions", label: "Nail Extensions" },
+    { id: "spa", label: "Spa & Scalp" },
+    { id: "beauty", label: "Lashes & Waxing" },
   ];
 
   const services = [
+    // Extensions
+    {
+      category: "extensions",
+      name: "Bio Gel Full Set",
+      description: "Enhance your natural nails with our flexible, breathable Bio Gel extensions. Promotes healthy nail growth while providing a durable, crystal-clear finish that looks and feels completely natural.",
+      duration: "60 min",
+      price: "$67",
+      image: "/artificiall-nails.jpg",
+      features: ["Natural look & feel", "Flexible & breathable", "Promotes nail health", "Non-yellowing formula"],
+      popular: true,
+    },
+    {
+      category: "extensions",
+      name: "UV Gel Full Set",
+      description: "Achieve the perfect length and shape with our robust UV Gel extensions. Cured for instant hardness, these offer a glossy, chip-resistant barrier that protects your natural nails.",
+      duration: "60 min",
+      price: "$57",
+      image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600",
+      features: ["Instant hardening", "High-gloss finish", "Protective barrier", "Durable wear"],
+      popular: false,
+    },
+    {
+      category: "extensions",
+      name: "Solar Nails Full Set",
+      description: "Experience superior strength and lasting shine. This premium alternative maintains clarity and resists yellowing, perfect for those seeking the classic 'Pink & White' look.",
+      duration: "60 min",
+      price: "$67",
+      image: "/nails.jpg",
+      features: ["Superior strength", "Resists yellowing", "Retains shine", "Pink & White option"],
+      popular: true,
+    },
+    {
+      category: "extensions",
+      name: "Acrylic Full Set",
+      description: "Our traditional acrylic extensions provide a strong, hard protective layer, ideal for creating length and a perfectly sculpted shape for any nail bed.",
+      duration: "60 min",
+      price: "$55",
+      image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600",
+      features: ["Custom length sculpting", "Hard & protective", "Versatile shaping", "Classic durability"],
+      popular: false,
+    },
+
+    // Low maintenance Refills (Generic image usage to avoid repetition)
+    {
+      category: "extensions",
+      name: "Bio Gel / Solar Gel Refill",
+      description: "Maintain the beauty and integrity of your enhancements. We fill in the growth gap, rebalance the structure, and refresh the design for a flawless look.",
+      duration: "60 min",
+      price: "$57",
+      image: "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?w=600",
+      features: ["Restore structural balance", "Seamless fill", "Refresh shine", "Extend wear"],
+      popular: false,
+    },
+    {
+      category: "extensions",
+      name: "UV Gel / Acrylic Refill",
+      description: "Keep your nails looking pristine with our maintenance refill. We smooth out the transition area and reshape the free edge for continuous perfection.",
+      duration: "60 min",
+      price: "$50",
+      image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600",
+      features: ["Correct lifting", "Reshape length", "Fill growth", "Polished finish"],
+      popular: false,
+    },
+
+    // Manicure
     {
       category: "manicure",
       name: "Classic Manicure",
-      description:
-        "Traditional nail care with shaping, cuticle care, and polish application",
+      description: "Treat your hands to essential care. Includes nail shaping, cuticle refinement, and a relaxing hand massage, finished with your choice of regular polish.",
       duration: "30 min",
-      price: "$25",
-      image:
-        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600",
-      features: ["Nail shaping", "Cuticle care", "Hand massage", "Polish"],
+      price: "$25+",
+      image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600",
+      features: ["Nail shaping & buffing", "Cuticle refinement", "Hydrating massage", "Precision polish"],
       popular: false,
     },
     {
       category: "manicure",
-      name: "Gel Manicure",
-      description: "Long-lasting gel polish that stays perfect for weeks",
+      name: "Shellac/Gel Manicure",
+      description: "Enjoy zero dry time and a mirror-like shine. Our Shellac/Gel polish cures instantly under LED light for 2+ weeks of chip-free, smudge-proof wear.",
       duration: "45 min",
-      price: "$45",
-      image:
-        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600",
-      features: [
-        "Gel polish",
-        "UV curing",
-        "Lasts 2-3 weeks",
-        "Chip-resistant",
-      ],
+      price: "$45+",
+      image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600",
+      features: ["Zero dry time", "Mirror shine", "14+ day wear", "Chip resistant"],
       popular: true,
     },
-    {
-      category: "manicure",
-      name: "Luxury Manicure",
-      description:
-        "Premium treatment with exfoliation, mask, and extended massage",
-      duration: "60 min",
-      price: "$55",
-      image:
-        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600",
-      features: [
-        "Exfoliation",
-        "Hydrating mask",
-        "Extended massage",
-        "Premium polish",
-      ],
-      popular: false,
-    },
+
+    // Pedicure
     {
       category: "pedicure",
       name: "Classic Pedicure",
-      description: "Complete foot care with soak, scrub, and polish",
+      description: "Revitalize tired feet with a warm soak, nail trimming, shaping, and cuticle care. Finished with a light massage and polish for a refreshed feeling.",
       duration: "45 min",
-      price: "$35",
-      image:
-        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600",
-      features: ["Foot soak", "Callus removal", "Foot massage", "Polish"],
+      price: "$35+",
+      image: "/pundicure.jpg",
+      features: ["Relaxing foot soak", "Nail & cuticle care", "Light massage", "Perfect polish"],
       popular: false,
-    },
-    {
-      category: "pedicure",
-      name: "Gel Pedicure",
-      description: "Long-lasting pedicure with gel polish application",
-      duration: "60 min",
-      price: "$55",
-      image:
-        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600",
-      features: [
-        "Gel polish",
-        "Extended foot care",
-        "Lasts 3-4 weeks",
-        "Relaxing massage",
-      ],
-      popular: true,
     },
     {
       category: "pedicure",
       name: "Spa Pedicure",
-      description:
-        "Ultimate relaxation with hot stone massage and paraffin treatment",
-      duration: "75 min",
-      price: "$75",
-      image:
-        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600",
-      features: [
-        "Hot stone massage",
-        "Paraffin treatment",
-        "Sugar scrub",
-        "Hydrating mask",
-      ],
-      popular: false,
-    },
-    {
-      category: "nail-art",
-      name: "Custom Nail Art",
-      description: "Unique designs created just for you by our expert artists",
+      description: "Indulge in deep relaxation. This deluxe treatment adds an exfoliating scrub, callus removal, a hydrating mask, and an extended massage to soothe weary soles.",
       duration: "60 min",
-      price: "$65+",
-      image:
-        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600",
-      features: [
-        "Custom design",
-        "Hand-painted",
-        "Gem application",
-        "Unique patterns",
-      ],
+      price: "$50+",
+      image: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600",
+      features: ["Exfoliating scrub", "Callus smoothing", "Hydrating mask", "Extended massage"],
+      popular: true,
+    },
+
+    // Spa & Scalp
+    {
+      category: "spa",
+      name: "Scalp Therapy Spa",
+      description: "Relieve stress and improve scalp health. This treatment stimulates circulation, deeply cleanses follicles, and promotes relaxation for a rejuvenated mind and body.",
+      duration: "60 min",
+      price: "$85+",
+      image: "/Scalp Therapy Spa .jpg",
+      features: ["Stimulates circulation", "Deep cleansing", "Stress relief", "Promotes hair health"],
       popular: true,
     },
     {
-      category: "nail-art",
-      name: "French Manicure",
-      description: "Timeless elegance with classic white tips",
-      duration: "40 min",
-      price: "$35",
-      image:
-        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600",
-      features: [
-        "Classic white tips",
-        "Natural base",
-        "Perfect finish",
-        "Elegant look",
-      ],
-      popular: false,
-    },
-    {
-      category: "nail-art",
-      name: "Ombre Nails",
-      description: "Beautiful gradient color transition on your nails",
-      duration: "50 min",
-      price: "$50",
-      image:
-        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600",
-      features: [
-        "Gradient colors",
-        "Smooth transition",
-        "Modern style",
-        "Trendy look",
-      ],
-      popular: false,
-    },
-    {
       category: "spa",
-      name: "Hand Spa Treatment",
-      description: "Intensive hand care with exfoliation and deep moisturizing",
+      name: "Kids Service (Under 12)",
+      description: "A gentle and fun pampering session for the little ones. We use non-toxic products and offer safe, simple nail care designed for children.",
       duration: "30 min",
-      price: "$30",
-      image:
-        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600",
-      features: [
-        "Deep exfoliation",
-        "Hydrating mask",
-        "Paraffin dip",
-        "Intensive moisture",
-      ],
+      price: "$20+",
+      image: "/kids.jpg",
+      features: ["Gentle touch", "Non-toxic products", "Fun colors", "Age-appropriate care"],
       popular: false,
     },
+
+    // Beauty (Lashes/Waxing)
     {
-      category: "spa",
-      name: "Foot Spa Treatment",
-      description: "Rejuvenating foot treatment with scrub and massage",
+      category: "beauty",
+      name: "Lashes & Brows",
+      description: "Awaken your eyes with our lash and brow services. From lifting to tinting, we enhance your natural features for a low-maintenance, polished look.",
       duration: "45 min",
-      price: "$40",
-      image:
-        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600",
-      features: [
-        "Dead sea salt soak",
-        "Sugar scrub",
-        "Hot towel wrap",
-        "Deep massage",
-      ],
+      price: "$45+",
+      image: "/lash-lifting.jpg",
+      features: ["Lash Lift curl", "Tinting definition", "Brow shaping", "Natural enhancement"],
       popular: false,
     },
     {
-      category: "spa",
-      name: "Deluxe Spa Package",
-      description: "Complete hand and foot spa experience",
-      duration: "90 min",
-      price: "$95",
-      image:
-        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600",
-      features: [
-        "Full spa treatment",
-        "Hand & foot care",
-        "Hot stones",
-        "Premium products",
-      ],
-      popular: true,
+      category: "beauty",
+      name: "Waxing Services",
+      description: "Experience silky smooth skin with our professional waxing. We use gentle wax to effectively remove hair from the root for long-lasting smoothness.",
+      duration: "Var",
+      price: "Var",
+      image: "/Waxing.jpg",
+      features: ["Smooth skin", "Long-lasting results", "Facial waxing", "Body waxing"],
+      popular: false,
     },
+    {
+      category: "beauty",
+      name: "Facials",
+      description: "Refresh your complexion with our tailored facial treatments. Deep cleansing and hydration to reveal your best skin.",
+      duration: "Var",
+      price: "Var",
+      image: "/Facials.jpg",
+      features: ["Deep cleansing", "Hydration boost", "Relaxation", "Glowing skin"],
+      popular: false,
+    }
   ];
 
   const process = [
@@ -334,7 +311,7 @@ export default function ServicesPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-brand-green font-semibold mb-4 uppercase tracking-wider"
+            className="text-white font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -342,7 +319,7 @@ export default function ServicesPage() {
             Our Services
           </motion.p>
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#2a2a2a] mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -350,7 +327,7 @@ export default function ServicesPage() {
             Premium Nail Care Services
           </motion.h1>
           <motion.p
-            className="text-xl text-[#5a5a5a] mb-8 max-w-2xl mx-auto"
+            className="text-xl text-white mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -399,8 +376,9 @@ export default function ServicesPage() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
-                animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 layout
               >
                 <Card className="h-full border-none shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
@@ -451,7 +429,7 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <Link href="/contact">
+                    <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
                       <Button className="w-full bg-brand-green text-white hover:bg-brand-green group/btn">
                         Book Now
                         <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
@@ -601,7 +579,7 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href="/contact">
+            <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
               <Button
                 className="bg-white text-brand-green hover:bg-[#e0e0e0] px-8 py-6 text-lg font-semibold"
                 size="lg"

@@ -43,32 +43,7 @@ export default function ReviewsPage() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
-  const stats = [
-    {
-      icon: Star,
-      value: "4.9",
-      label: "Average Rating",
-      color: "text-brand-yellow",
-    },
-    {
-      icon: Users,
-      value: "500+",
-      label: "Happy Clients",
-      color: "text-blue-500",
-    },
-    {
-      icon: ThumbsUp,
-      value: "98%",
-      label: "Satisfaction Rate",
-      color: "text-brand-green",
-    },
-    {
-      icon: Award,
-      value: "10+",
-      label: "Years Experience",
-      color: "text-purple-500",
-    },
-  ];
+
 
   const filters = [
     { id: "all", label: "All Reviews" },
@@ -80,138 +55,254 @@ export default function ReviewsPage() {
   const reviews = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      avatar:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+      name: "Elizabeth Gawel",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150",
       rating: 5,
-      date: "November 15, 2025",
+      date: "Jan 19, 2026",
       verified: true,
-      review:
-        "I absolutely loved my experience at Deer Ridge Nails Spa! My nails have never looked better. The attention to detail and the quality of service is outstanding.",
-      service: "Gel Manicure",
-      helpful: 24,
-      images: [
-        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400",
-        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=400",
-      ],
+      review: "I have been having Sue-Anne do my nails for a few years. She always takes so much care and does an awesome job. I would recommend going here.",
+      service: "Nail Care",
+      helpful: 12,
+      images: [],
     },
     {
       id: 2,
-      name: "Emily Chen",
-      avatar:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
+      name: "jane",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
       rating: 5,
-      date: "November 12, 2025",
+      date: "Jan 11, 2026",
       verified: true,
-      review:
-        "The staff is so friendly and the atmosphere is incredibly relaxing. Highly recommend! Every visit feels like a mini spa retreat.",
-      service: "Spa Pedicure",
-      helpful: 18,
+      review: "First visit. Loved our experience. Will certainly be back!",
+      service: "Visitor",
+      helpful: 5,
       images: [],
     },
     {
       id: 3,
-      name: "Jessica Martinez",
-      avatar:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+      name: "Hannah",
+      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150",
       rating: 5,
-      date: "November 10, 2025",
+      date: "Dec 21, 2025",
       verified: true,
-      review:
-        "Deer Ridge Nails Spa always exceeds my expectations! Best nail care I've ever received. The technicians are true artists and professionals.",
-      service: "Luxury Manicure",
-      helpful: 32,
-      images: [
-        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400",
-      ],
+      review: "Amazing experience the girls there are so kind, and have great humour. Super sweet atmosphere as well!",
+      service: "Group Appointment",
+      helpful: 8,
+      images: [],
     },
     {
       id: 4,
-      name: "Amanda Wilson",
-      avatar:
-        "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=150",
+      name: "Tina Cunningham",
+      avatar: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150",
       rating: 5,
-      date: "November 8, 2025",
+      date: "Dec 19, 2025",
       verified: true,
-      review:
-        "Amazing experience! The gel manicure lasted for 3 weeks without chipping. The staff is professional, talented, and really listens to what you want.",
-      service: "Gel Manicure",
-      helpful: 21,
+      review: "Teena and her girls are absolutely awesome. Have never been given the opportunity to just sit and chill in the massage chair after a spa pedicure. “Take your time and take a few more minutes for yourself” Thank you it was wonderful.",
+      service: "Spa Pedicure",
+      helpful: 15,
       images: [],
     },
     {
       id: 5,
-      name: "Rachel Thompson",
-      avatar:
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150",
+      name: "Linda Howlett",
+      avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150",
       rating: 5,
-      date: "November 5, 2025",
+      date: "Dec 15, 2025",
       verified: true,
-      review:
-        "I've been coming here for over a year and they never disappoint. The quality is consistently excellent and the prices are very reasonable.",
-      service: "Acrylic Extensions",
-      helpful: 15,
-      images: [
-        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400",
-        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=400",
-      ],
+      review: "Clean tidy salon and very friendly staff Amazing work on my nails",
+      service: "Manicure",
+      helpful: 7,
+      images: [],
     },
     {
       id: 6,
-      name: "Linda Davis",
-      avatar:
-        "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=150",
+      name: "Elena Michael Reynolds",
+      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150",
       rating: 5,
-      date: "November 2, 2025",
+      date: "Dec 12, 2025",
       verified: true,
-      review:
-        "The attention to hygiene and safety is impressive. All tools are properly sterilized and the salon is spotless. I feel completely comfortable here.",
-      service: "Classic Pedicure",
-      helpful: 19,
+      review: "Thank you ladies !",
+      service: "Service",
+      helpful: 2,
       images: [],
     },
     {
       id: 7,
-      name: "Maria Rodriguez",
-      avatar:
-        "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=150",
+      name: "Caylin",
+      avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150",
       rating: 5,
-      date: "October 30, 2025",
+      date: "Dec 10, 2025",
       verified: true,
-      review:
-        "Best nail salon in Kitchener! The nail art designs are stunning and the service is top-notch. I always leave feeling pampered and beautiful.",
-      service: "Custom Nail Art",
-      helpful: 28,
-      images: [
-        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400",
-      ],
+      review: "Very kind lady’s",
+      service: "Nail Art",
+      helpful: 4,
+      images: [],
     },
     {
       id: 8,
-      name: "Jennifer Lee",
-      avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+      name: "Elizabeth Gawel",
+      avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150",
       rating: 5,
-      date: "October 28, 2025",
+      date: "Nov 18, 2025",
       verified: true,
-      review:
-        "I brought my mom here for her birthday and we both had an amazing experience. The luxury pedicure was absolutely divine!",
-      service: "Luxury Pedicure",
-      helpful: 22,
+      review: "Sue-Anne has been doing my nails for a few years. She always takes great care with the quality of her work. She is friendly and easy to talk to. I would recommend going here.",
+      service: "Nail Care",
+      helpful: 6,
       images: [],
     },
     {
       id: 9,
-      name: "Ashley Brown",
-      avatar:
-        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=150",
+      name: "Chainar",
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150",
       rating: 5,
-      date: "October 25, 2025",
+      date: "Nov 10, 2025",
       verified: true,
-      review:
-        "Professional, clean, and welcoming. The staff genuinely cares about their clients and it shows in every detail. Highly recommended!",
-      service: "Shellac Manicure",
-      helpful: 17,
+      review: "amazing!!",
+      service: "Service",
+      helpful: 1,
+      images: [],
+    },
+    {
+      id: 10,
+      name: "Suman",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+      rating: 5,
+      date: "Nov 03, 2025",
+      verified: true,
+      review: "Excellent staff !!",
+      service: "Service",
+      helpful: 3,
+      images: [],
+    },
+    {
+      id: 11,
+      name: "Carol",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150",
+      rating: 5,
+      date: "Oct 18, 2025",
+      verified: true,
+      review: "Best nail place in the region! The staff are so kind and excellent at their job. Highly recommend. Thank you again for a wonderful experience ❤️",
+      service: "Service",
+      helpful: 9,
+      images: [],
+    },
+    {
+      id: 12,
+      name: "Bri Rogers",
+      avatar: "https://images.unsplash.com/photo-1554151228-14d9def656ec?w=150",
+      rating: 5,
+      date: "Oct 04, 2025",
+      verified: true,
+      review: "They always have great service and very friendly staff. I always get my nails done because they always do such a great job. Totally reccomend going!!",
+      service: "Manicure",
+      helpful: 5,
+      images: [],
+    },
+    {
+      id: 13,
+      name: "Doris Litch",
+      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150",
+      rating: 5,
+      date: "Sep 29, 2025",
+      verified: true,
+      review: "Wonderful attention to detail and I love the nude color with the chrome finish. Always professional will be back definitely!",
+      service: "Chrome Nails",
+      helpful: 4,
+      images: [],
+    },
+    {
+      id: 14,
+      name: "Heather Albrecht",
+      avatar: "https://images.unsplash.com/photo-1619895862047-e64331523546?w=150",
+      rating: 5,
+      date: "Sep 24, 2025",
+      verified: true,
+      review: "Relaxing pedicure as always with attention to detail. I really appreciated that my late request to adjust my appointment time was kindly accommodated. Thank you!\n\nResponse from salon: It’s our pleasure to accommodate your busy schedules. Thank you for taking the time to share your experience. We're delighted that you enjoyed our services.",
+      service: "Pedicure",
+      helpful: 10,
+      images: [],
+    },
+    {
+      id: 15,
+      name: "Linda Howlett",
+      avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150",
+      rating: 5,
+      date: "Sep 16, 2025",
+      verified: true,
+      review: "Lovely clean bright salon Sue Ann is fantastic always happy with her work. Friendly Staff Would definitely recommend it",
+      service: "Nail Care",
+      helpful: 3,
+      images: [],
+    },
+    {
+      id: 16,
+      name: "Christine Fry",
+      avatar: "https://images.unsplash.com/photo-1552058544-f2b084996f99?w=150",
+      rating: 5,
+      date: "Sep 14, 2025",
+      verified: true,
+      review: "Great service. Did a wonderful job on my nails.",
+      service: "Service",
+      helpful: 2,
+      images: [],
+    },
+    {
+      id: 17,
+      name: "Elena Michael Reynolds",
+      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150",
+      rating: 5,
+      date: "Sep 11, 2025",
+      verified: true,
+      review: "Sweet ladies ! It’s nice that they can speak and understand English. Can actually have a conversation with these ladies .",
+      service: "Visit",
+      helpful: 6,
+      images: [],
+    },
+    {
+      id: 18,
+      name: "Dianne",
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150",
+      rating: 5,
+      date: "Sep 09, 2025",
+      verified: true,
+      review: "Dianne did an amazing job!",
+      service: "Service",
+      helpful: 1,
+      images: [],
+    },
+    {
+      id: 19,
+      name: "Christina",
+      avatar: "https://images.unsplash.com/photo-1534759846116-5799c33ce36a?w=150",
+      rating: 5,
+      date: "Sep 05, 2025",
+      verified: true,
+      review: "A++++Highly recommended",
+      service: "Service",
+      helpful: 2,
+      images: [],
+    },
+    {
+      id: 20,
+      name: "Mary Batista",
+      avatar: "https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?w=150",
+      rating: 5,
+      date: "Sep 05, 2025",
+      verified: true,
+      review: "Enjoy this salon very much. Have only been going there a short while, but the new owner is amazing, the staff is very attentive and listen to what you want.",
+      service: "Service",
+      helpful: 7,
+      images: [],
+    },
+    {
+      id: 21,
+      name: "Anita",
+      avatar: "https://images.unsplash.com/photo-1549479320-fa0560c0c84c?w=150",
+      rating: 5,
+      date: "Aug 30, 2025",
+      verified: true,
+      review: "Super friendly and amazing service. Nails turned out amazing as always!",
+      service: "Service",
+      helpful: 4,
       images: [],
     },
   ];
@@ -223,21 +314,9 @@ export default function ReviewsPage() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6"
+        className="relative min-h-[60vh] flex items-center bg-brand-green justify-center overflow-hidden py-20 px-6"
       >
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          style={{ y, opacity }}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200"
-            alt="Reviews background"
-            fill
-            className="object-cover"
-            quality={85}
-            priority
-          />
-        </motion.div>
+
 
         {/* Floating decorations */}
         <motion.div
@@ -268,7 +347,7 @@ export default function ReviewsPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-brand-green font-semibold mb-4 uppercase tracking-wider"
+            className="text-white font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -276,7 +355,7 @@ export default function ReviewsPage() {
             Client Reviews
           </motion.p>
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#2a2a2a] mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -293,22 +372,9 @@ export default function ReviewsPage() {
             nail care
           </motion.p>
 
-          {/* Star Rating Display */}
-          <motion.div
-            className="flex items-center justify-center gap-2 mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={heroInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                className="w-8 h-8 fill-brand-yellow text-brand-yellow"
-              />
-            ))}
-          </motion.div>
+
           <motion.p
-            className="text-2xl font-bold text-[#2a2a2a]"
+            className="text-2xl font-bold text-white"
             initial={{ opacity: 0 }}
             animate={heroInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -318,37 +384,7 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section ref={statsRef} className="bg-brand-yellow py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={statsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="border-none shadow-lg hover:shadow-xl transition-shadow">
-                  <CardContent className="p-6 text-center">
-                    <motion.div
-                      className="inline-block mb-4"
-                      whileHover={{ scale: 1.1, rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <stat.icon className={`w-12 h-12 ${stat.color}`} />
-                    </motion.div>
-                    <div className="text-4xl font-bold text-[#2a2a2a] mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-[#5a5a5a]">{stat.label}</div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Featured Reviews Section */}
       <section className="bg-[#ffffff] py-20 px-6">
@@ -398,10 +434,7 @@ export default function ReviewsPage() {
 
                     {/* Reviewer Info */}
                     <div className="flex items-center gap-4 pt-6 border-t">
-                      <Avatar className="w-14 h-14">
-                        <AvatarImage src={review.avatar} alt={review.name} />
-                        <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
+
                       <div className="flex-1">
                         <div className="font-bold text-gray-900 flex items-center gap-2">
                           {review.name}
@@ -471,11 +504,7 @@ export default function ReviewsPage() {
                 <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      {/* Avatar */}
-                      <Avatar className="w-12 h-12 flex-shrink-0">
-                        <AvatarImage src={review.avatar} alt={review.name} />
-                        <AvatarFallback>{review.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
+
 
                       <div className="flex-1">
                         {/* Header */}
@@ -527,13 +556,7 @@ export default function ReviewsPage() {
                                 key={idx}
                                 className="relative w-24 h-24 rounded-lg overflow-hidden"
                               >
-                                <Image
-                                  src={img}
-                                  alt={`Review image ${idx + 1}`}
-                                  fill
-                                  className="object-cover hover:scale-110 transition-transform cursor-pointer"
-                                  quality={85}
-                                />
+
                               </div>
                             ))}
                           </div>
@@ -601,7 +624,7 @@ export default function ReviewsPage() {
             animate={ctaInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href="/contact">
+            <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
               <Button
                 className="bg-white text-brand-green hover:bg-[#e0e0e0] px-8 py-6 text-lg font-semibold"
                 size="lg"

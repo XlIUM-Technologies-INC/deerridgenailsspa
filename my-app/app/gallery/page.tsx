@@ -15,572 +15,148 @@ import {
   Share2,
   Download,
   ZoomIn,
-  Filter,
   Grid3x3,
   Rows,
 } from "lucide-react";
-// @ts-ignore
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
+// List of images found in public folder
+const galleryFiles = [
+  "363760529_18008067190867785_6322537394649714655_n.jpg",
+  "366688913_18008067169867785_4562004202908627054_n.jpg",
+  "367679259_18008539366867785_4716558780392524522_n.jpg",
+  "368151428_18008884765867785_4806903141760562174_n.jpg",
+  "368206462_18008884774867785_1668657091598782031_n.jpg",
+  "375459854_18011645065867785_1644597701547125449_n.jpg",
+  "434992809_18034953046867785_4534326392542744034_n.jpg",
+  "435012687_18034953061867785_8486869466282521895_n.jpg",
+  "435126404_18034953052867785_6987261395090016248_n.jpg",
+  "466786095_18057392815867785_6103533066389598665_n.jpg",
+  "466836349_18057393733867785_3027911172887877350_n.jpg",
+  "466891912_18057393811867785_4941190805721564248_n.jpg",
+  "466900047_18057394642867785_601373246350179658_n.jpg",
+  "466969770_18057392449867785_2155404678587419419_n.jpg",
+  "466972425_18057393586867785_5709059318694293699_n.jpg",
+  "466974033_18057393967867785_1994136894267509756_n.jpg",
+  "466976704_18057392131867785_8730887579058261969_n.jpg",
+  "466977889_18057393646867785_3548476978440714016_n.jpg",
+  "466980093_18057392827867785_1655188658371323277_n.jpg",
+  "466986970_18057393565867785_8094297659461004980_n.jpg",
+  "466989922_18057394006867785_6896155988782801239_n.jpg",
+  "466992879_18057393826867785_1002312029320489223_n.jpg",
+  "466993434_18057393913867785_281426255929084428_n.jpg",
+  "467007079_18057393484867785_3683537530460305422_n.jpg",
+  "467008425_18057393898867785_5952291892641651009_n.jpg",
+  "467008841_18057394849867785_2792478462567055390_n.jpg",
+  "467117608_18057394054867785_2931082966158837162_n.jpg",
+  "467118321_18057394813867785_8988571380331620289_n.jpg",
+  "467118949_18057392281867785_3092116512666638425_n.jpg",
+  "467119306_18057394867867785_7821581844295679066_n.jpg",
+  "467148841_18057393970867785_4775207303434343089_n.jpg",
+  "467176838_18057393835867785_8439958454526103444_n.jpg",
+  "467212298_18057392230867785_5895265332255004869_n.jpg",
+  "467228006_18057393727867785_3436430414751729846_n.jpg",
+  "467230057_18057392386867785_5861514994490925770_n.jpg",
+  "467244436_18057392140867785_5644691824339973614_n.jpg",
+  "467256616_18057393595867785_487236460051476649_n.jpg",
+  "467256996_18057394531867785_3740794291647720130_n.jpg",
+  "467301510_18057393988867785_130373221137337181_n.jpg",
+];
+
 export default function GalleryPage() {
+  // Use scroll hook for hero parallax
   const heroRef = useRef(null);
-  const galleryRef = useRef(null);
-  const ctaRef = useRef(null);
-
-  const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
-  const galleryInView = useInView(galleryRef, { once: true, amount: 0.1 });
-  const ctaInView = useInView(ctaRef, { once: true, amount: 0.3 });
-
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [viewMode, setViewMode] = useState("grid"); // 'grid' or 'masonry'
-
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
-
-  const categories = [
-    { id: "all", label: "All Work", count: 24 },
-    { id: "manicure", label: "Manicure", count: 8 },
-    { id: "pedicure", label: "Pedicure", count: 6 },
-    { id: "nail-art", label: "Nail Art", count: 7 },
-    { id: "extensions", label: "Extensions", count: 3 },
-  ];
-
-  const galleryImages = [
-    {
-      id: 1,
-      category: "manicure",
-      image:
-        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800",
-      title: "Classic French Manicure",
-      likes: 234,
-      featured: true,
-    },
-    {
-      id: 2,
-      category: "nail-art",
-      image:
-        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800",
-      title: "Elegant Nail Art Design",
-      likes: 456,
-      featured: true,
-    },
-    {
-      id: 3,
-      category: "pedicure",
-      image:
-        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800",
-      title: "Luxury Spa Pedicure",
-      likes: 189,
-      featured: false,
-    },
-    {
-      id: 4,
-      category: "extensions",
-      image:
-        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800",
-      title: "Gel Nail Extensions",
-      likes: 567,
-      featured: true,
-    },
-    {
-      id: 5,
-      category: "nail-art",
-      image:
-        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800",
-      title: "Geometric Nail Art",
-      likes: 345,
-      featured: false,
-    },
-    {
-      id: 6,
-      category: "manicure",
-      image:
-        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800",
-      title: "Chrome Finish Manicure",
-      likes: 423,
-      featured: true,
-    },
-    {
-      id: 7,
-      category: "nail-art",
-      image:
-        "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?w=800",
-      title: "Floral Nail Design",
-      likes: 298,
-      featured: false,
-    },
-    {
-      id: 8,
-      category: "pedicure",
-      image:
-        "https://images.unsplash.com/photo-1583001308411-3e1972e0c18a?w=800",
-      title: "Summer Pedicure Style",
-      likes: 512,
-      featured: true,
-    },
-    {
-      id: 9,
-      category: "manicure",
-      image:
-        "https://images.unsplash.com/photo-1606462322168-82d71064e94b?w=800",
-      title: "Matte Nude Manicure",
-      likes: 267,
-      featured: false,
-    },
-    {
-      id: 10,
-      category: "nail-art",
-      image:
-        "https://images.unsplash.com/photo-1515688594390-b649af70d282?w=800",
-      title: "Ombre Nail Design",
-      likes: 445,
-      featured: true,
-    },
-    {
-      id: 11,
-      category: "extensions",
-      image:
-        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800",
-      title: "Acrylic Extensions",
-      likes: 389,
-      featured: false,
-    },
-    {
-      id: 12,
-      category: "manicure",
-      image:
-        "https://images.unsplash.com/photo-1612831200102-cd38753908bf?w=800",
-      title: "Glossy Red Nails",
-      likes: 678,
-      featured: true,
-    },
-    {
-      id: 13,
-      category: "nail-art",
-      image: "https://images.unsplash.com/photo-1542992015-4a0b729b1385?w=800",
-      title: "Glitter Accent Nails",
-      likes: 334,
-      featured: false,
-    },
-    {
-      id: 14,
-      category: "pedicure",
-      image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800",
-      title: "Classic Pedicure",
-      likes: 223,
-      featured: false,
-    },
-    {
-      id: 15,
-      category: "manicure",
-      image:
-        "https://images.unsplash.com/photo-1604902396830-aca29e19b067?w=800",
-      title: "Pastel Manicure",
-      likes: 456,
-      featured: true,
-    },
-    {
-      id: 16,
-      category: "nail-art",
-      image:
-        "https://images.unsplash.com/photo-1598969901534-4f5d4c982f9e?w=800",
-      title: "Abstract Nail Art",
-      likes: 389,
-      featured: false,
-    },
-    {
-      id: 17,
-      category: "extensions",
-      image:
-        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800",
-      title: "Long Gel Extensions",
-      likes: 512,
-      featured: true,
-    },
-    {
-      id: 18,
-      category: "pedicure",
-      image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800",
-      title: "Spa Pedicure Treatment",
-      likes: 267,
-      featured: false,
-    },
-    {
-      id: 19,
-      category: "manicure",
-      image:
-        "https://images.unsplash.com/photo-1522337094846-8a818192de1f?w=800",
-      title: "Elegant White Nails",
-      likes: 445,
-      featured: true,
-    },
-    {
-      id: 20,
-      category: "nail-art",
-      image:
-        "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800",
-      title: "Marble Effect Nails",
-      likes: 523,
-      featured: true,
-    },
-    {
-      id: 21,
-      category: "pedicure",
-      image:
-        "https://images.unsplash.com/photo-1591160690555-5debfba289f0?w=800",
-      title: "Luxury Foot Spa",
-      likes: 298,
-      featured: false,
-    },
-    {
-      id: 22,
-      category: "manicure",
-      image:
-        "https://images.unsplash.com/photo-1583001308594-2d2111ff937b?w=800",
-      title: "Pink Chrome Manicure",
-      likes: 434,
-      featured: true,
-    },
-    {
-      id: 23,
-      category: "nail-art",
-      image:
-        "https://images.unsplash.com/photo-1621330396173-e41b1cafd17f?w=800",
-      title: "Crystal Nail Design",
-      likes: 612,
-      featured: true,
-    },
-    {
-      id: 24,
-      category: "manicure",
-      image:
-        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800",
-      title: "Natural Look Manicure",
-      likes: 356,
-      featured: false,
-    },
-  ];
-
-  const filteredImages =
-    selectedCategory === "all"
-      ? galleryImages
-      : galleryImages.filter((img) => img.category === selectedCategory);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <div className="bg-[#ffffff]">
-      {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6"
-      >
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          style={{ y, opacity }}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200"
-            alt="Gallery background"
-            fill
-            className="object-cover"
-            quality={85}
-            priority
-          />
-        </motion.div>
+    <div className="bg-white min-h-screen">
 
-        {/* Floating decorations */}
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-pink-300/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 bg-rose-400/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.p
-            className="text-brand-green font-semibold mb-4 uppercase tracking-wider"
-            initial={{ opacity: 0, y: 20 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            Our Gallery
-          </motion.p>
-          <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Our Best Work
-          </motion.h1>
-          <motion.p
-            className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Explore our portfolio of stunning nail designs and transformations
-          </motion.p>
+      {/* Simple Header */}
+      <section ref={heroRef} className="relative py-24 px-6 bg-brand-green text-center overflow-hidden">
+        <motion.div style={{ y }} className="absolute inset-0 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-italiana text-white mb-6">Our Work</h1>
+          <p className="text-brand-sage font-old-standard text-lg tracking-wide">
+            A curated collection of our latest designs and transformations.
+          </p>
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section ref={galleryRef} className="bg-brand-yellow py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Filter Bar */}
-          <motion.div
-            className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={galleryInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((cat) => (
-                <Button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  variant={selectedCategory === cat.id ? "default" : "outline"}
-                  className={
-                    selectedCategory === cat.id
-                      ? "bg-brand-green text-white hover:bg-brand-green"
-                      : "border-[#d0d0d0] hover:border-brand-green"
-                  }
-                >
-                  {cat.label}
-                  <Badge variant="secondary" className="ml-2 bg-white/20">
-                    {cat.count}
-                  </Badge>
-                </Button>
-              ))}
-            </div>
-
-            {/* View Mode Toggle */}
-            <div className="flex gap-2">
-              <Button
-                variant={viewMode === "grid" ? "default" : "outline"}
-                size="icon"
-                onClick={() => setViewMode("grid")}
-                className={viewMode === "grid" ? "bg-brand-green" : ""}
-              >
-                <Grid3x3 className="w-5 h-5" />
-              </Button>
-              <Button
-                variant={viewMode === "masonry" ? "default" : "outline"}
-                size="icon"
-                onClick={() => setViewMode("masonry")}
-                className={viewMode === "masonry" ? "bg-brand-green" : ""}
-              >
-                <Rows className="w-5 h-5" />
-              </Button>
-            </div>
-          </motion.div>
-
-          {/* Gallery Grid */}
-          <motion.div
-            className={
-              viewMode === "grid"
-                ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-                : "columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6"
-            }
-            layout
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredImages.map((item, index) => (
-                <motion.div
-                  key={item.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4, delay: index * 0.03 }}
-                  className={
-                    viewMode === "grid"
-                      ? "relative group cursor-pointer"
-                      : "relative group cursor-pointer break-inside-avoid mb-6"
-                  }
-                  onClick={() => setSelectedImage(item)}
-                >
-                  <div className="relative overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                    {item.featured && (
-                      <Badge className="absolute top-4 left-4 z-10 bg-brand-green hover:bg-brand-green">
-                        Featured
-                      </Badge>
-                    )}
-
-                    <div
-                      className={
-                        viewMode === "grid" ? "aspect-square" : "aspect-[3/4]"
-                      }
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                        quality={85}
-                      />
-                    </div>
-
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                      <h3 className="text-white font-bold text-lg mb-2">
-                        {item.title}
-                      </h3>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-white">
-                          <Heart className="w-5 h-5" />
-                          <span className="text-sm">{item.likes}</span>
-                        </div>
-                        <Button
-                          size="sm"
-                          variant="secondary"
-                          className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-none"
-                        >
-                          <ZoomIn className="w-4 h-4 mr-1" />
-                          View
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+      {/* Gallery Grid */}
+      <section className="py-20 px-6 max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {galleryFiles.map((filename, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="relative group aspect-square cursor-pointer overflow-hidden bg-gray-100 rounded-sm"
+              onClick={() => setSelectedImage(filename)}
+            >
+              <Image
+                src={`/${filename}`}
+                alt={`Gallery Image ${index + 1}`}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <ZoomIn className="text-white w-8 h-8 opacity-80" />
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
-              className="relative max-w-5xl w-full"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              className="relative max-h-[90vh] w-full max-w-5xl aspect-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="absolute -top-12 right-0 text-white hover:bg-white/20"
-                onClick={() => setSelectedImage(null)}
-              >
-                <X className="w-6 h-6" />
-              </Button>
-
-              {/* Image */}
-              <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+              <div className="relative w-full h-[80vh]">
                 <Image
-                  src={selectedImage.image}
-                  alt={selectedImage.title}
+                  src={`/${selectedImage}`}
+                  alt="Gallery View"
                   fill
                   className="object-contain"
                   quality={100}
                 />
               </div>
-
-              {/* Info Bar */}
-              <div className="bg-white p-6 rounded-b-lg">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      {selectedImage.title}
-                    </h3>
-                    <div className="flex items-center gap-4 text-gray-600">
-                      <div className="flex items-center gap-2">
-                        <Heart className="w-5 h-5 text-brand-green" />
-                        <span>{selectedImage.likes} likes</span>
-                      </div>
-                      <Badge>{selectedImage.category}</Badge>
-                    </div>
-                  </div>
-                  <div className="flex gap-2">
-                    <Button variant="outline" size="icon">
-                      <Share2 className="w-5 h-5" />
-                    </Button>
-                    <Button variant="outline" size="icon">
-                      <Download className="w-5 h-5" />
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute -top-12 right-0 text-white hover:bg-white/20 rounded-full"
+                onClick={() => setSelectedImage(null)}
+              >
+                <X className="w-8 h-8" />
+              </Button>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* CTA Section */}
-      <section ref={ctaRef} className="bg-brand-green py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center text-white">
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            Want Nails Like These?
-          </motion.h2>
-          <motion.p
-            className="text-xl mb-8 opacity-90"
-            initial={{ opacity: 0, y: 30 }}
-            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Book your appointment now and let our expert technicians create your
-            perfect look
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={ctaInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <Link href="/contact">
-              <Button
-                className="bg-white text-brand-green hover:bg-[#e0e0e0] px-8 py-6 text-lg font-semibold"
-                size="lg"
-              >
-                Book Your Appointment
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }
