@@ -43,8 +43,6 @@ export default function ReviewsPage() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
-
-
   const filters = [
     { id: "all", label: "All Reviews" },
     { id: "5-star", label: "5 Stars" },
@@ -60,7 +58,8 @@ export default function ReviewsPage() {
       rating: 5,
       date: "Jan 19, 2026",
       verified: true,
-      review: "I have been having Sue-Anne do my nails for a few years. She always takes so much care and does an awesome job. I would recommend going here.",
+      review:
+        "I have been having Sue-Anne do my nails for a few years. She always takes so much care and does an awesome job. I would recommend going here.",
       service: "Nail Care",
       helpful: 12,
       images: [],
@@ -68,7 +67,8 @@ export default function ReviewsPage() {
     {
       id: 2,
       name: "jane",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
       rating: 5,
       date: "Jan 11, 2026",
       verified: true,
@@ -80,11 +80,13 @@ export default function ReviewsPage() {
     {
       id: 3,
       name: "Hannah",
-      avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150",
       rating: 5,
       date: "Dec 21, 2025",
       verified: true,
-      review: "Amazing experience the girls there are so kind, and have great humour. Super sweet atmosphere as well!",
+      review:
+        "Amazing experience the girls there are so kind, and have great humour. Super sweet atmosphere as well!",
       service: "Group Appointment",
       helpful: 8,
       images: [],
@@ -92,11 +94,13 @@ export default function ReviewsPage() {
     {
       id: 4,
       name: "Tina Cunningham",
-      avatar: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=150",
       rating: 5,
       date: "Dec 19, 2025",
       verified: true,
-      review: "Teena and her girls are absolutely awesome. Have never been given the opportunity to just sit and chill in the massage chair after a spa pedicure. “Take your time and take a few more minutes for yourself” Thank you it was wonderful.",
+      review:
+        "Teena and her girls are absolutely awesome. Have never been given the opportunity to just sit and chill in the massage chair after a spa pedicure. “Take your time and take a few more minutes for yourself” Thank you it was wonderful.",
       service: "Spa Pedicure",
       helpful: 15,
       images: [],
@@ -104,11 +108,13 @@ export default function ReviewsPage() {
     {
       id: 5,
       name: "Linda Howlett",
-      avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150",
       rating: 5,
       date: "Dec 15, 2025",
       verified: true,
-      review: "Clean tidy salon and very friendly staff Amazing work on my nails",
+      review:
+        "Clean tidy salon and very friendly staff Amazing work on my nails",
       service: "Manicure",
       helpful: 7,
       images: [],
@@ -116,7 +122,8 @@ export default function ReviewsPage() {
     {
       id: 6,
       name: "Elena Michael Reynolds",
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150",
       rating: 5,
       date: "Dec 12, 2025",
       verified: true,
@@ -128,7 +135,8 @@ export default function ReviewsPage() {
     {
       id: 7,
       name: "Caylin",
-      avatar: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=150",
       rating: 5,
       date: "Dec 10, 2025",
       verified: true,
@@ -144,7 +152,8 @@ export default function ReviewsPage() {
       rating: 5,
       date: "Nov 18, 2025",
       verified: true,
-      review: "Sue-Anne has been doing my nails for a few years. She always takes great care with the quality of her work. She is friendly and easy to talk to. I would recommend going here.",
+      review:
+        "Sue-Anne has been doing my nails for a few years. She always takes great care with the quality of her work. She is friendly and easy to talk to. I would recommend going here.",
       service: "Nail Care",
       helpful: 6,
       images: [],
@@ -152,7 +161,8 @@ export default function ReviewsPage() {
     {
       id: 9,
       name: "Chainar",
-      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150",
       rating: 5,
       date: "Nov 10, 2025",
       verified: true,
@@ -164,7 +174,8 @@ export default function ReviewsPage() {
     {
       id: 10,
       name: "Suman",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
       rating: 5,
       date: "Nov 03, 2025",
       verified: true,
@@ -176,11 +187,13 @@ export default function ReviewsPage() {
     {
       id: 11,
       name: "Carol",
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150",
       rating: 5,
       date: "Oct 18, 2025",
       verified: true,
-      review: "Best nail place in the region! The staff are so kind and excellent at their job. Highly recommend. Thank you again for a wonderful experience ❤️",
+      review:
+        "Best nail place in the region! The staff are so kind and excellent at their job. Highly recommend. Thank you again for a wonderful experience ❤️",
       service: "Service",
       helpful: 9,
       images: [],
@@ -192,7 +205,8 @@ export default function ReviewsPage() {
       rating: 5,
       date: "Oct 04, 2025",
       verified: true,
-      review: "They always have great service and very friendly staff. I always get my nails done because they always do such a great job. Totally reccomend going!!",
+      review:
+        "They always have great service and very friendly staff. I always get my nails done because they always do such a great job. Totally reccomend going!!",
       service: "Manicure",
       helpful: 5,
       images: [],
@@ -200,11 +214,13 @@ export default function ReviewsPage() {
     {
       id: 13,
       name: "Doris Litch",
-      avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=150",
       rating: 5,
       date: "Sep 29, 2025",
       verified: true,
-      review: "Wonderful attention to detail and I love the nude color with the chrome finish. Always professional will be back definitely!",
+      review:
+        "Wonderful attention to detail and I love the nude color with the chrome finish. Always professional will be back definitely!",
       service: "Chrome Nails",
       helpful: 4,
       images: [],
@@ -212,11 +228,13 @@ export default function ReviewsPage() {
     {
       id: 14,
       name: "Heather Albrecht",
-      avatar: "https://images.unsplash.com/photo-1619895862047-e64331523546?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1619895862047-e64331523546?w=150",
       rating: 5,
       date: "Sep 24, 2025",
       verified: true,
-      review: "Relaxing pedicure as always with attention to detail. I really appreciated that my late request to adjust my appointment time was kindly accommodated. Thank you!\n\nResponse from salon: It’s our pleasure to accommodate your busy schedules. Thank you for taking the time to share your experience. We're delighted that you enjoyed our services.",
+      review:
+        "Relaxing pedicure as always with attention to detail. I really appreciated that my late request to adjust my appointment time was kindly accommodated. Thank you!\n\nResponse from salon: It’s our pleasure to accommodate your busy schedules. Thank you for taking the time to share your experience. We're delighted that you enjoyed our services.",
       service: "Pedicure",
       helpful: 10,
       images: [],
@@ -224,11 +242,13 @@ export default function ReviewsPage() {
     {
       id: 15,
       name: "Linda Howlett",
-      avatar: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=150",
       rating: 5,
       date: "Sep 16, 2025",
       verified: true,
-      review: "Lovely clean bright salon Sue Ann is fantastic always happy with her work. Friendly Staff Would definitely recommend it",
+      review:
+        "Lovely clean bright salon Sue Ann is fantastic always happy with her work. Friendly Staff Would definitely recommend it",
       service: "Nail Care",
       helpful: 3,
       images: [],
@@ -248,11 +268,13 @@ export default function ReviewsPage() {
     {
       id: 17,
       name: "Elena Michael Reynolds",
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150",
       rating: 5,
       date: "Sep 11, 2025",
       verified: true,
-      review: "Sweet ladies ! It’s nice that they can speak and understand English. Can actually have a conversation with these ladies .",
+      review:
+        "Sweet ladies ! It’s nice that they can speak and understand English. Can actually have a conversation with these ladies .",
       service: "Visit",
       helpful: 6,
       images: [],
@@ -272,7 +294,8 @@ export default function ReviewsPage() {
     {
       id: 19,
       name: "Christina",
-      avatar: "https://images.unsplash.com/photo-1534759846116-5799c33ce36a?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1534759846116-5799c33ce36a?w=150",
       rating: 5,
       date: "Sep 05, 2025",
       verified: true,
@@ -284,11 +307,13 @@ export default function ReviewsPage() {
     {
       id: 20,
       name: "Mary Batista",
-      avatar: "https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?w=150",
+      avatar:
+        "https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?w=150",
       rating: 5,
       date: "Sep 05, 2025",
       verified: true,
-      review: "Enjoy this salon very much. Have only been going there a short while, but the new owner is amazing, the staff is very attentive and listen to what you want.",
+      review:
+        "Enjoy this salon very much. Have only been going there a short while, but the new owner is amazing, the staff is very attentive and listen to what you want.",
       service: "Service",
       helpful: 7,
       images: [],
@@ -300,7 +325,8 @@ export default function ReviewsPage() {
       rating: 5,
       date: "Aug 30, 2025",
       verified: true,
-      review: "Super friendly and amazing service. Nails turned out amazing as always!",
+      review:
+        "Super friendly and amazing service. Nails turned out amazing as always!",
       service: "Service",
       helpful: 4,
       images: [],
@@ -314,10 +340,8 @@ export default function ReviewsPage() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center bg-brand-green justify-center overflow-hidden py-20 px-6"
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green via-brand-green to-green-400"
       >
-
-
         {/* Floating decorations */}
         <motion.div
           className="absolute top-20 left-10 w-32 h-32 bg-pink-300/20 rounded-full blur-3xl"
@@ -372,7 +396,6 @@ export default function ReviewsPage() {
             nail care
           </motion.p>
 
-
           <motion.p
             className="text-2xl font-bold text-white"
             initial={{ opacity: 0 }}
@@ -383,8 +406,6 @@ export default function ReviewsPage() {
           </motion.p>
         </div>
       </section>
-
-
 
       {/* Featured Reviews Section */}
       <section className="bg-[#ffffff] py-20 px-6">
@@ -434,7 +455,6 @@ export default function ReviewsPage() {
 
                     {/* Reviewer Info */}
                     <div className="flex items-center gap-4 pt-6 border-t">
-
                       <div className="flex-1">
                         <div className="font-bold text-gray-900 flex items-center gap-2">
                           {review.name}
@@ -504,8 +524,6 @@ export default function ReviewsPage() {
                 <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-
-
                       <div className="flex-1">
                         {/* Header */}
                         <div className="flex items-start justify-between mb-2">
@@ -555,9 +573,7 @@ export default function ReviewsPage() {
                               <div
                                 key={idx}
                                 className="relative w-24 h-24 rounded-lg overflow-hidden"
-                              >
-
-                              </div>
+                              ></div>
                             ))}
                           </div>
                         )}
@@ -624,7 +640,11 @@ export default function ReviewsPage() {
             animate={ctaInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 className="bg-white text-brand-green hover:bg-[#e0e0e0] px-8 py-6 text-lg font-semibold"
                 size="lg"

@@ -132,7 +132,7 @@ export default function Page() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green/5 via-blue-50 to-brand-yellow/10"
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green via-brand-green to-green-400"
       >
         <motion.div
           className="absolute inset-0 opacity-0"
@@ -168,7 +168,7 @@ export default function Page() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-brand-green font-semibold mb-4 uppercase tracking-wider"
+            className="text-white font-semibold mb-4 uppercase tracking-wider"
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
@@ -176,7 +176,7 @@ export default function Page() {
             Get in Touch
           </motion.p>
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#2a2a2a] mb-6 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -184,12 +184,13 @@ export default function Page() {
             Contact Us
           </motion.h1>
           <motion.p
-            className="text-xl text-[#5a5a5a] mb-8 max-w-2xl mx-auto"
+            className="text-xl text-white mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            We'd love to hear from you! Reach out with any questions or book your appointment online
+            We'd love to hear from you! Reach out with any questions or book
+            your appointment online
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -198,10 +199,14 @@ export default function Page() {
           >
             <Button
               asChild
-              className="bg-brand-green text-white hover:bg-brand-green px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all scale-110"
+              className="bg-white text-brand-green hover:bg-white/90 px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all"
               size="lg"
             >
-              <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
+              <Link
+                href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Book Appointment Online
               </Link>
             </Button>

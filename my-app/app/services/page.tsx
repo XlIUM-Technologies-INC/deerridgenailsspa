@@ -58,41 +58,67 @@ export default function ServicesPage() {
     {
       category: "extensions",
       name: "Bio Gel Full Set",
-      description: "Enhance your natural nails with our flexible, breathable Bio Gel extensions. Promotes healthy nail growth while providing a durable, crystal-clear finish that looks and feels completely natural.",
+      description:
+        "Enhance your natural nails with our flexible, breathable Bio Gel extensions. Promotes healthy nail growth while providing a durable, crystal-clear finish that looks and feels completely natural.",
       duration: "60 min",
       price: "$67",
       image: "/artificiall-nails.jpg",
-      features: ["Natural look & feel", "Flexible & breathable", "Promotes nail health", "Non-yellowing formula"],
+      features: [
+        "Natural look & feel",
+        "Flexible & breathable",
+        "Promotes nail health",
+        "Non-yellowing formula",
+      ],
       popular: true,
     },
     {
       category: "extensions",
       name: "UV Gel Full Set",
-      description: "Achieve the perfect length and shape with our robust UV Gel extensions. Cured for instant hardness, these offer a glossy, chip-resistant barrier that protects your natural nails.",
+      description:
+        "Achieve the perfect length and shape with our robust UV Gel extensions. Cured for instant hardness, these offer a glossy, chip-resistant barrier that protects your natural nails.",
       duration: "60 min",
       price: "$57",
-      image: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600",
-      features: ["Instant hardening", "High-gloss finish", "Protective barrier", "Durable wear"],
+      image:
+        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600",
+      features: [
+        "Instant hardening",
+        "High-gloss finish",
+        "Protective barrier",
+        "Durable wear",
+      ],
       popular: false,
     },
     {
       category: "extensions",
       name: "Solar Nails Full Set",
-      description: "Experience superior strength and lasting shine. This premium alternative maintains clarity and resists yellowing, perfect for those seeking the classic 'Pink & White' look.",
+      description:
+        "Experience superior strength and lasting shine. This premium alternative maintains clarity and resists yellowing, perfect for those seeking the classic 'Pink & White' look.",
       duration: "60 min",
       price: "$67",
       image: "/nails.jpg",
-      features: ["Superior strength", "Resists yellowing", "Retains shine", "Pink & White option"],
+      features: [
+        "Superior strength",
+        "Resists yellowing",
+        "Retains shine",
+        "Pink & White option",
+      ],
       popular: true,
     },
     {
       category: "extensions",
       name: "Acrylic Full Set",
-      description: "Our traditional acrylic extensions provide a strong, hard protective layer, ideal for creating length and a perfectly sculpted shape for any nail bed.",
+      description:
+        "Our traditional acrylic extensions provide a strong, hard protective layer, ideal for creating length and a perfectly sculpted shape for any nail bed.",
       duration: "60 min",
       price: "$55",
-      image: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600",
-      features: ["Custom length sculpting", "Hard & protective", "Versatile shaping", "Classic durability"],
+      image:
+        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600",
+      features: [
+        "Custom length sculpting",
+        "Hard & protective",
+        "Versatile shaping",
+        "Classic durability",
+      ],
       popular: false,
     },
 
@@ -100,21 +126,35 @@ export default function ServicesPage() {
     {
       category: "extensions",
       name: "Bio Gel / Solar Gel Refill",
-      description: "Maintain the beauty and integrity of your enhancements. We fill in the growth gap, rebalance the structure, and refresh the design for a flawless look.",
+      description:
+        "Maintain the beauty and integrity of your enhancements. We fill in the growth gap, rebalance the structure, and refresh the design for a flawless look.",
       duration: "60 min",
       price: "$57",
-      image: "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?w=600",
-      features: ["Restore structural balance", "Seamless fill", "Refresh shine", "Extend wear"],
+      image:
+        "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?w=600",
+      features: [
+        "Restore structural balance",
+        "Seamless fill",
+        "Refresh shine",
+        "Extend wear",
+      ],
       popular: false,
     },
     {
       category: "extensions",
       name: "UV Gel / Acrylic Refill",
-      description: "Keep your nails looking pristine with our maintenance refill. We smooth out the transition area and reshape the free edge for continuous perfection.",
+      description:
+        "Keep your nails looking pristine with our maintenance refill. We smooth out the transition area and reshape the free edge for continuous perfection.",
       duration: "60 min",
       price: "$50",
-      image: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600",
-      features: ["Correct lifting", "Reshape length", "Fill growth", "Polished finish"],
+      image:
+        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600",
+      features: [
+        "Correct lifting",
+        "Reshape length",
+        "Fill growth",
+        "Polished finish",
+      ],
       popular: false,
     },
 
@@ -122,21 +162,35 @@ export default function ServicesPage() {
     {
       category: "manicure",
       name: "Classic Manicure",
-      description: "Treat your hands to essential care. Includes nail shaping, cuticle refinement, and a relaxing hand massage, finished with your choice of regular polish.",
+      description:
+        "Treat your hands to essential care. Includes nail shaping, cuticle refinement, and a relaxing hand massage, finished with your choice of regular polish.",
       duration: "30 min",
       price: "$25+",
-      image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600",
-      features: ["Nail shaping & buffing", "Cuticle refinement", "Hydrating massage", "Precision polish"],
+      image:
+        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600",
+      features: [
+        "Nail shaping & buffing",
+        "Cuticle refinement",
+        "Hydrating massage",
+        "Precision polish",
+      ],
       popular: false,
     },
     {
       category: "manicure",
       name: "Shellac/Gel Manicure",
-      description: "Enjoy zero dry time and a mirror-like shine. Our Shellac/Gel polish cures instantly under LED light for 2+ weeks of chip-free, smudge-proof wear.",
+      description:
+        "Enjoy zero dry time and a mirror-like shine. Our Shellac/Gel polish cures instantly under LED light for 2+ weeks of chip-free, smudge-proof wear.",
       duration: "45 min",
       price: "$45+",
-      image: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600",
-      features: ["Zero dry time", "Mirror shine", "14+ day wear", "Chip resistant"],
+      image:
+        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600",
+      features: [
+        "Zero dry time",
+        "Mirror shine",
+        "14+ day wear",
+        "Chip resistant",
+      ],
       popular: true,
     },
 
@@ -144,21 +198,34 @@ export default function ServicesPage() {
     {
       category: "pedicure",
       name: "Classic Pedicure",
-      description: "Revitalize tired feet with a warm soak, nail trimming, shaping, and cuticle care. Finished with a light massage and polish for a refreshed feeling.",
+      description:
+        "Revitalize tired feet with a warm soak, nail trimming, shaping, and cuticle care. Finished with a light massage and polish for a refreshed feeling.",
       duration: "45 min",
       price: "$35+",
       image: "/pundicure.jpg",
-      features: ["Relaxing foot soak", "Nail & cuticle care", "Light massage", "Perfect polish"],
+      features: [
+        "Relaxing foot soak",
+        "Nail & cuticle care",
+        "Light massage",
+        "Perfect polish",
+      ],
       popular: false,
     },
     {
       category: "pedicure",
       name: "Spa Pedicure",
-      description: "Indulge in deep relaxation. This deluxe treatment adds an exfoliating scrub, callus removal, a hydrating mask, and an extended massage to soothe weary soles.",
+      description:
+        "Indulge in deep relaxation. This deluxe treatment adds an exfoliating scrub, callus removal, a hydrating mask, and an extended massage to soothe weary soles.",
       duration: "60 min",
       price: "$50+",
-      image: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600",
-      features: ["Exfoliating scrub", "Callus smoothing", "Hydrating mask", "Extended massage"],
+      image:
+        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600",
+      features: [
+        "Exfoliating scrub",
+        "Callus smoothing",
+        "Hydrating mask",
+        "Extended massage",
+      ],
       popular: true,
     },
 
@@ -166,21 +233,33 @@ export default function ServicesPage() {
     {
       category: "spa",
       name: "Scalp Therapy Spa",
-      description: "Relieve stress and improve scalp health. This treatment stimulates circulation, deeply cleanses follicles, and promotes relaxation for a rejuvenated mind and body.",
+      description:
+        "Relieve stress and improve scalp health. This treatment stimulates circulation, deeply cleanses follicles, and promotes relaxation for a rejuvenated mind and body.",
       duration: "60 min",
       price: "$85+",
       image: "/Scalp Therapy Spa .jpg",
-      features: ["Stimulates circulation", "Deep cleansing", "Stress relief", "Promotes hair health"],
+      features: [
+        "Stimulates circulation",
+        "Deep cleansing",
+        "Stress relief",
+        "Promotes hair health",
+      ],
       popular: true,
     },
     {
       category: "spa",
       name: "Kids Service (Under 12)",
-      description: "A gentle and fun pampering session for the little ones. We use non-toxic products and offer safe, simple nail care designed for children.",
+      description:
+        "A gentle and fun pampering session for the little ones. We use non-toxic products and offer safe, simple nail care designed for children.",
       duration: "30 min",
       price: "$20+",
       image: "/kids.jpg",
-      features: ["Gentle touch", "Non-toxic products", "Fun colors", "Age-appropriate care"],
+      features: [
+        "Gentle touch",
+        "Non-toxic products",
+        "Fun colors",
+        "Age-appropriate care",
+      ],
       popular: false,
     },
 
@@ -188,33 +267,51 @@ export default function ServicesPage() {
     {
       category: "beauty",
       name: "Lashes & Brows",
-      description: "Awaken your eyes with our lash and brow services. From lifting to tinting, we enhance your natural features for a low-maintenance, polished look.",
+      description:
+        "Awaken your eyes with our lash and brow services. From lifting to tinting, we enhance your natural features for a low-maintenance, polished look.",
       duration: "45 min",
       price: "$45+",
       image: "/lash-lifting.jpg",
-      features: ["Lash Lift curl", "Tinting definition", "Brow shaping", "Natural enhancement"],
+      features: [
+        "Lash Lift curl",
+        "Tinting definition",
+        "Brow shaping",
+        "Natural enhancement",
+      ],
       popular: false,
     },
     {
       category: "beauty",
       name: "Waxing Services",
-      description: "Experience silky smooth skin with our professional waxing. We use gentle wax to effectively remove hair from the root for long-lasting smoothness.",
+      description:
+        "Experience silky smooth skin with our professional waxing. We use gentle wax to effectively remove hair from the root for long-lasting smoothness.",
       duration: "Var",
       price: "Var",
       image: "/Waxing.jpg",
-      features: ["Smooth skin", "Long-lasting results", "Facial waxing", "Body waxing"],
+      features: [
+        "Smooth skin",
+        "Long-lasting results",
+        "Facial waxing",
+        "Body waxing",
+      ],
       popular: false,
     },
     {
       category: "beauty",
       name: "Facials",
-      description: "Refresh your complexion with our tailored facial treatments. Deep cleansing and hydration to reveal your best skin.",
+      description:
+        "Refresh your complexion with our tailored facial treatments. Deep cleansing and hydration to reveal your best skin.",
       duration: "Var",
       price: "Var",
       image: "/Facials.jpg",
-      features: ["Deep cleansing", "Hydration boost", "Relaxation", "Glowing skin"],
+      features: [
+        "Deep cleansing",
+        "Hydration boost",
+        "Relaxation",
+        "Glowing skin",
+      ],
       popular: false,
-    }
+    },
   ];
 
   const process = [
@@ -266,21 +363,12 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6"
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green via-brand-green to-green-400"
       >
         <motion.div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-0"
           style={{ y, opacity }}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200"
-            alt="Nail services background"
-            fill
-            className="object-cover"
-            quality={85}
-            priority
-          />
-        </motion.div>
+        ></motion.div>
 
         {/* Floating decorations */}
         <motion.div
@@ -429,7 +517,11 @@ export default function ServicesPage() {
                       ))}
                     </div>
 
-                    <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
+                    <Link
+                      href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Button className="w-full bg-brand-green text-white hover:bg-brand-green group/btn">
                         Book Now
                         <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
@@ -579,7 +671,11 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <Link href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 className="bg-white text-brand-green hover:bg-[#e0e0e0] px-8 py-6 text-lg font-semibold"
                 size="lg"
