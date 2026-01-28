@@ -110,7 +110,7 @@ export default function GalleryPage() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green via-brand-green to-green-400"
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-24 px-6 bg-brand-green"
       >
         <motion.div
           className="absolute inset-0 opacity-0"
@@ -146,7 +146,7 @@ export default function GalleryPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-white font-semibold mb-4 uppercase tracking-wider"
+            className="text-white/60 mb-6 uppercase tracking-[0.4em] text-[10px] font-inter font-light"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -155,22 +155,22 @@ export default function GalleryPage() {
             Our Gallery
           </motion.p>
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-italiana text-white mb-8 leading-[0.9] tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Our Work
+            OUR WORK
           </motion.h1>
           <motion.p
-            className="text-xl text-white mb-8 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-white/70 mb-8 max-w-2xl mx-auto font-inter font-light leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            A curated collection of our latest designs and transformations.
+            A curated collection of our latest designs, artistic transformations, and moments of serenity.
           </motion.p>
         </div>
       </section>
@@ -256,7 +256,7 @@ export default function GalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-[150] bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
@@ -278,7 +278,7 @@ export default function GalleryPage() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute -top-12 right-0 text-white hover:bg-white/20 rounded-full"
+                className="absolute -top-12 right-0 text-white hover:bg-white/20 rounded-none"
                 onClick={() => setSelectedImage(null)}
               >
                 <X className="w-8 h-8" />

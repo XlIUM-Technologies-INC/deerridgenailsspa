@@ -16,21 +16,18 @@ import Link from "next/link";
 // @ts-ignore
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { CONTACT_INFO, BOOKING_URL } from "@/lib/constants";
+import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
 export default function AboutPage() {
   const heroRef = useRef(null);
   const storyRef = useRef(null);
-  const valuesRef = useRef(null);
   const teamRef = useRef(null);
-  const statsRef = useRef(null);
 
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
   const storyInView = useInView(storyRef, { once: true, amount: 0.3 });
-  const valuesInView = useInView(valuesRef, { once: true, amount: 0.2 });
   const teamInView = useInView(teamRef, { once: true, amount: 0.2 });
-  const statsInView = useInView(statsRef, { once: true, amount: 0.3 });
 
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -40,326 +37,219 @@ export default function AboutPage() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
 
-  const values = [
-    {
-      icon: Heart,
-      title: "Passion",
-      description: "We love what we do and it shows in every nail we perfect.",
-      color: "bg-rose-100",
-      iconColor: "text-rose-600",
-    },
-    {
-      icon: Shield,
-      title: "Safety",
-      description:
-        "Your health and safety are our top priorities with hospital-grade sterilization.",
-      color: "bg-blue-100",
-      iconColor: "text-blue-600",
-    },
-    {
-      icon: Sparkles,
-      title: "Excellence",
-      description: "We strive for perfection in every service we provide.",
-      color: "bg-purple-100",
-      iconColor: "text-purple-600",
-    },
-    {
-      icon: Users,
-      title: "Community",
-      description:
-        "Building lasting relationships with our clients and community.",
-      color: "bg-emerald-100",
-      iconColor: "text-emerald-600",
-    },
-  ];
-
-  const team = [
-    {
-      name: "Sarah Johnson",
-      role: "Lead Nail Technician",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
-      experience: "12 years",
-    },
-    {
-      name: "Emily Chen",
-      role: "Nail Artist Specialist",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400",
-      experience: "8 years",
-    },
-    {
-      name: "Maria Rodriguez",
-      role: "Senior Technician",
-      image:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
-      experience: "10 years",
-    },
-    {
-      name: "Jessica Lee",
-      role: "Nail Care Expert",
-      image:
-        "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400",
-      experience: "7 years",
-    },
-  ];
+  const teamNames = ["Teena", "Choal", "Sue Anne", "Jasmine", "Emily"];
 
   return (
-    <div className="bg-[#ffffff]">
+    <div className="bg-white min-h-screen">
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green via-brand-green to-green-400"
+        className="relative min-h-[85vh] flex flex-col justify-center overflow-hidden bg-brand-green"
       >
-        <motion.div
-          className="absolute inset-0 opacity-0"
-          style={{ y, opacity }}
-        ></motion.div>
+        {/* Full-bleed Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/384fb92fbf579dd14493a3cf1a0731c0.jpg"
+            alt="Deer Ridge Nails Spa Sanctuary"
+            fill
+            className="object-cover contrast-[1.1] brightness-[0.7]"
+            priority
+            sizes="100vw"
+            quality={90}
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-green via-brand-green/60 to-transparent z-1" />
+          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white via-white/20 to-transparent z-[2]" />
+        </div>
 
-        {/* Floating decorations */}
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-pink-300/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 bg-rose-400/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.p
-            className="text-white font-semibold mb-4 uppercase tracking-wider"
-            initial={{ opacity: 0, y: 20 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            About Us
-          </motion.p>
-          <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Deer Ridge Nails Spa
-          </motion.h1>
-          <motion.p
-            className="text-xl text-white mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            4195 King St E, Kitchener, ON
-          </motion.p>
+        {/* Decorative Geometric Figures */}
+        <div className="absolute inset-0 z-1 pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, rotate: -15 }}
+            animate={{ opacity: 0.1, rotate: 0 }}
+            transition={{ duration: 2 }}
+            className="absolute top-[20%] right-[15%] w-64 h-64 border border-white/30 hidden lg:block"
+          />
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            animate={heroInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            animate={{ opacity: 0.05, scale: 1 }}
+            transition={{ duration: 2.5, delay: 0.5 }}
+            className="absolute bottom-[10%] left-[10%] w-[400px] h-[400px] border border-white/20 rounded-full hidden lg:block"
+          />
+        </div>
+
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 flex flex-col items-start pt-20">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={heroInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1 }}
+            className="flex flex-col items-start text-left space-y-8 max-w-4xl"
           >
-            <div className="inline-block bg-white/20 backdrop-blur-md border border-white/30 px-6 py-2 rounded-full text-white mb-8">
-              Now Under New Management & Newly Renovated
+            <div className="space-y-4">
+
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-italiana text-white leading-[0.85] tracking-tighter">
+                <span className="block">BEYOND</span>
+                <span className="italic text-white/90 ml-12 md:ml-24">BEAUTY.</span>
+              </h1>
             </div>
-            <br />
-            <Button
-              asChild
-              className="bg-brand-green text-white hover:bg-brand-green px-8 py-6 text-lg font-semibold"
-              size="lg"
-            >
-              <Link
-                href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book Your Appointment
-              </Link>
-            </Button>
+
+            <p className="text-xl md:text-2xl text-white/50 font-inter font-light italic tracking-[0.4em] uppercase leading-none">
+              A Legacy of Artistry & Grace
+            </p>
+
+            <div className="h-[1px] w-24 bg-white/30" />
+
+
           </motion.div>
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section ref={storyRef} className="bg-white py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Narrative Section - Overlap */}
+      <section ref={storyRef} className="relative py-32 px-6 bg-white overflow-hidden">
+        {/* Background Accent */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-green/[0.02] -z-1" />
+
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid lg:grid-cols-2 gap-24 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={storyInView ? { opacity: 1, x: 0 } : {}}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="space-y-12"
             >
-              <p className="text-brand-green font-semibold mb-2 uppercase tracking-wider text-sm">
-                Our Story
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Excellence in Nail Care
-              </h2>
-              <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
+              <div className="space-y-6">
+                <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[10px]">Our Philosophy</span>
+                <h2 className="text-5xl md:text-7xl font-italiana text-brand-green leading-[0.9] tracking-tight">
+                  KITCHENER'S <br />
+                  PREMIER SANCTUARY
+                </h2>
+              </div>
+
+              <div className="space-y-8 text-lg font-inter font-light text-brand-green/70 leading-relaxed border-l border-brand-green/10 pl-10">
                 <p>
-                  Deer Ridge Nails Spa is Kitchener's premier destination for
-                  professional nail care and spa services. We are dedicated to
-                  providing exceptional beauty treatments in a welcoming and
-                  relaxing environment.
+                  Deer Ridge Nails Spa is more than just a destination for nail care; it's a testament to the belief that beauty should be a ritual of self-care and artistic expression.
                 </p>
                 <p>
-                  Our team of experienced and certified nail technicians takes
-                  pride in delivering outstanding service with attention to
-                  detail. We use only high-quality products and maintain the
-                  highest standards of hygiene and sanitation to ensure the
-                  safety and satisfaction of our clients.
+                  Our newly renovated Kitchener studio combines modern luxury with classic sophistication. Under our new management, we've rededicated ourselves to hospital-grade hygiene, premium non-toxic formulations, and an uncompromising attention to detail.
                 </p>
-                <p>
-                  Whether you're looking for a classic manicure, creative nail
-                  art, gel extensions, or any of our specialty spa services,
-                  we're here to make you feel pampered and beautiful. Your
-                  satisfaction is our top priority.
+                <p className="italic text-brand-green font-normal">
+                  "We don't just shape nails; we craft experiences that linger long after you leave our chairs."
                 </p>
               </div>
             </motion.div>
 
             <motion.div
-              className="relative h-[500px]"
-              initial={{ opacity: 0, x: 50 }}
-              animate={storyInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="relative"
             >
-              <div className="relative h-full">
+              <div className="relative aspect-[4/5] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.1)]">
                 <Image
                   src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800"
-                  alt="Deer Ridge Nails Spa interior"
+                  alt="Deer Ridge Nails Spa Artistic Detail"
                   fill
-                  className="object-cover shadow-2xl"
+                  className="object-cover transition-transform duration-[3s] hover:scale-110"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   quality={85}
                 />
               </div>
-              <motion.div
-                className="absolute -bottom-6 -right-6 w-48 h-48 bg-brand-green flex items-center justify-center text-white shadow-2xl"
-                whileHover={{ scale: 1.05, rotate: 5 }}
-              >
-                <div className="text-center">
-                  <div className="text-5xl font-bold">Deer Ridge Nails Spa</div>
-                  <div className="text-lg">Kitchener, ON</div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet Our Team Section - Simplified */}
-      <section ref={teamRef} className="bg-white py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={teamInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=800"
-                  alt="Our Expert Team"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={teamInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col justify-center"
-            >
-              <p className="text-brand-green font-semibold mb-2 uppercase tracking-wider text-sm">
-                Our Team
-              </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Expert Technicians
-              </h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Our salon is proud to be under <strong>new management</strong>{" "}
-                and has been <strong>newly renovated</strong> to provide you
-                with the best experience possible.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                We have a dedicated team of highly skilled and experienced nail
-                technicians who are passionate about their craft. Whether you
-                need a simple manicure or intricate nail art, our staff is here
-                to bring your vision to life with precision and care.
-              </p>
-              <div className="flex gap-4">
-                <div className="bg-brand-green/5 p-4 rounded-lg border border-brand-green/10">
-                  <p className="font-bold text-brand-green text-xl mb-1">10+</p>
-                  <p className="text-sm text-gray-600">Years Combined Exp.</p>
-                </div>
-                <div className="bg-brand-green/5 p-4 rounded-lg border border-brand-green/10">
-                  <p className="font-bold text-brand-green text-xl mb-1">
-                    100%
-                  </p>
-                  <p className="text-sm text-gray-600">Satisfaction Focus</p>
-                </div>
+              {/* Floating Geometric Label */}
+              <div className="absolute -bottom-10 -left-10 bg-brand-green text-white p-12 shadow-2xl z-20 hidden md:block">
+                <p className="font-italiana text-4xl leading-tight mb-2">Est. 2024</p>
+                <div className="w-12 h-[1px] bg-white/20 mb-4" />
+                <p className="text-[10px] tracking-[0.3em] font-inter uppercase opacity-60">Kitchener, Ontario</p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Artisans Section */}
+      <section ref={teamRef} className="py-32 px-6 bg-brand-green text-white overflow-hidden relative">
+        {/* Texture Overlay */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]" />
+
+        <div className="max-w-[1400px] mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-20"
+          >
+            <div className="space-y-6">
+              <span className="text-white/40 font-inter font-light tracking-[0.5em] uppercase text-[10px]">The Artisans</span>
+              <h2 className="text-6xl md:text-8xl font-italiana leading-none tracking-tight">MEET OUR TEAM</h2>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 lg:gap-x-24">
+              {teamNames.map((name, index) => (
+                <motion.div
+                  key={name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group relative"
+                >
+                  <span className="text-4xl md:text-6xl font-italiana transition-all duration-500 group-hover:tracking-widest group-hover:text-brand-sage">
+                    {name}
+                  </span>
+                  <div className="w-0 h-[1px] bg-brand-sage/40 mt-4 mx-auto group-hover:w-full transition-all duration-500" />
+                </motion.div>
+              ))}
+            </div>
+
+            <p className="max-w-3xl mx-auto text-xl text-white/60 font-inter font-light leading-relaxed">
+              Our specialists are a collective of highly skilled artists passionate about precision, care, and the pursuit of handcrafted excellence.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-40 px-6 bg-white relative overflow-hidden">
+        {/* Background Geometric Accent */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-brand-green/[0.03] rounded-full -z-1" />
+
+        <div className="max-w-4xl mx-auto text-center space-y-12">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-5xl md:text-7xl font-italiana text-brand-green leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Ready to Experience the Deer Ridge Nails Spa Difference?
+            READY TO EXPERIENCE<br />THE DIFFERENCE?
           </motion.h2>
-          <motion.p
-            className="text-xl text-gray-600 mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Book your appointment today and join our community of satisfied
-            clients in Kitchener
-          </motion.p>
+
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Button
               asChild
-              className="bg-brand-green text-white hover:bg-brand-green px-8 py-6 text-lg font-semibold"
-              size="lg"
+              className="group h-20 px-16 rounded-none bg-brand-green text-white hover:bg-brand-green/95 text-[12px] tracking-[0.5em] font-inter font-medium transition-all duration-500 shadow-2xl relative overflow-hidden"
             >
               <Link
-                href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book Now
+                <span className="relative z-10 uppercase">BOOK AN EXPERIENCE</span>
+                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </Link>
             </Button>
           </motion.div>
+
+          <p className="text-brand-green/40 font-inter font-light uppercase tracking-[0.3em] text-[10px]">
+            Your sanctuary awaits in Kitchener
+          </p>
         </div>
       </section>
     </div>

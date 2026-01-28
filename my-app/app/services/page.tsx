@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useInView, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import {
-  Sparkles,
   Star,
   Heart,
   Palette,
@@ -21,17 +20,23 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
+import {
+  SERVICE_CATEGORIES as categories,
+  SERVICES as services,
+  PROCESS_STEPS as process,
+  SERVICE_ADDONS as addons,
+  BOOKING_URL
+} from "@/lib/constants";
+
 export default function ServicesPage() {
   const heroRef = useRef(null);
   const servicesRef = useRef(null);
   const processRef = useRef(null);
-  const pricingRef = useRef(null);
   const addonsRef = useRef(null);
 
   const heroInView = useInView(heroRef, { once: true, amount: 0.3 });
-  const servicesInView = useInView(servicesRef, { once: true, amount: 0.2 });
-  const processInView = useInView(processRef, { once: true, amount: 0.3 });
-  const pricingInView = useInView(pricingRef, { once: true, amount: 0.2 });
+  const servicesInView = useInView(servicesRef, { once: true, amount: 0.1 });
+  const processInView = useInView(processRef, { once: true, amount: 0.2 });
   const addonsInView = useInView(addonsRef, { once: true, amount: 0.2 });
 
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -41,317 +46,8 @@ export default function ServicesPage() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
-
-  const categories = [
-    { id: "all", label: "All Services" },
-    { id: "manicure", label: "Manicure" },
-    { id: "pedicure", label: "Pedicure" },
-    { id: "extensions", label: "Nail Extensions" },
-    { id: "spa", label: "Spa & Scalp" },
-    { id: "beauty", label: "Lashes & Waxing" },
-  ];
-
-  const services = [
-    // Extensions
-    {
-      category: "extensions",
-      name: "Bio Gel Full Set",
-      description:
-        "Enhance your natural nails with our flexible, breathable Bio Gel extensions. Promotes healthy nail growth while providing a durable, crystal-clear finish that looks and feels completely natural.",
-      duration: "60 min",
-      price: "$67",
-      image: "/artificiall-nails.jpg",
-      features: [
-        "Natural look & feel",
-        "Flexible & breathable",
-        "Promotes nail health",
-        "Non-yellowing formula",
-      ],
-      popular: true,
-    },
-    {
-      category: "extensions",
-      name: "UV Gel Full Set",
-      description:
-        "Achieve the perfect length and shape with our robust UV Gel extensions. Cured for instant hardness, these offer a glossy, chip-resistant barrier that protects your natural nails.",
-      duration: "60 min",
-      price: "$57",
-      image:
-        "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600",
-      features: [
-        "Instant hardening",
-        "High-gloss finish",
-        "Protective barrier",
-        "Durable wear",
-      ],
-      popular: false,
-    },
-    {
-      category: "extensions",
-      name: "Solar Nails Full Set",
-      description:
-        "Experience superior strength and lasting shine. This premium alternative maintains clarity and resists yellowing, perfect for those seeking the classic 'Pink & White' look.",
-      duration: "60 min",
-      price: "$67",
-      image: "/nails.jpg",
-      features: [
-        "Superior strength",
-        "Resists yellowing",
-        "Retains shine",
-        "Pink & White option",
-      ],
-      popular: true,
-    },
-    {
-      category: "extensions",
-      name: "Acrylic Full Set",
-      description:
-        "Our traditional acrylic extensions provide a strong, hard protective layer, ideal for creating length and a perfectly sculpted shape for any nail bed.",
-      duration: "60 min",
-      price: "$55",
-      image:
-        "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600",
-      features: [
-        "Custom length sculpting",
-        "Hard & protective",
-        "Versatile shaping",
-        "Classic durability",
-      ],
-      popular: false,
-    },
-
-    // Low maintenance Refills (Generic image usage to avoid repetition)
-    {
-      category: "extensions",
-      name: "Bio Gel / Solar Gel Refill",
-      description:
-        "Maintain the beauty and integrity of your enhancements. We fill in the growth gap, rebalance the structure, and refresh the design for a flawless look.",
-      duration: "60 min",
-      price: "$57",
-      image:
-        "https://images.unsplash.com/photo-1599206676335-193c82b13c9e?w=600",
-      features: [
-        "Restore structural balance",
-        "Seamless fill",
-        "Refresh shine",
-        "Extend wear",
-      ],
-      popular: false,
-    },
-    {
-      category: "extensions",
-      name: "UV Gel / Acrylic Refill",
-      description:
-        "Keep your nails looking pristine with our maintenance refill. We smooth out the transition area and reshape the free edge for continuous perfection.",
-      duration: "60 min",
-      price: "$50",
-      image:
-        "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600",
-      features: [
-        "Correct lifting",
-        "Reshape length",
-        "Fill growth",
-        "Polished finish",
-      ],
-      popular: false,
-    },
-
-    // Manicure
-    {
-      category: "manicure",
-      name: "Classic Manicure",
-      description:
-        "Treat your hands to essential care. Includes nail shaping, cuticle refinement, and a relaxing hand massage, finished with your choice of regular polish.",
-      duration: "30 min",
-      price: "$25+",
-      image:
-        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600",
-      features: [
-        "Nail shaping & buffing",
-        "Cuticle refinement",
-        "Hydrating massage",
-        "Precision polish",
-      ],
-      popular: false,
-    },
-    {
-      category: "manicure",
-      name: "Shellac/Gel Manicure",
-      description:
-        "Enjoy zero dry time and a mirror-like shine. Our Shellac/Gel polish cures instantly under LED light for 2+ weeks of chip-free, smudge-proof wear.",
-      duration: "45 min",
-      price: "$45+",
-      image:
-        "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=600",
-      features: [
-        "Zero dry time",
-        "Mirror shine",
-        "14+ day wear",
-        "Chip resistant",
-      ],
-      popular: true,
-    },
-
-    // Pedicure
-    {
-      category: "pedicure",
-      name: "Classic Pedicure",
-      description:
-        "Revitalize tired feet with a warm soak, nail trimming, shaping, and cuticle care. Finished with a light massage and polish for a refreshed feeling.",
-      duration: "45 min",
-      price: "$35+",
-      image: "/pundicure.jpg",
-      features: [
-        "Relaxing foot soak",
-        "Nail & cuticle care",
-        "Light massage",
-        "Perfect polish",
-      ],
-      popular: false,
-    },
-    {
-      category: "pedicure",
-      name: "Spa Pedicure",
-      description:
-        "Indulge in deep relaxation. This deluxe treatment adds an exfoliating scrub, callus removal, a hydrating mask, and an extended massage to soothe weary soles.",
-      duration: "60 min",
-      price: "$50+",
-      image:
-        "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600",
-      features: [
-        "Exfoliating scrub",
-        "Callus smoothing",
-        "Hydrating mask",
-        "Extended massage",
-      ],
-      popular: true,
-    },
-
-    // Spa & Scalp
-    {
-      category: "spa",
-      name: "Scalp Therapy Spa",
-      description:
-        "Relieve stress and improve scalp health. This treatment stimulates circulation, deeply cleanses follicles, and promotes relaxation for a rejuvenated mind and body.",
-      duration: "60 min",
-      price: "$85+",
-      image: "/Scalp Therapy Spa .jpg",
-      features: [
-        "Stimulates circulation",
-        "Deep cleansing",
-        "Stress relief",
-        "Promotes hair health",
-      ],
-      popular: true,
-    },
-    {
-      category: "spa",
-      name: "Kids Service (Under 12)",
-      description:
-        "A gentle and fun pampering session for the little ones. We use non-toxic products and offer safe, simple nail care designed for children.",
-      duration: "30 min",
-      price: "$20+",
-      image: "/kids.jpg",
-      features: [
-        "Gentle touch",
-        "Non-toxic products",
-        "Fun colors",
-        "Age-appropriate care",
-      ],
-      popular: false,
-    },
-
-    // Beauty (Lashes/Waxing)
-    {
-      category: "beauty",
-      name: "Lashes & Brows",
-      description:
-        "Awaken your eyes with our lash and brow services. From lifting to tinting, we enhance your natural features for a low-maintenance, polished look.",
-      duration: "45 min",
-      price: "$45+",
-      image: "/lash-lifting.jpg",
-      features: [
-        "Lash Lift curl",
-        "Tinting definition",
-        "Brow shaping",
-        "Natural enhancement",
-      ],
-      popular: false,
-    },
-    {
-      category: "beauty",
-      name: "Waxing Services",
-      description:
-        "Experience silky smooth skin with our professional waxing. We use gentle wax to effectively remove hair from the root for long-lasting smoothness.",
-      duration: "Var",
-      price: "Var",
-      image: "/Waxing.jpg",
-      features: [
-        "Smooth skin",
-        "Long-lasting results",
-        "Facial waxing",
-        "Body waxing",
-      ],
-      popular: false,
-    },
-    {
-      category: "beauty",
-      name: "Facials",
-      description:
-        "Refresh your complexion with our tailored facial treatments. Deep cleansing and hydration to reveal your best skin.",
-      duration: "Var",
-      price: "Var",
-      image: "/Facials.jpg",
-      features: [
-        "Deep cleansing",
-        "Hydration boost",
-        "Relaxation",
-        "Glowing skin",
-      ],
-      popular: false,
-    },
-  ];
-
-  const process = [
-    {
-      step: "01",
-      title: "Consultation",
-      description:
-        "We discuss your preferences, nail health, and desired style",
-      icon: Heart,
-    },
-    {
-      step: "02",
-      title: "Preparation",
-      description: "Thorough cleaning, shaping, and cuticle care",
-      icon: Scissors,
-    },
-    {
-      step: "03",
-      title: "Treatment",
-      description: "Application of chosen service with premium products",
-      icon: Sparkles,
-    },
-    {
-      step: "04",
-      title: "Finishing",
-      description: "Final touches and care instructions for lasting results",
-      icon: Star,
-    },
-  ];
-
-  const addons = [
-    { name: "Nail Strengthening Treatment", price: "$10" },
-    { name: "Paraffin Wax Treatment", price: "$15" },
-    { name: "Hot Stone Massage", price: "$20" },
-    { name: "Chrome/Mirror Finish", price: "$15" },
-    { name: "Nail Art per Nail", price: "$5" },
-    { name: "Gem Application", price: "$3-$10" },
-    { name: "French Tips", price: "$10" },
-    { name: "Nail Repair", price: "$5" },
-  ];
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
 
   const filteredServices =
     selectedCategory === "all"
@@ -359,340 +55,309 @@ export default function ServicesPage() {
       : services.filter((service) => service.category === selectedCategory);
 
   return (
-    <div className="bg-[#ffffff]">
-      {/* Hero Section */}
+    <div className="bg-white min-h-screen">
+      {/* Cinematic Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green via-brand-green to-green-400"
+        className="relative min-h-[80vh] flex flex-col justify-center overflow-hidden bg-brand-green"
       >
-        <motion.div
-          className="absolute inset-0 opacity-0"
-          style={{ y, opacity }}
-        ></motion.div>
+        {/* Full-bleed Optimized Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/8f7b18b46378234ab97d8c5a74458c51.jpg"
+            alt="Deer Ridge Nails Spa Sanctuary"
+            fill
+            className="object-cover contrast-[1.1] brightness-[0.7]"
+            priority
+            sizes="100vw"
+            quality={90}
+          />
+          {/* Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-green via-brand-green/60 to-transparent z-1" />
+          <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white/20 to-transparent z-[2]" />
+        </div>
 
-        {/* Floating decorations */}
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-pink-300/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 bg-rose-400/15 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
+        {/* Decorative Geometric Figures */}
+        <div className="absolute inset-0 z-1 pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.2 }}
+            animate={{ opacity: 0.1, scale: 1 }}
+            transition={{ duration: 2 }}
+            className="absolute top-[15%] right-[10%] w-96 h-96 border border-white/20 rounded-full hidden lg:block"
+          />
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 0.05, x: 0 }}
+            transition={{ duration: 1.5, delay: 0.5 }}
+            className="absolute bottom-[20%] left-0 w-[400px] h-[1px] bg-white hidden xl:block"
+          />
+        </div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.p
-            className="text-white font-semibold mb-4 uppercase tracking-wider"
-            initial={{ opacity: 0, y: 20 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 flex flex-col items-start pt-20">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={heroInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1 }}
+            className="flex flex-col items-start text-left space-y-10 max-w-4xl"
           >
-            Our Services
-          </motion.p>
-          <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Premium Nail Care Services
-          </motion.h1>
-          <motion.p
-            className="text-xl text-white mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            From classic manicures to custom nail art, we offer a complete range
-            of services
-          </motion.p>
+            <div className="space-y-6">
+              <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.5em] uppercase text-[10px]">
+                A Bespoke Collection
+              </Badge>
+              <h1 className="text-7xl md:text-9xl font-italiana text-white leading-[0.85] tracking-tighter">
+                <span className="block">ARTFUL</span>
+                <span className="italic text-white/90 ml-12 md:ml-32">SERVICES.</span>
+              </h1>
+            </div>
+
+            <p className="text-xl md:text-2xl text-brand-sage font-inter font-light italic tracking-[0.4em] uppercase leading-none">
+              Precision. Passion. Perfection.
+            </p>
+
+            <div className="h-[1px] w-32 bg-white/30" />
+
+
+          </motion.div>
         </div>
       </section>
 
-      {/* Services Grid Section */}
-      <section ref={servicesRef} className="bg-brand-yellow py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-[#2a2a2a] mb-6">
-              Explore Our Services
-            </h2>
+      {/* Services Section */}
+      <section ref={servicesRef} className="py-32 px-6 bg-white overflow-hidden">
+        <div className="max-w-[1400px] mx-auto">
+          {/* Header & Filter */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6 max-w-xl"
+            >
+              <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[10px]">Your treatment</span>
+              <h2 className="text-5xl md:text-7xl font-italiana text-brand-green leading-[0.9] tracking-tight">
+                THE SERVICE <br />MENU
+              </h2>
+            </motion.div>
 
-            {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap gap-2"
+            >
+              <span className="w-full text-[9px] tracking-[0.4em] font-inter uppercase text-brand-green/30 mb-2 md:hidden">Filter By Category</span>
               {categories.map((cat) => (
-                <Button
+                <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  variant={selectedCategory === cat.id ? "default" : "outline"}
-                  className={
-                    selectedCategory === cat.id
-                      ? "bg-brand-green text-white hover:bg-brand-green"
-                      : "border-[#d0d0d0] hover:border-brand-green"
-                  }
+                  className={`px-8 py-3 text-[10px] tracking-[0.2em] font-inter uppercase transition-all duration-300 rounded-none border ${selectedCategory === cat.id
+                    ? "bg-brand-green text-white border-brand-green"
+                    : "bg-transparent text-brand-green/40 border-brand-green/10 hover:border-brand-green/40"
+                    }`}
                 >
                   {cat.label}
-                </Button>
+                </button>
               ))}
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredServices.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                layout
-              >
-                <Card className="h-full border-none shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group">
-                  <div className="relative h-64 overflow-hidden">
-                    {service.popular && (
-                      <Badge className="absolute top-4 right-4 z-10 bg-brand-green hover:bg-brand-green">
-                        Popular
-                      </Badge>
-                    )}
-                    <Image
-                      src={service.image}
-                      alt={service.name}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      quality={85}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <h3 className="text-2xl font-bold mb-1">
-                        {service.name}
-                      </h3>
+          {/* Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+            <AnimatePresence mode="popLayout">
+              {filteredServices.map((service, index) => (
+                <motion.div
+                  key={service.name}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
+                  className="group"
+                >
+                  <div className="space-y-8 h-full flex flex-col">
+                    <div className="relative aspect-[4/5] overflow-hidden bg-brand-green/[0.02]">
+                      {service.popular && (
+                        <div className="absolute top-6 left-6 z-20 bg-brand-green text-white px-6 py-2 text-[9px] tracking-[0.3em] font-inter uppercase font-medium shadow-2xl">
+                          Highly Coveted
+                        </div>
+                      )}
+                      <Image
+                        src={service.image}
+                        alt={service.name}
+                        fill
+                        className="object-cover transition-transform duration-[2s] group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        quality={85}
+                      />
+                      <div className="absolute inset-0 bg-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    </div>
+
+                    <div className="flex-1 space-y-6 border-l border-brand-green/5 pl-8 transition-all duration-700 group-hover:border-brand-green/20">
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="text-3xl font-italiana text-brand-green leading-none">
+                          {service.name}
+                        </h3>
+                        <span className="text-xl font-italiana text-brand-green/40">{service.price}</span>
+                      </div>
+
+                      <p className="text-brand-green/60 font-inter font-light text-sm leading-relaxed">
+                        {service.description}
+                      </p>
+
+                      <ul className="space-y-3">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center gap-3 text-[11px] text-brand-sage font-inter font-light uppercase tracking-wider">
+                            <div className="w-1.5 h-1.5 border border-brand-sage/40 rounded-full" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="pt-6">
+                        <Link
+                          href={BOOKING_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-4 text-[10px] tracking-[0.4em] font-inter font-medium text-brand-green uppercase group/link"
+                        >
+                          Book Experience
+                          <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover/link:translate-x-2" />
+                        </Link>
+                      </div>
                     </div>
                   </div>
-
-                  <CardContent className="p-6">
-                    <p className="text-[#5a5a5a] mb-4">{service.description}</p>
-
-                    <div className="flex items-center justify-between mb-4 text-sm text-[#7a7a7a]">
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>{service.duration}</span>
-                      </div>
-                      <div className="flex items-center gap-1 text-brand-green font-bold text-lg">
-                        <DollarSign className="w-5 h-5" />
-                        <span>{service.price.replace("$", "")}</span>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2 mb-4">
-                      {service.features.map((feature, idx) => (
-                        <div
-                          key={idx}
-                          className="flex items-center gap-2 text-sm text-[#5a5a5a]"
-                        >
-                          <Check className="w-4 h-4 text-brand-green flex-shrink-0" />
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <Link
-                      href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button className="w-full bg-brand-green text-white hover:bg-brand-green group/btn">
-                        Book Now
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section ref={processRef} className="bg-[#ffffff] py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section ref={processRef} className="py-32 px-6 bg-brand-green relative overflow-hidden">
+        {/* Subtle Texture */}
+        <div className="absolute inset-0 opacity-5 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]" />
+
+        <div className="max-w-[1400px] mx-auto text-center relative z-10">
           <motion.div
-            className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
-            animate={processInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="space-y-24"
           >
-            <p className="text-brand-green font-semibold mb-2 uppercase tracking-wider text-sm">
-              Our Process
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              How We Work
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              A systematic approach to ensure perfect results every time
-            </p>
-          </motion.div>
+            <div className="space-y-6">
+              <span className="text-white/40 font-inter font-light tracking-[0.5em] uppercase text-[10px]">Our Metier</span>
+              <h2 className="text-6xl md:text-8xl font-italiana text-white leading-none tracking-tight">THE PROCESS</h2>
+            </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((item, index) => (
-              <motion.div
-                key={index}
-                className="relative"
-                initial={{ opacity: 0, y: 30 }}
-                animate={processInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              >
-                <Card className="border-none shadow-lg h-full">
-                  <CardContent className="p-6 text-center">
-                    <div className="text-6xl font-bold text-brand-green/20 mb-4">
-                      {item.step}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+              {process.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="space-y-8 group"
+                >
+                  <div className="relative">
+                    <span className="absolute -top-12 left-1/2 -translate-x-1/2 text-8xl font-italiana text-white/5 group-hover:text-white/10 transition-colors duration-700">
+                      0{index + 1}
+                    </span>
+                    <div className="w-16 h-16 mx-auto bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md relative z-10">
+                      <item.icon className="w-8 h-8 text-white stroke-1" />
                     </div>
-                    <motion.div
-                      className="bg-brand-green w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <item.icon className="w-8 h-8 text-white" />
-                    </motion.div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600">{item.description}</p>
-                  </CardContent>
-                </Card>
-
-                {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="w-8 h-8 text-brand-green/30" />
                   </div>
-                )}
-              </motion.div>
-            ))}
-          </div>
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-italiana text-white">{item.title}</h3>
+                    <p className="text-white/40 font-inter font-light text-sm leading-relaxed max-w-[240px] mx-auto uppercase tracking-widest text-[10px]">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Add-ons Section */}
-      <section ref={addonsRef} className="bg-brand-yellow py-20 px-6">
-        <div className="max-w-5xl mx-auto">
+      <section ref={addonsRef} className="py-32 px-6 bg-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/4 h-full bg-brand-green/[0.02] -z-1" />
+
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
-            animate={addonsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-24 space-y-6"
           >
-            <p className="text-brand-green font-semibold mb-2 uppercase tracking-wider text-sm">
-              Enhance Your Experience
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Available Add-Ons
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Customize your service with these premium additions
-            </p>
+            <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[10px]">Artistic Accents</span>
+            <h2 className="text-5xl md:text-7xl font-italiana text-brand-green leading-[0.9] tracking-tight">ENHANCEMENTS</h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-x-24 gap-y-12">
             {addons.map((addon, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                animate={addonsInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.1 + index * 0.05 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center justify-between border-b border-brand-green/10 pb-6 group"
               >
-                <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-brand-green/10 w-10 h-10 rounded-full flex items-center justify-center">
-                        <Zap className="w-5 h-5 text-brand-green" />
-                      </div>
-                      <span className="font-semibold text-gray-900">
-                        {addon.name}
-                      </span>
-                    </div>
-                    <span className="text-brand-green font-bold text-lg">
-                      {addon.price}
-                    </span>
-                  </CardContent>
-                </Card>
+                <div className="space-y-1">
+                  <span className="font-italiana text-2xl text-brand-green transition-all duration-300 group-hover:tracking-widest">
+                    {addon.name}
+                  </span>
+                  <p className="text-[9px] tracking-[0.2em] font-inter uppercase text-brand-sage opacity-60">Signature Detail</p>
+                </div>
+                <span className="font-italiana text-xl text-brand-green/40">{addon.price}</span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-brand-green py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center text-white">
+      {/* Final CTA Section */}
+      <section className="py-40 px-6 bg-brand-green relative overflow-hidden text-white">
+        {/* Background Geometric Accent */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.03] rounded-full -z-1" />
+
+        <div className="max-w-4xl mx-auto text-center space-y-12">
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-6xl md:text-9xl font-italiana leading-none tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            Ready to Treat Yourself?
+            RESERVE <br /><span className="italic opacity-80 pl-16">YOUR TIME.</span>
           </motion.h2>
-          <motion.p
-            className="text-xl mb-8 opacity-90"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Book your appointment today and experience premium nail care
-          </motion.p>
+
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Link
-              href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              asChild
+              className="group h-20 px-16 rounded-none bg-white text-brand-green hover:bg-white/95 text-[12px] tracking-[0.5em] font-inter font-medium transition-all duration-500 shadow-2xl relative overflow-hidden"
             >
-              <Button
-                className="bg-white text-brand-green hover:bg-[#e0e0e0] px-8 py-6 text-lg font-semibold"
-                size="lg"
+              <Link
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Book Appointment
-              </Button>
-            </Link>
-            <Link href="/gallery">
-              <Button
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-brand-green px-8 py-6 text-lg font-semibold"
-                size="lg"
-              >
-                View Gallery
-              </Button>
-            </Link>
+                <span className="relative z-10 uppercase">BOOK AN EXPERIENCE</span>
+                <div className="absolute inset-0 bg-brand-sage/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              </Link>
+            </Button>
           </motion.div>
+
+          <p className="text-white/40 font-inter font-light uppercase tracking-[0.3em] text-[10px]">
+            Elegance is expected. Artistry is guaranteed.
+          </p>
         </div>
       </section>
     </div>

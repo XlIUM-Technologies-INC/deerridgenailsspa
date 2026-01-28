@@ -23,6 +23,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
+import {
+  CONTACT_INFO,
+  BUSINESS_HOURS,
+  SERVICE_TYPES,
+  BOOKING_URL
+} from "@/lib/constants";
 
 export default function Page() {
   const heroRef = useRef(null);
@@ -79,48 +85,28 @@ export default function Page() {
     }, 3000);
   };
 
-  const contactInfo = [
+  const contactInfoTiles = [
     {
       icon: MapPin,
       title: "Visit Us",
-      content: "4195 King St E #111, Kitchener, ON N2P 0C1",
-      link: "https://maps.google.com/?q=4195+King+St+E+%23111,+Kitchener,+ON+N2P+0C1",
+      content: CONTACT_INFO.address.full,
+      link: `https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.address.full)}`,
       color: "text-red-500",
     },
     {
       icon: Phone,
       title: "Call Us",
-      content: "(519) 888-8888",
-      link: "tel:5198888888",
+      content: CONTACT_INFO.phone,
+      link: `tel:${CONTACT_INFO.phone.replace(/[^0-9]/g, "")}`,
       color: "text-blue-500",
     },
     {
       icon: Mail,
       title: "Email Us",
-      content: "info@deerridgenailsspa.ca",
-      link: "mailto:info@deerridgenailsspa.ca",
+      content: CONTACT_INFO.email,
+      link: `mailto:${CONTACT_INFO.email}`,
       color: "text-purple-500",
     },
-  ];
-
-  const businessHours = [
-    { day: "Monday", hours: "9:00 AM - 8:00 PM", open: true, promo: true },
-    { day: "Tuesday", hours: "9:00 AM - 8:00 PM", open: true, promo: true },
-    { day: "Wednesday", hours: "9:00 AM - 8:00 PM", open: true },
-    { day: "Thursday", hours: "9:00 AM - 8:00 PM", open: true },
-    { day: "Friday", hours: "9:00 AM - 9:00 PM", open: true },
-    { day: "Saturday", hours: "9:00 AM - 9:00 PM", open: true },
-    { day: "Sunday", hours: "10:00 AM - 7:00 PM", open: true },
-  ];
-
-  const services = [
-    "Manicure",
-    "Pedicure",
-    "Nail Art",
-    "Gel Extensions",
-    "Acrylic Extensions",
-    "Spa Treatment",
-    "Other",
   ];
 
   return (
@@ -128,7 +114,7 @@ export default function Page() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-20 px-6 bg-gradient-to-br from-brand-green via-brand-green to-green-400"
+        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-24 px-6 bg-brand-green"
       >
         <motion.div
           className="absolute inset-0 opacity-0"
@@ -150,21 +136,30 @@ export default function Page() {
         />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.p
+            className="text-white/60 mb-6 uppercase tracking-[0.4em] text-[10px] font-inter font-light"
+            initial={{ opacity: 0, y: 20 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            Get In Touch
+          </motion.p>
           <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-5xl md:text-7xl lg:text-8xl font-italiana text-white mb-8 leading-[0.9] tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Contact Us
+            CONTACT <br />
+            OUR TEAM
           </motion.h1>
           <motion.p
-            className="text-xl text-white/90 mb-8 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-white/70 mb-8 max-w-2xl mx-auto font-inter font-light leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Any questions or special requests? We are here to help.
+            Any questions or special requests? Our dedicated team is here to assist you in planning your visit.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -173,15 +168,15 @@ export default function Page() {
           >
             <Button
               asChild
-              className="bg-white text-brand-green hover:bg-white/90 px-8 py-6 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all rounded-full"
+              className="bg-white text-brand-green hover:bg-white/95 px-12 py-8 font-inter font-medium text-[11px] tracking-[0.4em] uppercase rounded-none shadow-xl transition-all"
               size="lg"
             >
               <Link
-                href="https://www.dashbooking.com/salon/deer-ridge-nails-and-spa"
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book Online
+                BOOK ONLINE
               </Link>
             </Button>
           </motion.div>
@@ -201,14 +196,14 @@ export default function Page() {
                 transition={{ duration: 0.8 }}
                 className="h-full"
               >
-                <Card className="border border-gray-300 shadow-sm rounded-3xl overflow-hidden bg-white h-full">
-                  <CardContent className="p-8">
-                    <div className="mb-8">
-                      <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                <Card className="border border-brand-green/5 shadow-2xl rounded-none overflow-hidden bg-white h-full">
+                  <CardContent className="p-10">
+                    <div className="mb-10">
+                      <h2 className="text-4xl font-italiana text-brand-green mb-3">
                         Send us a Message
                       </h2>
-                      <p className="text-gray-600">
-                        We'll get back to you as soon as possible.
+                      <p className="text-brand-green/60 font-inter font-light text-sm">
+                        We'll get back to you as soon as possible, typically within 24 hours.
                       </p>
                     </div>
 
@@ -216,13 +211,13 @@ export default function Page() {
                       <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="text-center py-20 bg-green-50 rounded-xl border border-green-100"
+                        className="text-center py-20 bg-brand-green/5 border border-brand-green/10"
                       >
-                        <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">
+                        <CheckCircle2 className="w-16 h-16 text-brand-green mx-auto mb-6 stroke-1" />
+                        <h3 className="text-3xl font-italiana text-brand-green mb-2">
                           Message Sent!
                         </h3>
-                        <p className="text-gray-600">
+                        <p className="text-brand-green/60 font-inter font-light">
                           Thank you for reaching out. We'll be in touch shortly.
                         </p>
                       </motion.div>
@@ -230,33 +225,33 @@ export default function Page() {
                       <div className="space-y-4">
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-medium text-gray-800 mb-1">
+                            <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                               Full Name
                             </label>
                             <div className="relative">
-                              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                              <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-green/30" />
                               <Input
                                 name="name"
                                 value={formData.name}
                                 onChange={handleInputChange}
                                 placeholder="Name"
-                                className="pl-10 h-12 bg-gray-50 border-gray-200 rounded-xl focus:bg-white transition-colors"
+                                className="pl-12 h-14 bg-brand-green/[0.02] border-brand-green/10 rounded-none focus:bg-white transition-all font-inter font-light"
                               />
                             </div>
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-800 mb-1">
+                            <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                               Email
                             </label>
                             <div className="relative">
-                              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-green/30" />
                               <Input
                                 type="email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleInputChange}
                                 placeholder="Email"
-                                className="pl-10 h-12 bg-gray-50 border-gray-200 rounded-xl focus:bg-white transition-colors"
+                                className="pl-12 h-14 bg-brand-green/[0.02] border-brand-green/10 rounded-none focus:bg-white transition-all font-inter font-light"
                               />
                             </div>
                           </div>
@@ -264,22 +259,22 @@ export default function Page() {
 
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-medium text-gray-800 mb-1">
+                            <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                               Phone
                             </label>
                             <div className="relative">
-                              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-green/30" />
                               <Input
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleInputChange}
                                 placeholder="Phone"
-                                className="pl-10 h-12 bg-gray-50 border-gray-200 rounded-xl focus:bg-white transition-colors"
+                                className="pl-12 h-14 bg-brand-green/[0.02] border-brand-green/10 rounded-none focus:bg-white transition-all font-inter font-light"
                               />
                             </div>
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-gray-800 mb-1">
+                            <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                               Service
                             </label>
                             <div className="relative">
@@ -288,10 +283,10 @@ export default function Page() {
                                 value={formData.service}
                                 onChange={handleInputChange}
                                 suppressHydrationWarning
-                                className="w-full h-12 pl-3 pr-8 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all appearance-none cursor-pointer text-gray-700 text-sm"
+                                className="w-full h-14 pl-4 pr-10 bg-brand-green/[0.02] border border-brand-green/10 rounded-none focus:ring-1 focus:ring-brand-green/20 outline-none transition-all appearance-none cursor-pointer text-brand-green/70 text-sm font-inter font-light"
                               >
                                 <option value="">Select Service...</option>
-                                {services.map((s, i) => (
+                                {SERVICE_TYPES.map((s, i) => (
                                   <option key={i} value={s}>
                                     {s}
                                   </option>
@@ -302,25 +297,25 @@ export default function Page() {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-medium text-gray-800 mb-1">
+                          <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                             Message
                           </label>
                           <div className="relative">
-                            <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
+                            <MessageSquare className="absolute left-4 top-4 w-4 h-4 text-brand-green/30" />
                             <textarea
                               name="message"
                               value={formData.message}
                               onChange={handleInputChange}
                               placeholder="How can we help you?"
                               rows={4}
-                              className="w-full pl-10 pt-3 pr-3 pb-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-brand-green focus:border-transparent outline-none transition-all resize-none text-sm"
+                              className="w-full pl-12 pt-4 pr-4 pb-4 bg-brand-green/[0.02] border border-brand-green/10 rounded-none focus:ring-1 focus:ring-brand-green/20 outline-none transition-all resize-none text-sm font-inter font-light"
                             />
                           </div>
                         </div>
 
                         <Button
                           onClick={handleSubmit}
-                          className="w-full bg-[#2D3E2F] hover:bg-[#1f2c20] text-white h-12 text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all"
+                          className="w-full bg-brand-green hover:bg-brand-green/95 text-white h-16 font-inter font-medium text-[11px] tracking-[0.4em] rounded-none shadow-xl transition-all uppercase"
                         >
                           Send Message
                         </Button>
@@ -333,7 +328,7 @@ export default function Page() {
 
             {/* Right Side: Info Cards */}
             <div className="lg:col-span-2 h-full flex flex-col justify-between gap-6">
-              {contactInfo.map((info, index) => (
+              {contactInfoTiles.map((info, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: 30 }}
@@ -341,22 +336,22 @@ export default function Page() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex-1"
                 >
-                  <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 bg-white rounded-3xl overflow-hidden group h-full">
-                    <CardContent className="p-6 flex items-center gap-4 h-full">
-                      <div className="bg-gray-100 p-4 rounded-full flex-shrink-0 group-hover:scale-105 transition-transform">
+                  <Card className="border border-brand-green/5 shadow-xl hover:shadow-2xl transition-all duration-500 bg-white rounded-none overflow-hidden group h-full">
+                    <CardContent className="p-8 flex items-center gap-6 h-full">
+                      <div className="bg-brand-green/5 p-5 rounded-none flex-shrink-0 group-hover:scale-105 transition-transform">
                         <info.icon
-                          className={`w-6 h-6 ${info.color}`}
-                          strokeWidth={1.5}
+                          className={`w-6 h-6 ${info.color} opacity-70`}
+                          strokeWidth={1}
                         />
                       </div>
                       <div className="flex flex-col">
-                        <h3 className="text-lg font-bold text-gray-900">
+                        <h3 className="text-xl font-italiana text-brand-green mb-1">
                           {info.title}
                         </h3>
                         {info.link ? (
                           <a
                             href={info.link}
-                            className="text-gray-600 hover:text-brand-green transition-colors text-sm"
+                            className="text-brand-green/70 hover:text-brand-green transition-colors text-sm font-inter font-light"
                             target={
                               info.link.startsWith("http")
                                 ? "_blank"
@@ -371,7 +366,7 @@ export default function Page() {
                             {info.content}
                           </a>
                         ) : (
-                          <p className="text-gray-600 text-sm">
+                          <p className="text-brand-green/70 text-sm font-inter font-light">
                             {info.content}
                           </p>
                         )}
@@ -402,22 +397,22 @@ export default function Page() {
         <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-10 hidden md:block">
           <Card className="shadow-2xl border-none">
             <CardContent className="p-4 flex items-center gap-4">
-              <div className="bg-brand-green p-3 rounded-full text-white">
+              <div className="bg-brand-green p-3 rounded-none text-white">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <p className="font-bold text-gray-900">Locate Us</p>
+                <p className="font-italiana text-brand-green text-lg">Locate Us</p>
                 <p className="text-sm text-gray-500">
-                  4195 King St E #111, Kitchener
+                  {CONTACT_INFO.address.street}, {CONTACT_INFO.address.city}
                 </p>
               </div>
               <Button
                 size="sm"
                 variant="outline"
-                className="ml-2"
+                className="ml-2 rounded-none font-italiana tracking-widest uppercase border-brand-green text-brand-green"
                 onClick={() =>
                   window.open(
-                    "https://maps.google.com/?q=4195+King+St+E+%23111,+Kitchener,+ON+N2P+0C1",
+                    `https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.address.full)}`,
                     "_blank",
                   )
                 }
