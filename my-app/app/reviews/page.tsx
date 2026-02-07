@@ -131,7 +131,7 @@ export default function ReviewsPage() {
             <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.5em] uppercase text-[10px]">
               Voices of our community
             </Badge>
-            <h1 className="text-7xl md:text-9xl font-italiana text-white leading-[0.85] tracking-tighter">
+            <h1 className="text-5xl md:text-7xl font-italiana text-white leading-[0.85] tracking-tighter">
               TRUSTED <br />
               <span className="italic opacity-80">ARTISTRY</span>
             </h1>
@@ -158,8 +158,8 @@ export default function ReviewsPage() {
                 key={filter.id}
                 onClick={() => setSelectedFilter(filter.id)}
                 className={`px-8 py-3 text-[10px] tracking-[0.2em] font-inter uppercase transition-all duration-300 rounded-none border ${selectedFilter === filter.id
-                    ? "bg-brand-green text-white border-brand-green"
-                    : "bg-transparent text-brand-green/40 border-brand-green/10 hover:border-brand-green/40"
+                  ? "bg-brand-green text-white border-brand-green"
+                  : "bg-transparent text-brand-green/40 border-brand-green/10 hover:border-brand-green/40"
                   }`}
               >
                 {filter.label}

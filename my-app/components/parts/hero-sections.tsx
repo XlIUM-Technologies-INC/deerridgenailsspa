@@ -71,12 +71,12 @@ export default function HeroSection() {
       {/* Removed the second motion.div as per instruction's implied removal */}
 
       {/* Main Content Container - Left Aligned */}
-      <div className="relative z-10 max-w-[1600px] mx-auto w-full px-6 flex flex-col items-start py-20 mt-20">
+      <div className="relative z-10 max-w-[1600px] mx-auto w-full px-6 flex flex-col items-start py-12 md:py-20 mt-16 md:mt-20">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="flex flex-col items-start text-left space-y-12 max-w-4xl"
+          className="flex flex-col items-start text-left space-y-8 md:space-y-12 max-w-4xl"
         >
           <div className="space-y-6 flex flex-col items-start">
             <motion.div
@@ -93,11 +93,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-7xl md:text-8xl lg:text-[10rem] font-italiana leading-[0.8] tracking-tighter"
+              className="text-5xl md:text-6xl lg:text-7xl font-italiana leading-[0.8] tracking-tighter"
             >
               <span className="text-white drop-shadow-2xl flex flex-col items-start">
                 <span>DEER RIDGE</span>
-                <span className="italic text-white/90 ml-12 md:ml-24">NAILS SPA</span>
+                <span className="italic text-white/90 ml-6 md:ml-24 mt-2 md:mt-0">NAILS SPA</span>
               </span>
             </motion.h1>
 
@@ -117,7 +117,7 @@ export default function HeroSection() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex flex-col items-start space-y-8"
           >
-            <p className="text-lg md:text-xl text-white/80 font-inter font-light max-w-xl leading-relaxed text-left border-l border-white/20 pl-8">
+            <p className="text-base md:text-xl text-white/80 font-inter font-light max-w-xl leading-relaxed text-left border-l border-white/20 pl-6 md:pl-8">
               A sanctuary of sophistication where precision meets relaxation.
               Experience the future of nail artistry in our newly renovated,
               state-of-the-art Kitchener studio.
@@ -142,7 +142,7 @@ export default function HeroSection() {
               <Button
                 asChild
                 variant="outline"
-                className="h-18 px-14 rounded-none border-white/30 text-white hover:border-white hover:bg-white/5 text-[12px] tracking-[0.4em] font-medium transition-all duration-500 backdrop-blur-md uppercase"
+                className="h-16 md:h-18 px-10 md:px-14 rounded-none border-white/30 text-white hover:border-white hover:bg-white/5 text-[11px] md:text-[12px] tracking-[0.4em] font-medium transition-all duration-500 backdrop-blur-md uppercase"
               >
                 <Link href="/services">EXPLORE SERVICES</Link>
               </Button>

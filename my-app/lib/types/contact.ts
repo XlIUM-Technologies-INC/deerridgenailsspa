@@ -22,7 +22,7 @@ export interface BusinessHours {
 }
 
 export interface Feature {
-  icon: any; // Lucide icon component
+  icon: React.ComponentType<any>; // Lucide icon component
   title: string;
   description: string;
 }

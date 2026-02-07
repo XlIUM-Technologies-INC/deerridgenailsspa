@@ -114,7 +114,7 @@ export default function Page() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[60vh] flex items-center justify-center overflow-hidden py-24 px-6 bg-brand-green"
+        className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden py-16 md:py-24 px-6 bg-brand-green"
       >
         <motion.div
           className="absolute inset-0 opacity-0"
@@ -145,7 +145,7 @@ export default function Page() {
             Get In Touch
           </motion.p>
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-italiana text-white mb-8 leading-[0.9] tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-italiana text-white mb-8 leading-[0.9] tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -184,7 +184,7 @@ export default function Page() {
       </section>
 
       {/* Main Content Area: Info Cards & Form Side-by-Side */}
-      <section ref={contactRef} className="py-16 px-6 -mt-10 relative z-20">
+      <section ref={contactRef} className="py-12 md:py-16 px-6 -mt-10 relative z-20">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-8">
             {/* Left Side: Contact Form */}

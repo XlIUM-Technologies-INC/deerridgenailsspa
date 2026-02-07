@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { Award, Clock, Heart, Shield, Users, Sparkles } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Award, Clock } from "lucide-react";
 
 import { FEATURES as benefits } from "@/lib/constants";
 

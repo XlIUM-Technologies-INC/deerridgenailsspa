@@ -16,5 +16,5 @@ export interface FooterLink {
 export interface SocialLink {
   name: string;
   href: string;
-  icon: any; // Lucide icon component
+  icon: React.ComponentType<any>; // Lucide icon component
 }

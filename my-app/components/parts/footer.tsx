@@ -23,6 +23,7 @@ import { NewsletterInput } from "@/components/ui/newsletter-input";
 import {
   CONTACT_INFO,
   FOOTER_BUSINESS_HOURS,
+  EARLY_APPOINTMENT_NOTE,
   SOCIAL_LINKS,
   FOOTER_LINKS,
   BOOKING_URL
@@ -53,7 +54,11 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-brand-sage transition-colors"
                 >
-                  <link.icon className="w-5 h-5" />
+                  {link.name === "TikTok" ? (
+                    <TikTokIcon className="w-5 h-5" />
+                  ) : (
+                    <link.icon className="w-5 h-5" />
+                  )}
                 </Link>
               ))}
             </div>
@@ -104,6 +109,7 @@ const Footer = () => {
                   <p>{FOOTER_BUSINESS_HOURS.weekday}</p>
                   <p>{FOOTER_BUSINESS_HOURS.saturday}</p>
                   <p>{FOOTER_BUSINESS_HOURS.sunday}</p>
+                  <p className="mt-2 text-[10px] leading-relaxed italic text-white/40">{EARLY_APPOINTMENT_NOTE}</p>
                 </div>
               </li>
             </ul>

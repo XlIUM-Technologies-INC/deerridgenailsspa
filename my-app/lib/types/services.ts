@@ -29,7 +29,7 @@ export interface ProcessStep {
   step: string;
   title: string;
   description: string;
-  icon: any; // Lucide icon component
+  icon: React.ComponentType<any>; // Lucide icon component
 }
 
 export interface Addon {

@@ -29,9 +29,9 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-[100] transition-all duration-700 pointer-events-none">
-      <div className={`mx-auto transition-all duration-700 px-4 md:px-8 pointer-events-auto ${isScrolled ? "mt-4 max-w-[1200px]" : "mt-0 max-w-[1440px]"}`}>
+      <div className={`mx-auto transition-all duration-700 pointer-events-auto ${isScrolled ? "max-w-[1200px]" : "max-w-[1600px]"}`}>
         <div className={`relative flex items-center justify-between transition-all duration-700 px-6 py-4 ${isScrolled
-          ? "bg-brand-green/95 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] smooth-gradient-border"
+          ? "bg-brand-green/95 backdrop-blur-xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] smooth-gradient-border md:mt-4"
           : "bg-transparent py-8 smooth-gradient-border"
           } ${isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}>
           {/* Logo Section */}
@@ -92,7 +92,7 @@ const Navbar = () => {
               </SheetTrigger>
               <SheetContent
                 side="right"
-                className="bg-brand-green border-none w-full p-0 flex flex-col overflow-hidden"
+                className="bg-brand-green border-none w-full p-0 flex flex-col overflow-y-auto"
               >
                 {/* Mobile Menu Background Asset */}
                 <div className="absolute inset-0 opacity-15 pointer-events-none grayscale brightness-50">
@@ -104,8 +104,8 @@ const Navbar = () => {
                   />
                 </div>
 
-                <div className="relative z-20 flex flex-col h-full px-12 py-24 justify-between">
-                  <div className="space-y-12">
+                <div className="relative z-20 flex flex-col min-h-full px-8 md:px-12 py-20 justify-between">
+                  <div className="space-y-10">
                     <p className="text-[10px] tracking-[0.5em] text-white/40 uppercase font-inter mb-8">Navigation Menu</p>
                     <nav className="flex flex-col gap-10">
                       {NAV_ITEMS.map((item, i) => (

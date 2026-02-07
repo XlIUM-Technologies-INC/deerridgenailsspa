@@ -2,7 +2,7 @@ import type { ContactInfo, BusinessHours } from "@/lib/types";
 
 
 export const CONTACT_INFO: ContactInfo = {
-  phone: "(519) 573-0707",
+  phone: "519-650-0770",
   email: "deerridge4195@gmail.com",
   address: {
     street: "4195 King Street East",
@@ -16,9 +16,11 @@ export const CONTACT_INFO: ContactInfo = {
 
 export const FOOTER_BUSINESS_HOURS = {
   weekday: "Mon - Fri: 10:00 AM - 7:00 PM",
-  saturday: "Saturday: 10:00 AM - 7:00 PM",
-  sunday: "Sunday: 10:00 AM - 7:00 PM",
+  saturday: "Saturday: 10:00 AM - 6:00 PM",
+  sunday: "Sunday: 10:00 AM - 5:00 PM",
 };
+
+export const EARLY_APPOINTMENT_NOTE = "Client can contact the salon for an earlier appointment before business hours.";
 
 
 export const BUSINESS_HOURS: BusinessHours[] = [
@@ -27,8 +29,8 @@ export const BUSINESS_HOURS: BusinessHours[] = [
   { day: "Wednesday", hours: "10:00 AM - 7:00 PM", open: true },
   { day: "Thursday", hours: "10:00 AM - 7:00 PM", open: true },
   { day: "Friday", hours: "10:00 AM - 7:00 PM", open: true },
-  { day: "Saturday", hours: "10:00 AM - 7:00 PM", open: true },
-  { day: "Sunday", hours: "10:00 AM - 7:00 PM", open: true },
+  { day: "Saturday", hours: "10:00 AM - 6:00 PM", open: true },
+  { day: "Sunday", hours: "10:00 AM - 5:00 PM", open: true },
 ];
 
 

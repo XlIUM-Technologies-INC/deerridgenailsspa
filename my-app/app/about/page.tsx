@@ -78,7 +78,7 @@ export default function AboutPage() {
           />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 flex flex-col items-start pt-20">
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 flex flex-col items-start pt-12 md:pt-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={heroInView ? { opacity: 1, x: 0 } : {}}
@@ -87,9 +87,9 @@ export default function AboutPage() {
           >
             <div className="space-y-4">
 
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-italiana text-white leading-[0.85] tracking-tighter">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-italiana text-white leading-[0.85] tracking-tighter">
                 <span className="block">BEYOND</span>
-                <span className="italic text-white/90 ml-12 md:ml-24">BEAUTY.</span>
+                <span className="italic text-white/90 ml-6 md:ml-24">BEAUTY.</span>
               </h1>
             </div>
 
@@ -105,7 +105,7 @@ export default function AboutPage() {
       </section>
 
       {/* Narrative Section - Overlap */}
-      <section ref={storyRef} className="relative py-32 px-6 bg-white overflow-hidden">
+      <section ref={storyRef} className="relative py-16 md:py-32 px-6 bg-white overflow-hidden">
         {/* Background Accent */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-green/[0.02] -z-1" />
 
@@ -126,7 +126,7 @@ export default function AboutPage() {
                 </h2>
               </div>
 
-              <div className="space-y-8 text-lg font-inter font-light text-brand-green/70 leading-relaxed border-l border-brand-green/10 pl-10">
+              <div className="space-y-6 md:space-y-8 text-base md:text-lg font-inter font-light text-brand-green/70 leading-relaxed border-l border-brand-green/10 pl-6 md:pl-10">
                 <p>
                   Deer Ridge Nails Spa is more than just a destination for nail care; it's a testament to the belief that beauty should be a ritual of self-care and artistic expression.
                 </p>
@@ -168,7 +168,7 @@ export default function AboutPage() {
       </section>
 
       {/* Artisans Section */}
-      <section ref={teamRef} className="py-32 px-6 bg-brand-green text-white overflow-hidden relative">
+      <section ref={teamRef} className="relative py-16 md:py-32 px-6 bg-brand-green text-white overflow-hidden">
         {/* Texture Overlay */}
         <div className="absolute inset-0 opacity-5 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]" />
 
@@ -211,7 +211,7 @@ export default function AboutPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-40 px-6 bg-white relative overflow-hidden">
+      <section className="py-20 md:py-40 px-6 bg-white relative overflow-hidden">
         {/* Background Geometric Accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-brand-green/[0.03] rounded-full -z-1" />
 

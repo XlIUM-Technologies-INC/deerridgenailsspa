@@ -120,11 +120,11 @@ export const SERVICES: Service[] = [
   {
     category: "pedicure",
     name: "Spa Pedicure",
-    description: "Indulge in deep relaxation. This deluxe treatment adds an exfoliating scrub, callus removal, a hydrating mask, and an extended massage to soothe weary soles.",
+    description: "Indulge in deep relaxation. This deluxe treatment adds an exfoliating scrub, callus removal, a hydrating mask, and a soothing hot stone massage to weary soles.",
     duration: "60 min",
     price: "$50+",
     image: "https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600",
-    features: ["Exfoliating scrub", "Callus smoothing", "Hydrating mask", "Extended massage"],
+    features: ["Exfoliating scrub", "Callus smoothing", "Hydrating mask", "Including hot stone massage"],
     popular: true,
   },
   // Spa & Scalp
@@ -255,9 +255,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
 export const SERVICE_ADDONS: Addon[] = [
   { name: "Nail Strengthening Treatment", price: "$10" },
   { name: "Paraffin Wax Treatment", price: "$15" },
-  { name: "Hot Stone Massage", price: "$20" },
-  { name: "Chrome/Mirror Finish", price: "$15" },
-  { name: "Nail Art per Nail", price: "$5" },
+  { name: "Chrome/Mirror Finish", price: "$10" },
+  { name: "Nail Art", price: "Starting at $5" },
   { name: "Gem Application", price: "$3-$10" },
   { name: "French Tips", price: "$10" },
   { name: "Nail Repair", price: "$5" },

@@ -93,7 +93,7 @@ export default function ServicesPage() {
           />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 flex flex-col items-start pt-20">
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 flex flex-col items-start pt-12 md:pt-20">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={heroInView ? { opacity: 1, x: 0 } : {}}
@@ -104,9 +104,9 @@ export default function ServicesPage() {
               <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.5em] uppercase text-[10px]">
                 A Bespoke Collection
               </Badge>
-              <h1 className="text-7xl md:text-9xl font-italiana text-white leading-[0.85] tracking-tighter">
+              <h1 className="text-5xl md:text-7xl font-italiana text-white leading-[0.85] tracking-tighter">
                 <span className="block">ARTFUL</span>
-                <span className="italic text-white/90 ml-12 md:ml-32">SERVICES.</span>
+                <span className="italic text-white/90 ml-6 md:ml-32">SERVICES.</span>
               </h1>
             </div>
 
@@ -122,10 +122,10 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Section */}
-      <section ref={servicesRef} className="py-32 px-6 bg-white overflow-hidden">
+      <section ref={servicesRef} className="py-16 md:py-32 px-6 bg-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           {/* Header & Filter */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-12 mb-24">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12 mb-16 md:mb-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -234,7 +234,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section ref={processRef} className="py-32 px-6 bg-brand-green relative overflow-hidden">
+      <section ref={processRef} className="py-16 md:py-32 px-6 bg-brand-green relative overflow-hidden">
         {/* Subtle Texture */}
         <div className="absolute inset-0 opacity-5 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]" />
 
@@ -282,7 +282,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Add-ons Section */}
-      <section ref={addonsRef} className="py-32 px-6 bg-white overflow-hidden relative">
+      <section ref={addonsRef} className="py-16 md:py-32 px-6 bg-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/4 h-full bg-brand-green/[0.02] -z-1" />
 
         <div className="max-w-4xl mx-auto">
@@ -319,7 +319,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-40 px-6 bg-brand-green relative overflow-hidden text-white">
+      <section className="py-20 md:py-40 px-6 bg-brand-green relative overflow-hidden text-white">
         {/* Background Geometric Accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.03] rounded-full -z-1" />
 
