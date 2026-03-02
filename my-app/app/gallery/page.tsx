@@ -31,52 +31,45 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-// List of images found in public/gallery folder
+// List of assets found in public/gallery folder
 const galleryFiles = [
-  "466850059_18057393760867785_8426354153118395162_n..jpg",
-  "467256616_18057393595867785_487236460051476649_n..jpg",
-  "482481525_17875740120277123_604495875448994476_n..jpg",
-  "482674811_17875740750277123_4238606390998533253_n..jpg",
-  "482984180_17875991004277123_8034973766208090483_n..jpg",
-  "484795532_17877325989277123_548219346051105134_n..jpg",
-  "484814092_17877325449277123_7750020200965375782_n..jpg",
-  "485038854_17877326007277123_5184264064599287790_n..jpg",
-  "485066385_17877772542277123_4638023479098650462_n..jpg",
-  "485508949_17878282713277123_5185625962742895079_n..jpg",
-  "485993765_17878282998277123_2216464026521833043_n..jpg",
-  "486281601_17878505103277123_9147273239945733185_n..jpg",
-  "487121721_17879211090277123_1118713038315285324_n..jpg",
-  "487406374_17879097885277123_8811739244721312015_n..jpg",
-  "488257060_17879992488277123_8064714646250887811_n..jpg",
-  "488513792_17879690328277123_7486831748247705718_n..jpg",
-  "502480812_17889075858277123_5081321834489761685_n..jpg",
-  "503617588_17889075873277123_7670406551014950943_n..jpg",
-  "504366621_17890485426277123_7126516224637758133_n. (1).jpg",
-  "504366621_17890485426277123_7126516224637758133_n..jpg",
-  "508229803_17888146455277123_7085466682337283941_n..jpg",
-  "509655832_17889207369277123_4960910859427068631_n..jpg",
-  "511547812_17889442254277123_4128111316724797467_n..jpg",
-  "515484347_17890485429277123_5409195796748554632_n..jpg",
-  "515700879_17890601205277123_7809002096784032505_n. (1).jpg",
-  "515700879_17890601205277123_7809002096784032505_n..jpg",
-  "518402867_17891441412277123_3800397768310735628_n. (1).jpg",
-  "518402867_17891441412277123_3800397768310735628_n..jpg",
-  "518457604_17891441070277123_1840207116195773959_n. (1).jpg",
-  "518466438_17891441262277123_541560738538280915_n..jpg",
-  "520485980_17892429210277123_33849040778473402_n. (1).jpg",
-  "520485980_17892429210277123_33849040778473402_n..jpg",
-  "521447414_17892429186277123_5774797332101348723_n. (1).jpg",
-  "524490413_17893342557277123_7271812159889482240_n..jpg",
-  "524932652_17893342632277123_73801161369037772_n..jpg",
-  "525180071_17893342569277123_5281725398178342134_n..jpg",
-  "550986519_17899809687277123_4484366555675953511_n..jpg",
-  "553443504_17900660961277123_3487058956942358331_n. (1).jpg",
-  "553443504_17900660961277123_3487058956942358331_n..jpg",
-  "563398902_17902442628277123_831713188093586699_n..jpg",
-  "571499027_17903596761277123_6180070309411121641_n..jpg",
-  "582409600_17906319255277123_903443494512963298_n..jpg",
-  "610707995_17911667940277123_2424532781049660968_n..jpg",
+  "C5F3801D-F311-4957-8B12-80A3D7014B4C.JPG",
+  "CD8424C5-73A9-48CF-896F-73189EB8CCB5.mp4",
+  "E6A435C8-54C6-4FC3-A416-475ABB957911.mp4",
+  "IMG_0117.JPG",
+  "IMG_0148.JPG",
+  "IMG_0149.JPG",
+  "IMG_0181.JPG",
+  "IMG_0184.JPG",
+  "IMG_0200.JPG",
+  "IMG_0202.JPG",
+  "IMG_0296.jpg",
+  "IMG_0397.jpg",
+  "IMG_0625.jpeg",
+  "IMG_0636.mp4",
+  "IMG_0675.jpg",
+  "IMG_0938.jpg",
+  "IMG_0950.jpg",
+  "IMG_1597.jpg",
+  "IMG_1624.jpg",
+  "IMG_1991.jpg",
+  "IMG_2001.jpg",
+  "IMG_2371.jpg",
+  "IMG_2427.jpg",
+  "IMG_2445.jpg",
+  "IMG_2596.jpg",
+  "IMG_2603.jpg",
+  "IMG_5906.mp4",
+  "IMG_9561.jpg",
+  "att.EapNnRyVgKINH0DxYwvLUvoZdt52x49jORu30RK6z8I.JPG",
+  "att.MmoTkC-kWQ0lPivHSgEOHt4f-JAqZoz7XCzQtSBHJz4.mp4",
+  "att.SVrisQt3NDIJBi5NUc3XFXQj0YyZH9TtCiglXIjukbw.JPG",
+  "att.riAPgXXAJfXqZgFo8Tlk8ef1mSZrgi0WYnanxQrKToA.JPG",
+  "cd827bdd87c04c01bd9a2d8353ee63ca.mp4",
+  "copy_0D1ABDD8-34FC-4EF1-9CA5-EAE7013FC4A3.mp4",
 ];
+
+const isVideo = (filename: string) => filename.toLowerCase().endsWith(".mp4");
 
 export default function GalleryPage() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -98,7 +91,7 @@ export default function GalleryPage() {
         gridElement.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }
+  };
 
   // Use scroll hook for hero parallax
   const heroRef = useRef(null);
@@ -193,13 +186,34 @@ export default function GalleryPage() {
               className="relative group aspect-square cursor-pointer overflow-hidden bg-gray-100 rounded-sm"
               onClick={() => setSelectedImage(filename)}
             >
-              <Image
-                src={`/gallery/${filename}`}
-                alt={`Gallery Image ${startIndex + index + 1}`}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
+              {isVideo(filename) ? (
+                <div className="relative w-full h-full">
+                  <video
+                    src={`/gallery/${filename}`}
+                    className="object-cover w-full h-full"
+                    muted
+                    loop
+                    playsInline
+                    onMouseOver={(e) => (e.target as HTMLVideoElement).play()}
+                    onMouseOut={(e) => (e.target as HTMLVideoElement).pause()}
+                  />
+                  <div className="absolute top-3 right-3 z-10 bg-black/40 p-1.5 rounded-full backdrop-blur-md">
+                   <div className="w-4 h-4 text-white fill-white">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                   </div>
+                  </div>
+                </div>
+              ) : (
+                <Image
+                  src={`/gallery/${filename}`}
+                  alt={`Gallery Image ${startIndex + index + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              )}
               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <ZoomIn className="text-white w-8 h-8 opacity-80" />
               </div>
@@ -268,17 +282,26 @@ export default function GalleryPage() {
               initial={{ scale: 0.95 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.95 }}
-              className="relative max-h-[90vh] w-full max-w-5xl aspect-auto"
+              className="relative max-h-[90vh] w-full max-w-5xl aspect-auto flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full h-[80vh]">
-                <Image
-                  src={`/${selectedImage}`}
-                  alt="Gallery View"
-                  fill
-                  className="object-contain"
-                  quality={100}
-                />
+              <div className="relative w-full h-[80vh] flex items-center justify-center">
+                {isVideo(selectedImage) ? (
+                  <video
+                    src={`/gallery/${selectedImage}`}
+                    controls
+                    autoPlay
+                    className="max-h-full max-w-full"
+                  />
+                ) : (
+                  <Image
+                    src={`/gallery/${selectedImage}`}
+                    alt="Gallery View"
+                    fill
+                    className="object-contain"
+                    quality={100}
+                  />
+                )}
               </div>
               <Button
                 variant="ghost"
