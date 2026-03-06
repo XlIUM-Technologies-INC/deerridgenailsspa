@@ -33,6 +33,11 @@ import {
 
 // List of assets found in public/gallery folder
 const galleryFiles = [
+"WhatsApp Image 2026-03-04 at 17.23.36 (1).jpeg",
+  "WhatsApp Image 2026-03-04 at 17.23.36 (2).jpeg",
+  "WhatsApp Image 2026-03-04 at 17.23.36 (3).jpeg",
+  "WhatsApp Image 2026-03-04 at 17.23.36 (4).jpeg",
+  "WhatsApp Image 2026-03-04 at 17.23.36.jpeg",
   "C5F3801D-F311-4957-8B12-80A3D7014B4C.JPG",
   "CD8424C5-73A9-48CF-896F-73189EB8CCB5.mp4",
   "E6A435C8-54C6-4FC3-A416-475ABB957911.mp4",
