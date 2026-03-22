@@ -17,6 +17,7 @@ import {
   ZoomIn,
   Grid3x3,
   Rows,
+  Instagram,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -33,8 +34,6 @@ import {
 
 // List of images found in public/gallery folder
 const galleryFiles = [
-  "466850059_18057393760867785_8426354153118395162_n..jpg",
-  "467256616_18057393595867785_487236460051476649_n..jpg",
   "482481525_17875740120277123_604495875448994476_n..jpg",
   "482674811_17875740750277123_4238606390998533253_n..jpg",
   "482984180_17875991004277123_8034973766208090483_n..jpg",
@@ -98,7 +97,7 @@ export default function GalleryPage() {
         gridElement.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }
+  };
 
   // Use scroll hook for hero parallax
   const heroRef = useRef(null);
@@ -157,7 +156,7 @@ export default function GalleryPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Our Gallery
+            Portfolio
           </motion.p>
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-italiana text-white mb-8 leading-[0.9] tracking-tight"
@@ -175,13 +174,30 @@ export default function GalleryPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            A curated collection of our latest designs, artistic transformations, and moments of serenity.
+            A curated collection of our latest designs, artistic
+            transformations, and moments of serenity.
           </motion.p>
+          <motion.a
+            href="https://www.instagram.com/deerridgenailsspa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 border border-white/30 text-white/80 px-6 py-2.5 text-[10px] uppercase tracking-[0.3em] font-inter font-light hover:bg-white hover:text-brand-green transition-all duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <Instagram className="w-3.5 h-3.5" strokeWidth={1.5} />
+            Discover more @deerridgenailsspa
+          </motion.a>
         </div>
       </section>
 
       {/* Gallery Grid */}
-      <section id="gallery-grid" className="py-12 md:py-20 px-6 max-w-[1600px] mx-auto">
+      <section
+        id="gallery-grid"
+        className="py-12 md:py-20 px-6 max-w-[1600px] mx-auto"
+      >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
           {currentImages.map((filename, index) => (
             <motion.div
@@ -273,7 +289,7 @@ export default function GalleryPage() {
             >
               <div className="relative w-full h-[80vh]">
                 <Image
-                  src={`/${selectedImage}`}
+                  src={`/gallery/${selectedImage}`}
                   alt="Gallery View"
                   fill
                   className="object-contain"
