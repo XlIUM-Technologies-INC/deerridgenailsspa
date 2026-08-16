@@ -40,7 +40,7 @@ const Navbar = () => {
             <h1 className={`font-italiana text-white flex flex-col leading-none transition-all duration-700 whitespace-nowrap ${isScrolled ? "text-lg md:text-xl tracking-[0.2em]" : "text-xl md:text-2xl tracking-[0.25em]"
               }`}>
               <span>DEER RIDGE NAILS SPA</span>
-              <span className="text-[10px] tracking-[0.6em] text-white/40 pl-0.5 mt-2 font-inter font-light">EST. 2024</span>
+              <span className="text-[12px] tracking-[0.35em] text-white/40 pl-0.5 mt-2 font-inter font-light">EST. 2024</span>
             </h1>
           </Link>
 
@@ -52,7 +52,7 @@ const Navbar = () => {
                 href={item.href}
                 onMouseEnter={() => setHoveredItem(item.label)}
                 onMouseLeave={() => setHoveredItem(null)}
-                className="relative px-4 xl:px-5 py-2 text-[10px] tracking-[0.2em] font-inter text-white uppercase transition-all duration-300 hover:opacity-100 opacity-70"
+                className="relative px-4 xl:px-5 py-2 text-[12px] tracking-[0.2em] font-inter text-white uppercase transition-all duration-300 hover:opacity-100 opacity-70"
               >
                 <span className="relative z-10">{item.label}</span>
                 {hoveredItem === item.label && (
@@ -72,7 +72,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4 xl:gap-6">
             <Button
               asChild
-              className={`hidden md:flex rounded-none h-11 px-8 font-italiana text-[10px] tracking-[0.3em] transition-all duration-700 overflow-hidden relative group uppercase border-none ${isScrolled
+              className={`hidden md:flex rounded-none h-11 px-8 font-italiana text-[12px] tracking-[0.3em] transition-all duration-700 overflow-hidden relative group uppercase border-none ${isScrolled
                 ? "bg-white text-brand-green hover:bg-white/90"
                 : "bg-white/10 text-white backdrop-blur-md border border-white/20 hover:bg-white hover:text-brand-green"
                 }`}
@@ -106,7 +106,7 @@ const Navbar = () => {
 
                 <div className="relative z-20 flex flex-col min-h-full px-8 md:px-12 py-20 justify-between">
                   <div className="space-y-10">
-                    <p className="text-[10px] tracking-[0.5em] text-white/40 uppercase font-inter mb-8">Navigation Menu</p>
+                    <p className="text-[12px] tracking-[0.32em] text-white/40 uppercase font-inter mb-8">Navigation Menu</p>
                     <nav className="flex flex-col gap-10">
                       {NAV_ITEMS.map((item, i) => (
                         <motion.div
@@ -118,7 +118,7 @@ const Navbar = () => {
                           <SheetClose asChild>
                             <Link
                               href={item.href}
-                              className="text-5xl md:text-7xl font-italiana text-white hover:text-brand-sage tracking-widest transition-all hover:pl-6 block uppercase"
+                              className="text-5xl md:text-7xl font-italiana text-white hover:text-secondary tracking-widest transition-all hover:pl-6 block uppercase"
                             >
                               {item.label}
                             </Link>
@@ -132,7 +132,7 @@ const Navbar = () => {
                     <SheetClose asChild>
                       <Button
                         asChild
-                        className="w-full bg-white text-brand-green h-20 text-xl font-italiana tracking-[0.3em] rounded-none hover:bg-brand-sage transition-all shadow-2xl border-none"
+                        className="w-full bg-white text-brand-green h-20 text-xl font-italiana tracking-[0.3em] rounded-none hover:bg-secondary transition-all shadow-2xl border-none"
                       >
                         <Link href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
                           BOOK AN EXPERIENCE
@@ -141,7 +141,7 @@ const Navbar = () => {
                     </SheetClose>
                     <div className="flex justify-between items-end border-t border-white/10 pt-10">
                       <div>
-                        <p className="text-[10px] tracking-[0.3em] text-white/40 uppercase font-inter font-light">KITCHENER SALON</p>
+                        <p className="text-[12px] tracking-[0.3em] text-white/40 uppercase font-inter font-light">KITCHENER SALON</p>
                         <p className="text-white/80 font-inter font-light text-sm mt-1">{CONTACT_INFO.address.street}, {CONTACT_INFO.address.province}</p>
                       </div>
                       {/* Removed Sparkles icon */}

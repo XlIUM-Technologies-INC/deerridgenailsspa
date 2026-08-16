@@ -45,7 +45,7 @@ export default function VibeSection() {
                             <h3 className="text-3xl font-italiana tracking-widest uppercase leading-none mb-3">
                                 Pure<br />Atmosphere
                             </h3>
-                            <p className="text-[10px] font-inter tracking-[0.4em] text-brand-sage uppercase font-light">
+                            <p className="text-[12px] font-inter tracking-[0.4em] text-brand-sage uppercase font-light">
                                 Designed for Serenity
                             </p>
                         </motion.div>
@@ -59,10 +59,10 @@ export default function VibeSection() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
                         >
-                            <span className="text-white/40 border-white/20 mb-6 px-4 py-1 font-inter tracking-[0.4em] uppercase text-[10px] font-light block">
+                            <span className="text-white/40 border-white/20 mb-6 px-4 py-1 font-inter tracking-[0.4em] uppercase text-[12px] font-light block">
                                 THE VIBE
                             </span>
-                            <h2 className="text-5xl md:text-7xl font-italiana mb-8 leading-[0.9] tracking-tight">
+                            <h2 className="text-4xl md:text-5xl font-italiana mb-8 leading-[0.9] tracking-tight">
                                 WHERE ARTISTRY <br />
                                 MEETS ELEGANCE
                             </h2>
@@ -86,7 +86,7 @@ export default function VibeSection() {
                                 className="border-t border-white/10 pt-6"
                             >
                                 <p className="text-4xl font-italiana mb-2">100%</p>
-                                <p className="text-[10px] font-inter uppercase tracking-[0.3em] text-white/40 font-light">Hygienic Focus</p>
+                                <p className="text-[12px] font-inter uppercase tracking-[0.3em] text-white/40 font-light">Hygienic Focus</p>
                             </motion.div>
                             <motion.div
                                 initial={{ opacity: 0 }}
@@ -96,7 +96,7 @@ export default function VibeSection() {
                                 className="border-t border-white/10 pt-6"
                             >
                                 <p className="text-4xl font-italiana mb-2">PREMIUM</p>
-                                <p className="text-[10px] font-inter uppercase tracking-[0.3em] text-white/40 font-light">Product Selection</p>
+                                <p className="text-[12px] font-inter uppercase tracking-[0.3em] text-white/40 font-light">Product Selection</p>
                             </motion.div>
                         </div>
                     </div>

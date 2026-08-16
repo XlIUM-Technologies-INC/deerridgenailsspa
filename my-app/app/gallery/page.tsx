@@ -123,7 +123,7 @@ export default function GalleryPage() {
 
         {/* Floating decorations */}
         <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-pink-300/20 rounded-full blur-3xl"
+          className="absolute top-20 left-10 w-32 h-32 bg-brand-sage/20 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -135,7 +135,7 @@ export default function GalleryPage() {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-10 w-40 h-40 bg-rose-400/15 rounded-full blur-3xl"
+          className="absolute bottom-20 right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -150,7 +150,7 @@ export default function GalleryPage() {
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.p
-            className="text-white/60 mb-6 uppercase tracking-[0.4em] text-[10px] font-inter font-light"
+            className="text-white/60 mb-6 uppercase tracking-[0.4em] text-[12px] font-inter font-light"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -159,7 +159,7 @@ export default function GalleryPage() {
             Portfolio
           </motion.p>
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-italiana text-white mb-8 leading-[0.9] tracking-tight"
+            className="text-4xl md:text-5xl font-italiana text-white mb-8 leading-[0.9] tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -181,7 +181,7 @@ export default function GalleryPage() {
             href="https://www.instagram.com/deerridgenailsspa"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 border border-white/30 text-white/80 px-6 py-2.5 text-[10px] uppercase tracking-[0.3em] font-inter font-light hover:bg-white hover:text-brand-green transition-all duration-300"
+            className="inline-flex items-center gap-2.5 border border-white/30 text-white/80 px-6 py-2.5 text-[12px] uppercase tracking-[0.3em] font-inter font-light hover:bg-white hover:text-brand-green transition-all duration-300"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

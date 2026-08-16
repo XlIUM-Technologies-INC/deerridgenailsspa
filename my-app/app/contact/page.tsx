@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -50,14 +50,6 @@ export default function Page() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
-
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -91,21 +83,21 @@ export default function Page() {
       title: "Visit Us",
       content: CONTACT_INFO.address.full,
       link: `https://maps.google.com/?q=${encodeURIComponent(CONTACT_INFO.address.full)}`,
-      color: "text-red-500",
+      color: "text-brand-green",
     },
     {
       icon: Phone,
       title: "Call Us",
       content: CONTACT_INFO.phone,
       link: `tel:${CONTACT_INFO.phone.replace(/[^0-9]/g, "")}`,
-      color: "text-blue-500",
+      color: "text-brand-green",
     },
     {
       icon: Mail,
       title: "Email Us",
       content: CONTACT_INFO.email,
       link: `mailto:${CONTACT_INFO.email}`,
-      color: "text-purple-500",
+      color: "text-brand-green",
     },
   ];
 
@@ -114,16 +106,11 @@ export default function Page() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden py-16 md:py-24 px-6 bg-brand-green"
+        className="relative min-h-[60vh] md:min-h-[70vh] flex flex-col justify-center overflow-hidden bg-brand-green"
       >
+        {/* Floating decoration */}
         <motion.div
-          className="absolute inset-0 opacity-0"
-          style={{ y, opacity }}
-        ></motion.div>
-
-        {/* Floating decorations */}
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-3xl"
+          className="absolute top-20 right-10 w-32 h-32 bg-white/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -135,50 +122,51 @@ export default function Page() {
           }}
         />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <motion.p
-            className="text-white/60 mb-6 uppercase tracking-[0.4em] text-[10px] font-inter font-light"
-            initial={{ opacity: 0, y: 20 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            Get In Touch
-          </motion.p>
-          <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-italiana text-white mb-8 leading-[0.9] tracking-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            CONTACT <br />
-            OUR TEAM
-          </motion.h1>
-          <motion.p
-            className="text-lg md:text-xl text-white/70 mb-8 max-w-2xl mx-auto font-inter font-light leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Any questions or special requests? Our dedicated team is here to assist you in planning your visit.
-          </motion.p>
+        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6 flex flex-col items-start pt-12 md:pt-20">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={heroInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={heroInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1 }}
+            className="flex flex-col items-start text-left space-y-8 max-w-4xl"
           >
-            <Button
-              asChild
-              className="bg-white text-brand-green hover:bg-white/95 px-12 py-8 font-inter font-medium text-[11px] tracking-[0.4em] uppercase rounded-none shadow-xl transition-all"
-              size="lg"
+            <motion.p
+              className="text-white/60 uppercase tracking-[0.32em] text-[12px] font-inter font-light"
+              initial={{ opacity: 0, y: 20 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
             >
-              <Link
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              Get In Touch
+            </motion.p>
+
+            <h1 className="text-5xl md:text-6xl font-italiana text-white leading-[0.9] tracking-tight">
+              <span className="block">CONTACT</span>
+              <span className="italic text-white/90 ml-6 md:ml-24 block">OUR TEAM</span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-white/70 max-w-xl font-inter font-light leading-relaxed border-l border-white/20 pl-6">
+              Any questions or special requests? Our dedicated team is here to assist you in planning your visit.
+            </p>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="pt-2"
+            >
+              <Button
+                asChild
+                className="bg-white text-brand-green hover:bg-white/95 px-12 py-8 font-inter font-medium text-[12px] tracking-[0.32em] uppercase rounded-none shadow-xl transition-all"
+                size="lg"
               >
-                BOOK ONLINE
-              </Link>
-            </Button>
+                <Link
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  BOOK ONLINE
+                </Link>
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -225,7 +213,7 @@ export default function Page() {
                       <div className="space-y-4">
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
+                            <label className="block text-[12px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                               Full Name
                             </label>
                             <div className="relative">
@@ -240,7 +228,7 @@ export default function Page() {
                             </div>
                           </div>
                           <div>
-                            <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
+                            <label className="block text-[12px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                               Email
                             </label>
                             <div className="relative">
@@ -259,7 +247,7 @@ export default function Page() {
 
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
+                            <label className="block text-[12px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                               Phone
                             </label>
                             <div className="relative">
@@ -274,7 +262,7 @@ export default function Page() {
                             </div>
                           </div>
                           <div>
-                            <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
+                            <label className="block text-[12px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                               Service
                             </label>
                             <div className="relative">
@@ -297,7 +285,7 @@ export default function Page() {
                         </div>
 
                         <div>
-                          <label className="block text-[10px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
+                          <label className="block text-[12px] font-inter font-light text-brand-sage mb-2 uppercase tracking-[0.2em]">
                             Message
                           </label>
                           <div className="relative">
@@ -315,7 +303,7 @@ export default function Page() {
 
                         <Button
                           onClick={handleSubmit}
-                          className="w-full bg-brand-green hover:bg-brand-green/95 text-white h-16 font-inter font-medium text-[11px] tracking-[0.4em] rounded-none shadow-xl transition-all uppercase"
+                          className="w-full bg-brand-green hover:bg-brand-green/95 text-white h-16 font-inter font-medium text-[12px] tracking-[0.4em] rounded-none shadow-xl transition-all uppercase"
                         >
                           Send Message
                         </Button>

@@ -87,7 +87,7 @@ export default function AboutPage() {
           >
             <div className="space-y-4">
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-italiana text-white leading-[0.85] tracking-tighter">
+              <h1 className="text-5xl md:text-6xl font-italiana text-white leading-[0.85] tracking-tighter">
                 <span className="block">BEYOND</span>
                 <span className="italic text-white/90 ml-6 md:ml-24">BEAUTY.</span>
               </h1>
@@ -119,8 +119,8 @@ export default function AboutPage() {
               className="space-y-12"
             >
               <div className="space-y-6">
-                <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[10px]">Our Philosophy</span>
-                <h2 className="text-5xl md:text-7xl font-italiana text-brand-green leading-[0.9] tracking-tight">
+                <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[12px]">Our Philosophy</span>
+                <h2 className="text-4xl md:text-5xl font-italiana text-brand-green leading-[0.9] tracking-tight">
                   KITCHENER'S <br />
                   PREMIER SANCTUARY
                 </h2>
@@ -160,7 +160,7 @@ export default function AboutPage() {
               <div className="absolute -bottom-10 -left-10 bg-brand-green text-white p-12 shadow-2xl z-20 hidden md:block">
                 <p className="font-italiana text-4xl leading-tight mb-2">Est. 2024</p>
                 <div className="w-12 h-[1px] bg-white/20 mb-4" />
-                <p className="text-[10px] tracking-[0.3em] font-inter uppercase opacity-60">Kitchener, Ontario</p>
+                <p className="text-[12px] tracking-[0.3em] font-inter uppercase opacity-60">Kitchener, Ontario</p>
               </div>
             </motion.div>
           </div>
@@ -181,8 +181,8 @@ export default function AboutPage() {
             className="space-y-20"
           >
             <div className="space-y-6">
-              <span className="text-white/40 font-inter font-light tracking-[0.5em] uppercase text-[10px]">The Artisans</span>
-              <h2 className="text-6xl md:text-8xl font-italiana leading-none tracking-tight">MEET OUR TEAM</h2>
+              <span className="text-white/40 font-inter font-light tracking-[0.32em] uppercase text-[12px]">The Artisans</span>
+              <h2 className="text-4xl md:text-5xl font-italiana leading-none tracking-tight">MEET OUR TEAM</h2>
             </div>
 
             <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 lg:gap-x-24">
@@ -195,7 +195,7 @@ export default function AboutPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group relative"
                 >
-                  <span className="text-4xl md:text-6xl font-italiana transition-all duration-500 group-hover:tracking-widest group-hover:text-brand-sage">
+                  <span className="text-3xl md:text-4xl font-italiana transition-all duration-500 group-hover:tracking-widest group-hover:text-secondary">
                     {name}
                   </span>
                   <div className="w-0 h-[1px] bg-brand-sage/40 mt-4 mx-auto group-hover:w-full transition-all duration-500" />
@@ -217,7 +217,7 @@ export default function AboutPage() {
 
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <motion.h2
-            className="text-5xl md:text-7xl font-italiana text-brand-green leading-[1.1] tracking-tight"
+            className="text-4xl md:text-5xl font-italiana text-brand-green leading-[1.1] tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -234,7 +234,7 @@ export default function AboutPage() {
           >
             <Button
               asChild
-              className="group h-20 px-16 rounded-none bg-brand-green text-white hover:bg-brand-green/95 text-[12px] tracking-[0.5em] font-inter font-medium transition-all duration-500 shadow-2xl relative overflow-hidden"
+              className="group h-20 px-16 rounded-none bg-brand-green text-white hover:bg-brand-green/95 text-[12px] tracking-[0.32em] font-inter font-medium transition-all duration-500 shadow-2xl relative overflow-hidden"
             >
               <Link
                 href={BOOKING_URL}
@@ -247,7 +247,7 @@ export default function AboutPage() {
             </Button>
           </motion.div>
 
-          <p className="text-brand-green/40 font-inter font-light uppercase tracking-[0.3em] text-[10px]">
+          <p className="text-brand-green/40 font-inter font-light uppercase tracking-[0.3em] text-[12px]">
             Your sanctuary awaits in Kitchener
           </p>
         </div>

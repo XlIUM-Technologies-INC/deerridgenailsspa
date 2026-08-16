@@ -41,7 +41,7 @@ export default function HeroSection() {
           opacity: [0.1, 0.2, 0.1]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-[10%] -left-[5%] w-[40%] h-[60%] bg-emerald-400/20 blur-[120px] rounded-full z-1"
+        className="absolute -top-[10%] -left-[5%] w-[40%] h-[60%] bg-brand-sage/20 blur-[120px] rounded-full z-1"
       />
 
       {/* Decorative Geometric Figures */}
@@ -84,7 +84,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.5em] uppercase text-[10px]">
+              <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.32em] uppercase text-[12px]">
                 EST. 2024 • {CONTACT_INFO.address.city}, {CONTACT_INFO.address.province}
               </Badge>
             </motion.div>
@@ -93,7 +93,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-italiana leading-[0.8] tracking-tighter"
+              className="text-5xl md:text-6xl font-italiana leading-[0.8] tracking-tighter"
             >
               <span className="text-white drop-shadow-2xl flex flex-col items-start">
                 <span>DEER RIDGE</span>
@@ -105,7 +105,7 @@ export default function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-xl md:text-2xl text-white/50 font-inter font-light italic tracking-[0.5em] uppercase pl-2 leading-none"
+              className="text-xl md:text-2xl text-white/50 font-inter font-light italic tracking-[0.32em] uppercase pl-2 leading-none"
             >
               Professional Nails & Beauty Spa
             </motion.p>
@@ -142,7 +142,7 @@ export default function HeroSection() {
               <Button
                 asChild
                 variant="outline"
-                className="h-16 md:h-18 px-10 md:px-14 rounded-none border-white/30 text-white hover:border-white hover:bg-white/5 text-[11px] md:text-[12px] tracking-[0.4em] font-medium transition-all duration-500 backdrop-blur-md uppercase"
+                className="h-16 md:h-18 px-10 md:px-14 rounded-none border-white/30 text-white hover:border-white hover:bg-white/5 text-[12px] md:text-[12px] tracking-[0.4em] font-medium transition-all duration-500 backdrop-blur-md uppercase"
               >
                 <Link href="/services">EXPLORE SERVICES</Link>
               </Button>

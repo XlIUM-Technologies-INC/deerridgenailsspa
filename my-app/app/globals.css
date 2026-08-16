@@ -61,47 +61,47 @@
 :root {
   --radius: 0.625rem;
   --background: 255 255 255;
-  --foreground: 26 46 26;
+  --foreground: 0 0 0;
   --card: 255 255 255;
-  --card-foreground: 26 46 26;
+  --card-foreground: 0 0 0;
   --popover: 255 255 255;
-  --popover-foreground: 26 46 26;
-  --primary: 26 46 26;
+  --popover-foreground: 0 0 0;
+  --primary: 99 103 99;
   --primary-foreground: 255 255 255;
-  --secondary: 160 160 146;
-  --secondary-foreground: 255 255 255;
-  --muted: 244 244 240;
-  --muted-foreground: 100 100 100;
-  --accent: 160 160 146;
-  --accent-foreground: 255 255 255;
+  --secondary: 206 208 206;
+  --secondary-foreground: 0 0 0;
+  --muted: 253 253 253;
+  --muted-foreground: 90 93 88;
+  --accent: 127 134 128;
+  --accent-foreground: 0 0 0;
   --destructive: 220 38 38;
   --destructive-foreground: 255 255 255;
-  --border: 230 230 230;
-  --input: 230 230 230;
-  --ring: 26 46 26;
-  --brand-green: #1a2e1a;
-  --brand-sage: #737365;
+  --border: 206 208 206;
+  --input: 206 208 206;
+  --ring: 99 103 99;
+  --brand-green: #636763;
+  --brand-sage: #6e7268;
 }
 
 .dark {
-  --background: 26 46 26;
-  --foreground: 255 255 255;
-  --card: 26 46 26;
-  --card-foreground: 255 255 255;
-  --popover: 26 46 26;
-  --popover-foreground: 255 255 255;
-  --primary: 160 160 146;
-  --primary-foreground: 26 46 26;
-  --secondary: 26 46 26;
-  --secondary-foreground: 255 255 255;
-  --muted: 40 60 40;
-  --muted-foreground: 160 160 160;
-  --accent: 40 60 40;
-  --accent-foreground: 255 255 255;
+  --background: 18 18 18;
+  --foreground: 253 253 253;
+  --card: 26 27 26;
+  --card-foreground: 253 253 253;
+  --popover: 26 27 26;
+  --popover-foreground: 253 253 253;
+  --primary: 206 208 206;
+  --primary-foreground: 18 18 18;
+  --secondary: 58 59 57;
+  --secondary-foreground: 253 253 253;
+  --muted: 38 39 37;
+  --muted-foreground: 180 182 176;
+  --accent: 58 59 57;
+  --accent-foreground: 253 253 253;
   --destructive: 153 27 27;
-  --border: 40 60 40;
-  --input: 40 60 40;
-  --ring: 160 160 146;
+  --border: 58 59 57;
+  --input: 58 59 57;
+  --ring: 206 208 206;
 }
 
 @layer base {
@@ -131,5 +131,5 @@
 
 .smooth-gradient-border-scrolled {
   border-bottom: 1px solid transparent;
-  border-image: linear-gradient(to right, rgba(26, 46, 26, 0), rgba(26, 46, 26, 0.15), rgba(26, 46, 26, 0)) 1;
+  border-image: linear-gradient(to right, rgba(99, 103, 99, 0), rgba(99, 103, 99, 0.2), rgba(99, 103, 99, 0)) 1;
 }

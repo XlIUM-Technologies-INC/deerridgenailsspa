@@ -41,7 +41,7 @@ const Footer = () => {
             <h2 className="text-3xl font-italiana tracking-widest text-[#ffffff]">
               DEER RIDGE NAILS SPA
             </h2>
-            <p className="text-brand-sage font-inter font-light leading-relaxed">
+            <p className="text-white/75 font-inter font-light leading-relaxed">
               Experience the art of relaxation and beauty. Our premium salon
               offers dedicated care for your nails and wellness.
             </p>
@@ -52,7 +52,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-brand-sage transition-colors"
+                  className="text-white/70 hover:text-white transition-colors"
                 >
                   {link.name === "TikTok" ? (
                     <TikTokIcon className="w-5 h-5" />
@@ -69,7 +69,7 @@ const Footer = () => {
             <h3 className="text-lg font-italiana tracking-widest uppercase">
               Explore
             </h3>
-            <ul className="space-y-4 font-inter font-light text-brand-sage/90">
+            <ul className="space-y-4 font-inter font-light text-white/75">
               {FOOTER_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -90,7 +90,7 @@ const Footer = () => {
             <h3 className="text-lg font-italiana tracking-widest uppercase">
               Contact Us
             </h3>
-            <ul className="space-y-4 font-inter font-light text-brand-sage/90">
+            <ul className="space-y-4 font-inter font-light text-white/75">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-1" />
                 <span>
@@ -109,14 +109,14 @@ const Footer = () => {
                   <p>{FOOTER_BUSINESS_HOURS.weekday}</p>
                   <p>{FOOTER_BUSINESS_HOURS.saturday}</p>
                   <p>{FOOTER_BUSINESS_HOURS.sunday}</p>
-                  <p className="mt-2 text-[10px] leading-relaxed italic text-white/40">{EARLY_APPOINTMENT_NOTE}</p>
+                  <p className="mt-2 text-[12px] leading-relaxed italic text-white/40">{EARLY_APPOINTMENT_NOTE}</p>
                 </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-brand-sage font-inter font-light tracking-wider uppercase">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/55 font-inter font-light tracking-wider uppercase">
           <p>&copy; {currentYear} DEER RIDGE NAILS SPA.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-white transition-colors">

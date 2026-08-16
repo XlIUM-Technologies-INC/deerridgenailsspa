@@ -101,16 +101,16 @@ export default function ServicesPage() {
             className="flex flex-col items-start text-left space-y-10 max-w-4xl"
           >
             <div className="space-y-6">
-              <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.5em] uppercase text-[10px]">
+              <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.32em] uppercase text-[12px]">
                 A Bespoke Collection
               </Badge>
-              <h1 className="text-5xl md:text-7xl font-italiana text-white leading-[0.85] tracking-tighter">
+              <h1 className="text-5xl md:text-6xl font-italiana text-white leading-[0.85] tracking-tighter">
                 <span className="block">ARTFUL</span>
                 <span className="italic text-white/90 ml-6 md:ml-32">SERVICES.</span>
               </h1>
             </div>
 
-            <p className="text-xl md:text-2xl text-brand-sage font-inter font-light italic tracking-[0.4em] uppercase leading-none">
+            <p className="text-xl md:text-2xl text-secondary font-inter font-light italic tracking-[0.4em] uppercase leading-none">
               Precision. Passion. Perfection.
             </p>
 
@@ -132,8 +132,8 @@ export default function ServicesPage() {
               viewport={{ once: true }}
               className="space-y-6 max-w-xl"
             >
-              <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[10px]">Your treatment</span>
-              <h2 className="text-5xl md:text-7xl font-italiana text-brand-green leading-[0.9] tracking-tight">
+              <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[12px]">Your treatment</span>
+              <h2 className="text-4xl md:text-5xl font-italiana text-brand-green leading-[0.9] tracking-tight">
                 THE SERVICE <br />MENU
               </h2>
             </motion.div>
@@ -145,12 +145,12 @@ export default function ServicesPage() {
               transition={{ delay: 0.3 }}
               className="flex flex-wrap gap-2"
             >
-              <span className="w-full text-[9px] tracking-[0.4em] font-inter uppercase text-brand-green/30 mb-2 md:hidden">Filter By Category</span>
+              <span className="w-full text-[12px] tracking-[0.4em] font-inter uppercase text-brand-green/30 mb-2 md:hidden">Filter By Category</span>
               {categories.map((cat) => (
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-8 py-3 text-[10px] tracking-[0.2em] font-inter uppercase transition-all duration-300 rounded-none border ${selectedCategory === cat.id
+                  className={`px-8 py-3 text-[12px] tracking-[0.2em] font-inter uppercase transition-all duration-300 rounded-none border ${selectedCategory === cat.id
                     ? "bg-brand-green text-white border-brand-green"
                     : "bg-transparent text-brand-green/40 border-brand-green/10 hover:border-brand-green/40"
                     }`}
@@ -177,7 +177,7 @@ export default function ServicesPage() {
                   <div className="space-y-8 h-full flex flex-col">
                     <div className="relative aspect-[4/5] overflow-hidden bg-brand-green/[0.02]">
                       {service.popular && (
-                        <div className="absolute top-6 left-6 z-20 bg-brand-green text-white px-6 py-2 text-[9px] tracking-[0.3em] font-inter uppercase font-medium shadow-2xl">
+                        <div className="absolute top-6 left-6 z-20 bg-brand-green text-white px-6 py-2 text-[12px] tracking-[0.3em] font-inter uppercase font-medium shadow-2xl">
                           Highly Coveted
                         </div>
                       )}
@@ -206,7 +206,7 @@ export default function ServicesPage() {
 
                       <ul className="space-y-3">
                         {service.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-center gap-3 text-[11px] text-brand-sage font-inter font-light uppercase tracking-wider">
+                          <li key={idx} className="flex items-center gap-3 text-[12px] text-brand-sage font-inter font-light uppercase tracking-wider">
                             <div className="w-1.5 h-1.5 border border-brand-sage/40 rounded-full" />
                             {feature}
                           </li>
@@ -218,7 +218,7 @@ export default function ServicesPage() {
                           href={BOOKING_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-4 text-[10px] tracking-[0.4em] font-inter font-medium text-brand-green uppercase group/link"
+                          className="inline-flex items-center gap-4 text-[12px] tracking-[0.4em] font-inter font-medium text-brand-green uppercase group/link"
                         >
                           Book Experience
                           <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover/link:translate-x-2" />
@@ -246,8 +246,8 @@ export default function ServicesPage() {
             className="space-y-24"
           >
             <div className="space-y-6">
-              <span className="text-white/40 font-inter font-light tracking-[0.5em] uppercase text-[10px]">Our Metier</span>
-              <h2 className="text-6xl md:text-8xl font-italiana text-white leading-none tracking-tight">THE PROCESS</h2>
+              <span className="text-white/40 font-inter font-light tracking-[0.32em] uppercase text-[12px]">Our Metier</span>
+              <h2 className="text-4xl md:text-5xl font-italiana text-white leading-none tracking-tight">THE PROCESS</h2>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -270,7 +270,7 @@ export default function ServicesPage() {
                   </div>
                   <div className="space-y-4">
                     <h3 className="text-2xl font-italiana text-white">{item.title}</h3>
-                    <p className="text-white/40 font-inter font-light text-sm leading-relaxed max-w-[240px] mx-auto uppercase tracking-widest text-[10px]">
+                    <p className="text-white/40 font-inter font-light text-sm leading-relaxed max-w-[240px] mx-auto uppercase tracking-widest text-[12px]">
                       {item.description}
                     </p>
                   </div>
@@ -292,8 +292,8 @@ export default function ServicesPage() {
             viewport={{ once: true }}
             className="text-center mb-24 space-y-6"
           >
-            <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[10px]">Artistic Accents</span>
-            <h2 className="text-5xl md:text-7xl font-italiana text-brand-green leading-[0.9] tracking-tight">ENHANCEMENTS</h2>
+            <span className="text-brand-sage font-inter font-light tracking-[0.4em] uppercase text-[12px]">Artistic Accents</span>
+            <h2 className="text-4xl md:text-5xl font-italiana text-brand-green leading-[0.9] tracking-tight">ENHANCEMENTS</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-x-24 gap-y-12">
@@ -309,7 +309,7 @@ export default function ServicesPage() {
                   <span className="font-italiana text-2xl text-brand-green transition-all duration-300 group-hover:tracking-widest">
                     {addon.name}
                   </span>
-                  <p className="text-[9px] tracking-[0.2em] font-inter uppercase text-brand-sage opacity-60">Signature Detail</p>
+                  <p className="text-[12px] tracking-[0.2em] font-inter uppercase text-brand-sage opacity-60">Signature Detail</p>
                 </div>
                 <span className="font-italiana text-xl text-brand-green/40">{addon.price}</span>
               </motion.div>
@@ -325,7 +325,7 @@ export default function ServicesPage() {
 
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <motion.h2
-            className="text-6xl md:text-9xl font-italiana leading-none tracking-tight"
+            className="text-4xl md:text-5xl font-italiana leading-none tracking-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -342,7 +342,7 @@ export default function ServicesPage() {
           >
             <Button
               asChild
-              className="group h-20 px-16 rounded-none bg-white text-brand-green hover:bg-white/95 text-[12px] tracking-[0.5em] font-inter font-medium transition-all duration-500 shadow-2xl relative overflow-hidden"
+              className="group h-20 px-16 rounded-none bg-white text-brand-green hover:bg-white/95 text-[12px] tracking-[0.32em] font-inter font-medium transition-all duration-500 shadow-2xl relative overflow-hidden"
             >
               <Link
                 href={BOOKING_URL}
@@ -355,7 +355,7 @@ export default function ServicesPage() {
             </Button>
           </motion.div>
 
-          <p className="text-white/40 font-inter font-light uppercase tracking-[0.3em] text-[10px]">
+          <p className="text-white/40 font-inter font-light uppercase tracking-[0.3em] text-[12px]">
             Elegance is expected. Artistry is guaranteed.
           </p>
         </div>

@@ -128,10 +128,10 @@ export default function ReviewsPage() {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             className="space-y-8"
           >
-            <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.5em] uppercase text-[10px]">
+            <Badge variant="outline" className="text-white/60 border-white/20 rounded-none px-6 py-2 font-inter font-light tracking-[0.32em] uppercase text-[12px]">
               Voices of our community
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-italiana text-white leading-[0.85] tracking-tighter">
+            <h1 className="text-5xl md:text-6xl font-italiana text-white leading-[0.85] tracking-tighter">
               TRUSTED <br />
               <span className="italic opacity-80">ARTISTRY</span>
             </h1>
@@ -152,12 +152,12 @@ export default function ReviewsPage() {
         <div className="max-w-[1400px] mx-auto relative z-10">
           {/* Filters */}
           <div className="flex flex-wrap justify-start gap-4 mb-24 items-center">
-            <span className="text-[10px] tracking-[0.3em] font-inter uppercase text-brand-green/40 mr-4">Filter By</span>
+            <span className="text-[12px] tracking-[0.3em] font-inter uppercase text-brand-green/40 mr-4">Filter By</span>
             {filters.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setSelectedFilter(filter.id)}
-                className={`px-8 py-3 text-[10px] tracking-[0.2em] font-inter uppercase transition-all duration-300 rounded-none border ${selectedFilter === filter.id
+                className={`px-8 py-3 text-[12px] tracking-[0.2em] font-inter uppercase transition-all duration-300 rounded-none border ${selectedFilter === filter.id
                   ? "bg-brand-green text-white border-brand-green"
                   : "bg-transparent text-brand-green/40 border-brand-green/10 hover:border-brand-green/40"
                   }`}
@@ -196,7 +196,7 @@ export default function ReviewsPage() {
                     <div className="flex items-center justify-between">
                       <div>
                         <h4 className="font-italiana text-2xl text-brand-green leading-none mb-2">{review.name}</h4>
-                        <p className="text-[10px] tracking-[0.2em] font-inter uppercase text-brand-sage">{review.service}</p>
+                        <p className="text-[12px] tracking-[0.2em] font-inter uppercase text-brand-sage">{review.service}</p>
                       </div>
                       {review.verified && (
                         <div className="w-8 h-8 rounded-full border border-brand-green/20 flex items-center justify-center">
@@ -206,7 +206,7 @@ export default function ReviewsPage() {
                         </div>
                       )}
                     </div>
-                    <p className="text-[9px] font-inter uppercase tracking-widest text-brand-green/30 mt-6">{review.date}</p>
+                    <p className="text-[12px] font-inter uppercase tracking-widest text-brand-green/30 mt-6">{review.date}</p>
                   </div>
                 </div>
               </motion.div>
@@ -227,8 +227,8 @@ export default function ReviewsPage() {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <span className="text-white/40 font-inter font-light tracking-[0.5em] uppercase text-[10px]">Your experience awaits</span>
-            <h2 className="text-5xl md:text-8xl font-italiana leading-[0.9] tracking-tight text-white mb-12">
+            <span className="text-white/40 font-inter font-light tracking-[0.32em] uppercase text-[12px]">Your experience awaits</span>
+            <h2 className="text-4xl md:text-5xl font-italiana leading-[0.9] tracking-tight text-white mb-12">
               BECOME OUR NEXT <br />
               <span className="italic">STORY.</span>
             </h2>
@@ -242,7 +242,7 @@ export default function ReviewsPage() {
           >
             <Button
               asChild
-              className="group h-20 px-16 rounded-none bg-white text-brand-green hover:bg-white/95 text-[12px] tracking-[0.5em] font-inter font-medium transition-all duration-500 shadow-2xl relative overflow-hidden"
+              className="group h-20 px-16 rounded-none bg-white text-brand-green hover:bg-white/95 text-[12px] tracking-[0.32em] font-inter font-medium transition-all duration-500 shadow-2xl relative overflow-hidden"
             >
               <Link
                 href={BOOKING_URL}
@@ -254,7 +254,7 @@ export default function ReviewsPage() {
               </Link>
             </Button>
 
-            <button className="text-[10px] tracking-[0.4em] font-inter uppercase text-white/40 hover:text-white transition-opacity">
+            <button className="text-[12px] tracking-[0.4em] font-inter uppercase text-white/40 hover:text-white transition-opacity">
               Share your own feedback →
             </button>
           </motion.div>

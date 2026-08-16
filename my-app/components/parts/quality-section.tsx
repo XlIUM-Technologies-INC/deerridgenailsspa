@@ -17,10 +17,10 @@ const QualitySection = () => {
                         transition={{ duration: 0.8 }}
                         className="order-2 lg:order-1"
                     >
-                        <p className="text-[10px] font-inter tracking-[0.5em] text-brand-sage uppercase font-light mb-6 border-l-2 border-brand-sage/20 pl-4">
+                        <p className="text-[12px] font-inter tracking-[0.32em] text-brand-sage uppercase font-light mb-6 border-l-2 border-brand-sage/20 pl-4">
                             Our Standards
                         </p>
-                        <h2 className="text-5xl md:text-7xl font-italiana mb-8 leading-[0.9] text-brand-green">
+                        <h2 className="text-4xl md:text-5xl font-italiana mb-8 leading-[0.9] text-brand-green">
                             PRECISION IN <br />
                             EVERY DETAIL
                         </h2>
@@ -71,7 +71,7 @@ const QualitySection = () => {
                             <div className="absolute -bottom-8 right-8 bg-brand-green text-white p-12 shadow-2xl max-w-xs">
                                 <p className="font-italiana text-4xl leading-tight mb-4 italic">"The Deer Ridge Standard"</p>
                                 <div className="h-0.5 w-12 bg-white/20 mb-4" />
-                                <p className="text-[10px] font-inter tracking-[0.3em] uppercase opacity-60">Handcrafted Excellence</p>
+                                <p className="text-[12px] font-inter tracking-[0.3em] uppercase opacity-60">Handcrafted Excellence</p>
                             </div>
                         </div>
                     </motion.div>

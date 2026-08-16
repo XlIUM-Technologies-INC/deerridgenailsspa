@@ -38,7 +38,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-brand-sage font-inter font-light mb-6 uppercase tracking-[0.4em] text-[10px]"
+            className="text-brand-sage font-inter font-light mb-6 uppercase tracking-[0.4em] text-[12px]"
           >
             The Art of Beauty
           </motion.p>
@@ -46,7 +46,7 @@ export default function ServicesSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-6xl md:text-8xl font-italiana text-brand-green leading-[0.9] tracking-tighter"
+            className="text-4xl md:text-5xl font-italiana text-brand-green leading-[0.9] tracking-tighter"
           >
             BESPOKE <br />
             EXPERIENCES
@@ -91,10 +91,10 @@ export default function ServicesSection() {
                 className="w-full md:w-1/2 flex flex-col items-start space-y-8"
               >
                 <div className="space-y-4">
-                  <span className="text-brand-green/20 font-inter font-light text-5xl md:text-7xl">
+                  <span className="text-brand-green/20 font-inter font-light text-4xl md:text-5xl">
                     0{index + 1}
                   </span>
-                  <h3 className="text-5xl md:text-7xl font-italiana text-brand-green leading-none">
+                  <h3 className="text-4xl md:text-5xl font-italiana text-brand-green leading-none">
                     {service.title}
                   </h3>
                   <div className="w-24 h-[1px] bg-brand-green/20" />
@@ -105,7 +105,7 @@ export default function ServicesSection() {
                 </p>
 
                 <Link href={service.href}>
-                  <Button className="bg-brand-green text-white hover:bg-brand-green/95 px-12 py-7 font-inter font-medium text-[11px] tracking-[0.4em] uppercase rounded-none shadow-xl transition-all duration-500 group relative overflow-hidden">
+                  <Button className="bg-brand-green text-white hover:bg-brand-green/95 px-12 py-7 font-inter font-medium text-[12px] tracking-[0.4em] uppercase rounded-none shadow-xl transition-all duration-500 group relative overflow-hidden">
                     <span className="relative z-10">VIEW DETAILS</span>
                     <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                   </Button>
@@ -126,7 +126,7 @@ export default function ServicesSection() {
             Every treatment is a ritual of precision, hygiene, and artistic expression. Discover the full extent of our craftsmanship.
           </p>
           <Link href="/services">
-            <Button variant="outline" className="h-18 px-16 border-brand-green/20 text-brand-green hover:bg-brand-green hover:text-white font-inter font-medium text-[11px] tracking-[0.5em] uppercase rounded-none transition-all duration-700">
+            <Button variant="outline" className="h-18 px-16 border-brand-green/20 text-brand-green hover:bg-brand-green hover:text-white font-inter font-medium text-[12px] tracking-[0.32em] uppercase rounded-none transition-all duration-700">
               EXPLORE FULL MENU +
             </Button>
           </Link>
