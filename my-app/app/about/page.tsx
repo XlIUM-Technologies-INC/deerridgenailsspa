@@ -49,10 +49,10 @@ export default function AboutPage() {
         {/* Full-bleed Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/384fb92fbf579dd14493a3cf1a0731c0.jpg"
-            alt="Deer Ridge Nails Spa Sanctuary"
+            src="/salon-waiting-area.jpg"
+            alt="Deer Ridge Nails Spa waiting area"
             fill
-            className="object-cover contrast-[1.1] brightness-[0.7]"
+            className="object-cover contrast-[1.1] brightness-[0.7] max-md:scale-[1.35] max-md:origin-bottom"
             priority
             sizes="100vw"
             quality={90}
@@ -148,8 +148,8 @@ export default function AboutPage() {
             >
               <div className="relative aspect-[4/5] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.1)]">
                 <Image
-                  src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800"
-                  alt="Deer Ridge Nails Spa Artistic Detail"
+                  src="/salon-color-swatches.jpg"
+                  alt="Nail colour swatches in the Deer Ridge Nails Spa waiting area"
                   fill
                   className="object-cover transition-transform duration-[3s] hover:scale-110"
                   sizes="(max-width: 1024px) 100vw, 50vw"

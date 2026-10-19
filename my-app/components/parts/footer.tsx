@@ -118,6 +118,8 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-brand-sage font-inter font-light tracking-wider uppercase">
           <p>&copy; {currentYear} DEER RIDGE NAILS SPA.</p>
+          {/* Privacy / Terms links hidden for now (no policy pages yet). Restore by uncommenting. */}
+          {/*
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-white transition-colors">
               Privacy
@@ -126,6 +128,7 @@ const Footer = () => {
               Terms
             </Link>
           </div>
+          */}
         </div>
       </div>
     </footer>

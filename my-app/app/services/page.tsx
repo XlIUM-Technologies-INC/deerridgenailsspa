@@ -64,8 +64,8 @@ export default function ServicesPage() {
         {/* Full-bleed Optimized Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/8f7b18b46378234ab97d8c5a74458c51.jpg"
-            alt="Deer Ridge Nails Spa Sanctuary"
+            src="/33315ea658fe92c84152b3dcb44ec35e.jpg"
+            alt="Deer Ridge Nails Spa pedicure stations"
             fill
             className="object-cover contrast-[1.1] brightness-[0.7]"
             priority

@@ -52,10 +52,10 @@ const QualitySection = () => {
                     >
                         <div className="relative aspect-[4/5] w-full">
                             <Image
-                                src="/8f7b18b46378234ab97d8c5a74458c51.jpg"
-                                alt="Precision Nail Art"
+                                src="/salon-reception.jpg"
+                                alt="Deer Ridge Nails Spa reception desk"
                                 fill
-                                className="object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000"
+                                className="object-cover shadow-2xl transition-all duration-1000"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={85}
                             />

@@ -17,10 +17,10 @@ export default function HeroSection() {
       {/* Full-bleed Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/4cead3b03959332bb6ed66dbc288c899.jpg"
-          alt="Deer Ridge Nails Spa Professional Salon"
+          src="/salon-reception-wide.jpg"
+          alt="Deer Ridge Nails Spa reception desk and manicure stations"
           fill
-          className="object-cover contrast-[1.1] brightness-[0.7]"
+          className="object-cover object-[center_30%] contrast-[1.1] brightness-[0.7]"
           priority
           sizes="100vw"
           quality={90}
